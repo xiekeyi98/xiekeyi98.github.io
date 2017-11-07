@@ -94,7 +94,7 @@ hexo-cli是 hexo - Command Line Interface  ，Hexo的命令行模式。
 - `hexo new page "newpage"` 会在`source/` 文件夹内创建一个新文件夹，对应一个新的页面（需要和`_config.yml`)相关联。
 - `hexo g` 生成本地页面
 - `hexo d` 将本地页面发布到网站上
-- `hexo d -g` ， 等价于 `hedo g ; hedo d `
+- `hexo d -g` ， 等价于 `hexo g ; hexo d `
 - `hexo s` 开启本地服务器 ，可在本地预览。
 
 ### HEXO的主题
@@ -111,6 +111,29 @@ hexo-cli是 hexo - Command Line Interface  ，Hexo的命令行模式。
 
 ## 服务器端配置
 
+### 配置git
+
+设置git的user name和email，用于标识自己git的身份。
+```
+git config --global user.name "Yourname"
+git config --global user.email "Youemail@xxx.com"
+```
+这样就把全局的名字设置好了。
+
+
+### 生成密钥
+
+运行 `ssh-keygen -t rsa -C "xxxxx@xxx.com"`
+ 
+-t用于制定密钥类型为rsa，-C提供一个注释.
+
+这样就生成了一对公钥和私钥。
+
+LINUX默认放在`/home/.ssh`目录下
+WINDOWS默认在`C:\Users\xxxx\.ssh` 下
+
+将公钥`id_rsa.pub` 内的内容复制放到`仓库-setting-Deploy keys`下 或放到`个人设置-SSH and GPG keys`下即可
+通过自己的私钥和公钥配对来证明自己本人。
 
 ### Github Pages
 
@@ -119,13 +142,138 @@ Github提供了 xxxx.github.io 这个域名供我们使用。
 我们在github里新建一个仓库，取名为 xxxxx.github.io (必须取这个名字) 
 然后github会自动帮我们配置好各种文件。
 
-之后在HEXO安装包里找到`_config.xml` ， 将
+之后在HEXO安装包里找到`_config.xml` ， 写成如下这段（*如果前面有#号删掉即可，#号表示注释*）
 ```
-
 deploy:
 	type: git
 	repo: https://github.com/xxxxx/xxxxxx.github.io.git
 	branch: master
+```
+
+然后即可通过 `HEXO D` 将自己已经生成的数据发布到该域名了。
+
+之后即可通过该域名访问你的博客了，也可自己购买域名后做`CNAME`解析。
+
+
+### 备份问题
+做好备份可以方便跨电脑写作或更换电脑等情况。
+
+我是新建了一个仓库用来备份，只要
+```
+git init 
+git add .
+git commit
+git push
+```
+这样就可以了。
+
+有的人是新建分支来备份，我因为还不太熟练git所以没有采用。
+
+另外有部分已经有git下来的文件夹(比如我的主题) 我还不知道怎么用git push 上去。
+
+在此提供一个思路。
+
+
+-----
+
+## 将其部署在自己的云服务器上
+
+
+这是我折腾最久的一点。。。
+
+我的环境是Ubuntu 16.04 LTS 腾讯云。
+
+需要安装git和nginx.
+git是用来使自己的博客文件夹能推送发布到云服务器。
+nginx是用来使自己的云服务器可以变成一个HTTP服务器，被广泛使用。
+
+>Nginx (engine x) 是一个高性能的HTTP和反向代理服务器，也是一个IMAP/POP3/SMTP服务器。
+
+### 安装git(ubuntu大多默认自带)
+
+` apt-get install git `
+
+### 安装nginx
+
+`apt-get install nginx`
+
+### 配置云服务器
+
+
+在`/home/.ssh`文件夹下创建一个`authorized_keys`文件，将`id_rsa.pub`复制后粘贴到这个文件内，即可在自己电脑上SSH到这台服务器。
+
+**建议创建一个专用的git用户来确保安全。**
+
+不过我一开始创建用户后很多权限处理都不太对，后来用默认用户成功以后也就没有再创建用户了。
+
+然后在本地创建一个目录作为git仓库
+
+比如在`/home`下
+
+`mkdir git`
+创建一个git文件夹
+` chown -R $USER:$USER /home/git` 
+` chmod -R 755 /home/git`
+使当前用户有权限在这个git文件夹下搞事。
+
+`cd /home/git` 进入该文件夹后 `git init --bare hexo.git`
+
+创建一个`hexo.git`文件夹作为git仓库。
+
+
+在`/home/git/hexo.git/hook` 文件夹下有一个`post-update.sample`文件，重命名为`post-update`后，修改内容为
 
 ```
+#!/bin/sh
+cd /
+cd /usr/share/nginx/html/
+git clone /home/git/hexo.git
+cp -rf hexo/* .
+rm -rf hexo
+```
+
+表示每当该目录有更新，用bash命令，进入nginx默认目录，克隆该目录，将hexo的文件都复制下来，并删除hexo文件夹。
+
+现在即可通过该云服务器IP访问自己博客了。
+
+
+
+### 修改本机HEXO下的_config.yml
+
+参照上文github.io的`deploy`写法即可。
+
+也可以像我这样同时推送多个仓库(防止github无法正常访问，也为自己云服务器到期后切换到github提供方便）
+
+一开始试了好多写法，发现都不太对。
+最后查了下发现是
+```
+deploy:
+  type: git
+  repo:
+    github: https://github.com/xxxxxx/xxxxx.github.io.git,master
+    tencent: ubuntu@xxx.xxx.xxx.xxx.xxx:~/git/hexo.git,master
+```
+
+简单来说就是
+```
+repo:
+	标签名: 地址 , 分支
+```
+#### 遇到的一些坑
+
+1. `/usr/share/nginx/html/`是nginx默认做网页的目录，不过不同安装方式该目录似乎不同。因此需要在`/etc/nginx/`的`nginx.conf`或`/sites-enabled`文件夹内 ，将root 后面的目录改为 `/usr/share/nginx/html/`文件夹。(发现还有的改site-available)文件夹的。
+2. 有的人修改的不是`post-update`文件，而是`/hook/`下新创建了一个`post-receive`文件进行了一些操作。
+我没有试过，不知道是否可行
+3. 有很多时候问题是权限不够，我被这个坑了很久。请把用到的相关目录都添加相应权限。*权限添加修改方法上文已给出*
+
+-----
+
+本文目的是为了给像我一样想自己搭建博客，又不知道怎么搭建，并且遇到很多坑不知道怎么解决的人一些帮助。
+
+**本文致力于使大家看完后都可以搭建成功。**
+
+因为本文开始动笔比学习搭建博客晚了一段时间，所以有些坑踩过后，不一定还记得是什么了，因此会有一些疏漏。
+在阅读本文中有什么困难和不清晰，麻烦和我联系或评论。
+以便我加以完善，方便更多人可以搭建出自己的博客。
+
 
