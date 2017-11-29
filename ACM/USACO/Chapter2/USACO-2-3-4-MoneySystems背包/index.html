@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="USACO,背包," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="(记忆化搜索 完全背包 多重背包)求方案数。">
+<meta name="keywords" content="USACO,背包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="USACO-2.3.4-MoneySystems-背包">
+<meta property="og:url" content="http://xiekeyi98.github.io/ACM/USACO/Chapter2/USACO-2-3-4-MoneySystems背包/index.html">
+<meta property="og:site_name" content="Dark猫">
+<meta property="og:description" content="(记忆化搜索 完全背包 多重背包)求方案数。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-29T09:46:13.653Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="USACO-2.3.4-MoneySystems-背包">
+<meta name="twitter:description" content="(记忆化搜索 完全背包 多重背包)求方案数。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://xiekeyi98.github.io/ACM/USACO/Chapter2/USACO-2-3-4-MoneySystems背包/"/>
+
+
+
+
+
+  <title>USACO-2.3.4-MoneySystems-背包 | Dark猫</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Dark猫</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xiekeyi98.github.io/ACM/USACO/Chapter2/USACO-2-3-4-MoneySystems背包/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xie Keyi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dark猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">USACO-2.3.4-MoneySystems-背包</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T21:21:09+08:00">
+                2017-11-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>(记忆化搜索 完全背包 多重背包)求方案数。</p>
+<a id="more"></a>
+<p>题意：</p>
+<blockquote>
+<p>题目描述<br>母牛们不但创建了它们自己的政府而且选择了建立了自己的货币系统。由于它们特殊的思考方式，它们对货币的数值感到好奇。<br>传统地，一个货币系统是由$1,5,10,20$或$25,50,$和$100$的单位面值组成的。<br>母牛想知道有多少种不同的方法来用货币系统中的货币来构造一个确定的数值。<br>举例来说, 使用一个货币系统 ${1,2,5,10,…}$产生$18$单位面值的一些可能的方法是: $ 18x1, 9x2, 8x2+2x1, 3x5+2+1$ ,等等其它。 写一个程序来计算有多少种方法用给定的货币系统来构造一定数量的面值。保证总数将会适合long long (C/C++) 和 Int64 (Free Pascal)，即在$0$到$2^{63}-1$之间。<br>输入输出格式<br>输入格式：<br>货币系统中货币的种类数目是 V ($ 1 \leq V \leq 25 $)。要构造的数量钱是 N ($1 \leq N \leq10,000$)。<br>第一行: 二个整数，V 和 N 。<br>第二行： 可用的货币的面值 。<br>输出格式:<br>单独的一行包含那个可能的用这v种硬币凑足n单位货币的方案数。<br>输入输出样例<br>输入样例#1：<br>3 10<br>1 2 5<br>输出样例#1：<br>10<br>说明<br>翻译来自NOCOW<br>USACO 2.3</p>
+</blockquote>
+<p>做法：</p>
+<p>  一开始考虑<code>dfs</code>。 本来考虑的是用<code>dfs(i)</code>表示，当前还剩下<code>n</code>块钱没有组成。用下面这种方法去解决。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= v ; i++)</div><div class="line">	<span class="keyword">if</span>( n  &gt;= a[i] ) </div><div class="line">		dfs( n - a[i] ) ;</div><div class="line"><span class="comment">// 退出条件是 n == 0</span></div></pre></td></tr></table></figure></p>
+<p>不过这种方法，后来发现有点蠢。因为我无法处理比如：先选$1$后选$2$ 和 先选$2$后选$1$这样的重复情况。想了一下如何去重，发现去重的话，不同情况下不一样。应该是自己走远了。</p>
+<p>之后又感觉有点像多重背包。不过自己胡乱操作了一番，用<a href="\ACM\USACO\Chapter2\USACO-2-2-2-subset-01背包求方案数\index.html">USACO-2-2-2-subset-01背包求方案数</a>曾经自己总结过的，感觉不错的方法来做多重背包，发现遇到了很多问题。<br>因为曾经的方法的不足，感觉有很多变量很多余，或者不知道用来存什么记录什么，比如<code>dp</code>和<code>cnt</code>数组就不知道存什么。<br>曾经的不足即：只是求方案的话，完全没必要去开<code>dp</code>数组，只要一个<code>cnt</code>其实就可以了。我现在回过头来看，感觉<code>dp</code>数组里存的东西很奇怪，完全没必要啊。<code>dp[i][j]</code>难道表示的是前$i$个物品装到容量为$j$的背包里，最大价值吗？ 感觉完全没必要了。。</p>
+<p>这也暴露了自己的一个问题：</p>
+<ol>
+<li><strong>对于问题要勤思考，不能生搬硬套。否则就会发现很多东西很模糊不确定，又因为是曾经总结过的，所以又不太敢随意修改。这有点像郑人买履了。以后要尽可能的去思考，有自己的想法，并且敢于去修改和质疑模板的问题。</strong></li>
+<li><strong>就算曾经总结过的东西，以后也要反复总结、提炼，不能满足于以前总结的。因为即使曾经总结过的东西，过一段时间提高后再回头看，发现依然有很多不足和问题。所以要不断总结，哪怕之前总结过。</strong></li>
+</ol>
+<p>说的有点跑题了。</p>
+<p>后来发现那种<code>dfs</code>行不通以后，我考虑用<code>dfs(n,i)</code>表示，当前还剩下$n$个钱没有被表示，目前是第$i$枚硬币。<br>这样写下来的代码为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">dfs</span><span class="params">( <span class="keyword">int</span> n , <span class="keyword">int</span> i )</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="keyword">if</span>( dp[n][i] != - <span class="number">1</span> )</div><div class="line">		<span class="keyword">return</span> dp[n][i] ; </div><div class="line">	<span class="keyword">if</span>( n == <span class="number">0</span> )</div><div class="line">		<span class="keyword">return</span> dp[n][i] = <span class="number">1</span>  ;</div><div class="line">	<span class="keyword">if</span>( i &gt; v )</div><div class="line">		<span class="keyword">return</span> dp[n][i] = <span class="number">0</span>  ; </div><div class="line">	<span class="keyword">long</span> <span class="keyword">long</span>  ans = <span class="number">0</span>;</div><div class="line">	<span class="comment">// 枚举对于当前第i枚硬币，可以用 0 ..到 j * a[i]枚。</span></div><div class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> j = <span class="number">0</span> ; j * a[i] &lt;= n ; j++) </div><div class="line">	&#123;</div><div class="line">		ans += dfs( n - j * a[i] , i + <span class="number">1</span> ) ; </div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">return</span> dp[n][i] = ans ; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>成功AC。<br>看到这个<code>dfs</code>后，感觉就是多重背包的意思啊。所以又进一步想了下如何改成多重背包。<br>对于多重背包来讲，用<code>dp[i][j]</code>表示对于<code>i</code>个物品，放在容积为<code>j</code>的背包里的方案数<em>(这里之前的博客里就是有点问题，表达的太啰嗦了)</em>。那么边界条件就是<code>dp[0][0] = 1 , dp[others][others] = 0</code> 显然只有$0$个物品，放在$0$的背包里的方案数是$1$，除此之外其他都是$0$。<br>转移的话，只是再加一个维度，考虑对于当前的物品可以考虑放$0$到$ j * a[i] \leq n$个情况。转移即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span> ;</div><div class="line"><span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= v ; i++)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> j = <span class="number">0</span> ; j &lt;= n ; j++)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">for</span>( <span class="keyword">int</span> k = <span class="number">0</span> ; k * a[i] &lt;= j ; k++)</div><div class="line">		&#123;</div><div class="line">			dp[i][j] += dp[i<span class="number">-1</span>][j-k*a[i]] ;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>PS： 多重背包正常是有优化的，可以用二进制拆分后看做是01背包。</p>
+<p>之后，对背包学艺不精的我突然发现，这其实是完全背包！多重背包是对于物品使用次数是有限制的，这个没有限制，所以应该是完全背包。<br>完全背包的话，正常的滚动数组的写法其实就是和01背包顺序相反而已。因为对于01背包来说，决策的状态必须对于每个物品放或者不放决策一次，不能重复。而完全背包因为物品可以随便选，决策过的可以再决策再选择一次，所以可以从曾计算过的状态再决策得来。<br>因为初学，所以这些都还没有使用滚动数组。不过这也导致自己在写完全背包的时候遇到了一点困难。网上的都是滚动数组优化过的，当我想写一个不优化的方便理解的时候，发现找不到代码。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span> ;</div><div class="line"><span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= v ; i++)</div><div class="line">&#123;</div><div class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= n ; j++)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>( j &gt;= a[i] ) </div><div class="line">			dp[i][j] = dp[i<span class="number">-1</span>][j] + dp[i][ j - a[i] ] ;</div><div class="line">		<span class="keyword">else</span> </div><div class="line">			dp[i][j] = dp[i<span class="number">-1</span>][j] ;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个一开始遇到的坑是，模仿别人的滚动数组的<code>j = a[i] .. n</code> ，然后答案总是差一点。后来发现问题是因为对于$ j &lt; a[i]$的时候，状态应该移动过来。不然的话计算出来的状态其实是有缺失的。滚动数组的写法省了这个问题，所以自己一直没注意到。</p>
+<p>这个主要的决策问题就是<code>dp[i][j] = dp[i-1][j] + dp[i][ j - a[i] ];</code> 。 对于01背包来说，只有选或者不选两种。应该都是从上一个物品的情况转移而来，这样对于当前物品来说，只会有不选当前物品，从<code>dp[i-1][j]</code>转移，和选了当前物品，从<code>dp[i-1][j-a[i]]</code>转移，这两种情况都是没有选当前物品的，转移过来的话，也只会是没选和选。不过出现选择多个的情况。<br>但是因为对于完全背包来说，已经选择过的物品可以再次选择，所以我们应该是从之前已经决策过拿还是没拿的物品转移而来。对于<code>dp[i][j-a[i]]</code>这个状态来说，可能之前已经拿过第i个物品，也可能没拿过，但是who cares? 因为我物品是没有限制的，所以只要直接这么决策过来就可以了。</p>
+<hr>
+<p>对于目前的这些知识，自己还只是雏形，理解不是很透彻。在这个阶段本文是对自己的思路进行一下简单整理和总结，便于以后提高。有错误的话十分麻烦各位能花一点点时间指出出来。</p>
+<p>最近对DP这类问题，发现自己总是爱用记忆化搜索的方法去写。总是先想搜索，然后才能转成递推。而网上的答案和代码等几乎都是清一色的递推的方法。一开始我以为只是因为递推常数小，所以写熟练了大家都是这样直接写递推的,对于这个问题只是我自己的思维差异，不需要太重视。<br>后来问了一下学长，学长表示：“这个问题还是挺需要注意的，很多时候DP用递推比用记忆化要好写很多。而且递推这种思维方法其实才是DP的本质。也就是先想状态再想转移最后想边界，状态和转移有了的话，很多时候就能写递推了。”学长建议我以后思考尽量用递推，代码会比较少，也比较好调试。而且这种思维方法挺需要注意的。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/USACO/" rel="tag"># USACO</a>
+          
+            <a href="/tags/背包/" rel="tag"># 背包</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/ACM/USACO/Chapter2/USACO-2-3-1-LongestPrefix-搜索DP/" rel="next" title="USACO-2.3.1-LongestPrefix-搜索DP">
+                <i class="fa fa-chevron-left"></i> USACO-2.3.1-LongestPrefix-搜索DP
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTQ2My84MDI3"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Xie Keyi" />
+            
+              <p class="site-author-name" itemprop="name">Xie Keyi</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/xiekeyi98" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:xiekeyi98@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://xiekeyi98.gitbooks.io/acm-template/content/" target="_blank" title="ACM-TEMPLATE">
+                    
+                      <i class="fa fa-fw fa-globe"></i>ACM-TEMPLATE</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xie Keyi</span>
+
+<a href="http://www.miitbeian.gov.cn/">陕ICP备17019730号</a> 
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
