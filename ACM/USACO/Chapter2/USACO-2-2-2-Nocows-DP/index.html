@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="DP,USACO," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="给定$N$、$K$，求由$N$个节点、构造出的$K$层完全二叉树的方案数。">
+<meta name="keywords" content="DP,USACO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="USACO-2.2.2-Nocows-DP">
+<meta property="og:url" content="http://xiekeyi98.github.io/ACM/USACO/Chapter2/USACO-2-2-2-Nocows-DP/index.html">
+<meta property="og:site_name" content="Dark猫">
+<meta property="og:description" content="给定$N$、$K$，求由$N$个节点、构造出的$K$层完全二叉树的方案数。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-11-30T13:55:58.002Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="USACO-2.2.2-Nocows-DP">
+<meta name="twitter:description" content="给定$N$、$K$，求由$N$个节点、构造出的$K$层完全二叉树的方案数。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://xiekeyi98.github.io/ACM/USACO/Chapter2/USACO-2-2-2-Nocows-DP/"/>
+
+
+
+
+
+  <title>USACO-2.2.2-Nocows-DP | Dark猫</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Dark猫</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xiekeyi98.github.io/ACM/USACO/Chapter2/USACO-2-2-2-Nocows-DP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xie Keyi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dark猫">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">USACO-2.2.2-Nocows-DP</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T18:31:31+08:00">
+                2017-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM/" itemprop="url" rel="index">
+                    <span itemprop="name">ACM</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>给定$N$、$K$，求由$N$个节点、构造出的$K$层完全二叉树的方案数。<br><a id="more"></a></p>
+<h1 id="题意"><a href="#题意" class="headerlink" title="题意:"></a>题意:</h1><blockquote>
+<p>题目描述<br>农民约翰准备购买一群新奶牛。 在这个新的奶牛群中, 每一个母亲奶牛都生两个小奶牛。这些奶牛间的关系可以用二叉树来表示。这些二叉树总共有$N$个节点($ 3 \leq N &lt; 200 $)。这些二叉树有如下性质:<br>每一个节点的度是$0$或$2$。度是这个节点的孩子的数目。<br>树的高度等于$K$($1 &lt; K &lt; 100$)。高度是从根到最远的那个叶子所需要经过的结点数; 叶子是指没有孩子的节点。<br>有多少不同的家谱结构? 如果一个家谱的树结构不同于另一个的, 那么这两个家谱就是不同的。输出可能的家谱数的个数除以$9901$的余数。</p>
+<p>输入格式：<br>两个空格分开的整数, N和K。<br>输出格式：<br>一个整数，表示可能的家谱树的个数除以9901的余数。<br>输入输出样例<br>输入样例#1：<br>5 3<br>输出样例#1：<br>2<br>说明<br>翻译来自NOCOW<br>USACO 2.3</p>
+</blockquote>
+<hr>
+<h1 id="做法："><a href="#做法：" class="headerlink" title="做法："></a>做法：</h1><h2 id="暴搜-TLE"><a href="#暴搜-TLE" class="headerlink" title="暴搜(TLE)"></a>暴搜(TLE)</h2><p>对于已知$1到i$层二叉树的方案数，想要在此之上构建出第$i+1$层的方案数。我们的方法有：</p>
+<ol>
+<li>左子树是$i$层，右子树是$1到i-1$层。(在这种情况下，上面加一个根节点)</li>
+<li>左子树是$1到i-1$层，右子树是$i$层。(在这种情况下，上面加一个根节点)</li>
+<li>左右子树都是$i$层。(在这种情况下，上面加一个根节点)</li>
+</ol>
+<p>按照这个方法，可以递归去生成这么一颗树。但是我们并不知道左右子树的节点个数，所以我们还要枚举节点个数。</p>
+<p>因此，我们可以定义函数<code>dfs( remain_points , now_floor  , floor  )</code> 表示使用<code>remain_points</code>个节点，构建<code>floor</code>的方案数。按照上面的方法去生成即可。</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">ID:xiekeyi1</span></div><div class="line"><span class="comment">PROG:nocows</span></div><div class="line"><span class="comment">LANG:C++</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span> ;</div><div class="line"><span class="keyword">int</span> n , k ; </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">( <span class="keyword">int</span> remain_points , <span class="keyword">int</span> now_floor , <span class="keyword">int</span> <span class="built_in">floor</span> )</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	remain_points-- ; <span class="comment">// 减去当前的根节点。</span></div><div class="line">	<span class="keyword">if</span>( now_floor &gt;= <span class="built_in">floor</span> || remain_points &lt;= <span class="number">0</span> ) <span class="comment">// 超过当前要求的层数或剩余节点小于0即退出。</span></div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>( remain_points == <span class="number">0</span> &amp;&amp; now_floor == <span class="built_in">floor</span> ) <span class="comment">// 当当前层数和剩余节点都满足时为合格方案数。</span></div><div class="line">			<span class="keyword">return</span>  <span class="number">1</span>  ; </div><div class="line">		<span class="keyword">else</span></div><div class="line">			<span class="keyword">return</span>  <span class="number">0</span>   ;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">int</span> ans = <span class="number">0</span> ; </div><div class="line">	<span class="comment">// 枚举，i表示对左子树分配的节点，对右子树分配 remian_points - i个节点。</span></div><div class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt;= remain_points ; i++) </div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>( i &gt; <span class="number">0</span> &amp;&amp; remain_points - i &gt; <span class="number">0</span> ) <span class="comment">// 因为对度数有0或者2的要求，所以左右子树都要大于0.</span></div><div class="line">		&#123;</div><div class="line"></div><div class="line">			<span class="comment">// 第一种情况，左子树是i层，右子树是 1 到 i - 1 层。</span></div><div class="line">			<span class="keyword">int</span> t1  = <span class="number">0</span> ; </div><div class="line">			<span class="keyword">int</span> t2 = <span class="number">0</span> ; </div><div class="line">			t1 += dfs( i , now_floor + <span class="number">1</span> , <span class="built_in">floor</span> ) ;</div><div class="line">			<span class="keyword">for</span>( <span class="keyword">int</span> j = now_floor + <span class="number">1</span>  ; j &lt;= <span class="built_in">floor</span> - <span class="number">1</span> ; j++)</div><div class="line">			&#123;</div><div class="line">				t2 += dfs( remain_points - i , now_floor + <span class="number">1</span> , j ) ;</div><div class="line">			&#125;</div><div class="line">			ans += t1 * t2 ; </div><div class="line"></div><div class="line">			<span class="comment">// 第二种情况， 左子树是1到i-1层，右子树是i层。</span></div><div class="line">			t1 = <span class="number">0</span> ; </div><div class="line">			t2 = <span class="number">0</span> ; </div><div class="line">			t2 += dfs( remain_points - i , now_floor + <span class="number">1</span> , <span class="built_in">floor</span> ) ;</div><div class="line">			<span class="keyword">for</span>( <span class="keyword">int</span> j = now_floor + <span class="number">1</span>  ; j &lt;= <span class="built_in">floor</span> - <span class="number">1</span> ; j++)</div><div class="line">			&#123;</div><div class="line">				t1 += dfs( i , now_floor + <span class="number">1</span> , j ) ;</div><div class="line">			&#125;</div><div class="line">			ans += t1 * t2 ;</div><div class="line">			<span class="comment">// 第三种情况，左右两个子树都是i层。</span></div><div class="line">			ans += dfs( i , now_floor + <span class="number">1</span> , <span class="built_in">floor</span> ) * dfs( remain_points - i , now_floor + <span class="number">1</span> , <span class="built_in">floor</span> ) ; </div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> ans  ; </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	freopen(<span class="string">"nocows.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</div><div class="line">	freopen(<span class="string">"nocows.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</div><div class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k ;</div><div class="line">	<span class="built_in">cout</span> &lt;&lt; dfs( n , <span class="number">1</span> , k ) % <span class="number">9901</span> &lt;&lt; <span class="built_in">endl</span> ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样的代码毫无疑问是会T的。时间复杂度$O( n * 2^k )$ </p>
+<p>然后我想用我无往不利的将<code>dfs</code>改成记忆化搜索，我想那样的话就肯定可以过。<br>结果用和<code>dfs</code>参数类似的数组<code>dp[maxn][maxk][maxk]</code>改记忆化搜索后，$MLE$了<em>(说来搞ACM，好久没遇到MLE了2333。感觉一直对空间限制都不是很严格。没想到USACO限制挺严格的。)</em>。</p>
+<h2 id="压状态爆搜-TLE"><a href="#压状态爆搜-TLE" class="headerlink" title="压状态爆搜(TLE)"></a>压状态爆搜(TLE)</h2><p>因为我们<code>dp[maxn][maxk][maxk]</code>爆空间了。毫无疑问是我们的状态太多了。因此，我们不得不去压缩一下状态。<br>考虑到对于<code>floor</code>这个参数来说，其实完全没有必要记录$1到k$每一个的状态。对于我们来说，只关心是等于k还是小于k即可。<br>所以我们修改<code>dfs</code>为<code>dfs( remain_points , now_floor , flag )</code>，用一个二维状态表示即可<em>(不过这个修改，我还改了挺长时间的。改起来挺麻烦的)</em>。</p>
+<p>代码:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">ID:xiekeyi1</span></div><div class="line"><span class="comment">PROG:nocows</span></div><div class="line"><span class="comment">LANG:C++</span></div><div class="line"><span class="comment"> */</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span> ;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n , k ;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">( <span class="keyword">int</span> remain_points , <span class="keyword">int</span> now_floor , <span class="keyword">bool</span> flag )</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	remain_points-- ; </div><div class="line">	<span class="keyword">if</span>( now_floor &gt;= k || remain_points &lt;= <span class="number">0</span> )</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>( flag ) </div><div class="line">		&#123;</div><div class="line">			<span class="comment">// 如果是要到达k层，那么只有到k层才能返回1.</span></div><div class="line">			<span class="keyword">if</span>( remain_points == <span class="number">0</span> &amp;&amp; now_floor == k )</div><div class="line">				<span class="keyword">return</span>  <span class="number">1</span>  ; </div><div class="line">			<span class="keyword">else</span></div><div class="line">				<span class="keyword">return</span>  <span class="number">0</span>  ;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			<span class="comment">// 如果要求小于k层，则只有这种情况才能返回1. </span></div><div class="line">			<span class="keyword">if</span>( remain_points == <span class="number">0</span> &amp;&amp; now_floor &lt;  k  )</div><div class="line">				<span class="keyword">return</span> <span class="number">1</span> ;</div><div class="line">			<span class="keyword">else</span> </div><div class="line">				<span class="keyword">return</span> <span class="number">0</span> ;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">int</span> ans = <span class="number">0</span> ; </div><div class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt;= remain_points ; i++)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>( i &gt; <span class="number">0</span> &amp;&amp; remain_points - i &gt; <span class="number">0</span> )</div><div class="line">		&#123;</div><div class="line"></div><div class="line">			<span class="keyword">if</span>( flag ) </div><div class="line">			&#123;</div><div class="line">				<span class="comment">// 当flag是true时，对应上文的三种情况。</span></div><div class="line">				<span class="comment">//即就是，左边true右边false，右边true，左边false，两边true的情况。</span></div><div class="line">				<span class="keyword">int</span> t1  = <span class="number">0</span> ; </div><div class="line">				<span class="keyword">int</span> t2 = <span class="number">0</span> ; </div><div class="line">				t1 += dfs( i , now_floor + <span class="number">1</span> , <span class="literal">true</span> ) ;</div><div class="line">				t2 += dfs( remain_points - i , now_floor + <span class="number">1</span> , <span class="literal">false</span> ) ;</div><div class="line">				ans += t1 * t2 ; </div><div class="line">				t1 = <span class="number">0</span> ; </div><div class="line">				t2 = <span class="number">0</span> ; </div><div class="line">				t2 += dfs( remain_points - i , now_floor + <span class="number">1</span> , <span class="literal">true</span> ) ;</div><div class="line">				t1 += dfs( i , now_floor + <span class="number">1</span> , <span class="literal">false</span> ) ;</div><div class="line">				ans += t1 * t2 ;</div><div class="line">				ans += </div><div class="line">					dfs( i , now_floor + <span class="number">1</span> , <span class="literal">true</span> ) *</div><div class="line">					dfs( remain_points - i , now_floor + <span class="number">1</span> , <span class="literal">true</span> ) ; </div><div class="line">			&#125;</div><div class="line"></div><div class="line">			<span class="keyword">else</span> </div><div class="line">			&#123;</div><div class="line">				<span class="comment">// 否则只有一种情况，就是两边都是false的情况。 </span></div><div class="line">				ans += dfs( i , now_floor + <span class="number">1</span> , <span class="literal">false</span> ) * dfs( remain_points - i , now_floor + <span class="number">1</span> , <span class="literal">false</span> ) ; </div><div class="line">			&#125;</div><div class="line"></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">//printf(" dfs( %d , %d , %d ) : %d \n " , remain_points , now_floor , floor , ans ) ; </span></div><div class="line">	<span class="keyword">return</span>  ans  ; </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	freopen(<span class="string">"nocows.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</div><div class="line">	freopen(<span class="string">"nocows.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</div><div class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k ;</div><div class="line">	<span class="built_in">cout</span> &lt;&lt; dfs( n , <span class="number">1</span> , <span class="literal">true</span> ) &lt;&lt; <span class="built_in">endl</span> ;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span> ; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个代码的时间复杂度和上面的方法没有本质的区别。因此毫无疑问，依然是一个$TLE$的代码。</p>
+<p>所以需要加上记忆化搜索。</p>
+<h2 id="压状态记忆化搜索-AC"><a href="#压状态记忆化搜索-AC" class="headerlink" title="压状态记忆化搜索(AC)"></a>压状态记忆化搜索(AC)</h2><p>我们用<code>dp[maxn][maxk][flag]</code> 表示一个状态，加上记忆化搜索后。<br>代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">ID:xiekeyi1</span></div><div class="line"><span class="comment">PROG:nocows</span></div><div class="line"><span class="comment">LANG:C++</span></div><div class="line"><span class="comment"> */</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span> ;</div><div class="line"></div><div class="line"><span class="keyword">int</span> n , k ;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">int</span> dp[<span class="number">200</span>][<span class="number">200</span>][<span class="number">2</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">( <span class="keyword">int</span> remain_points , <span class="keyword">int</span> now_floor , <span class="keyword">bool</span> flag )</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="keyword">if</span>( dp[remain_points][now_floor][flag] != - <span class="number">1</span>)</div><div class="line">		<span class="keyword">return</span> dp[remain_points][now_floor][flag] ; </div><div class="line"></div><div class="line">	remain_points-- ; </div><div class="line">	<span class="keyword">if</span>( now_floor &gt;= k || remain_points &lt;= <span class="number">0</span> )</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>( flag ) </div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>( remain_points == <span class="number">0</span> &amp;&amp; now_floor == k )</div><div class="line">				<span class="keyword">return</span> dp[remain_points + <span class="number">1</span> ][ now_floor][flag] = <span class="number">1</span> ; </div><div class="line">			<span class="keyword">else</span></div><div class="line">				<span class="keyword">return</span> dp[remain_points + <span class="number">1</span> ][now_floor][flag] = <span class="number">0</span> ;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>( remain_points == <span class="number">0</span> &amp;&amp; now_floor &lt;  k  )</div><div class="line">				<span class="keyword">return</span> dp[remain_points+<span class="number">1</span>][now_floor][flag] = <span class="number">1</span> ; </div><div class="line">			<span class="keyword">else</span> </div><div class="line">				<span class="keyword">return</span> dp[remain_points+<span class="number">1</span>][now_floor][flag] = <span class="number">0</span> ; </div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">int</span> ans = <span class="number">0</span> ; </div><div class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt;= remain_points ; i++)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">if</span>( i &gt; <span class="number">0</span> &amp;&amp; remain_points - i &gt; <span class="number">0</span> )</div><div class="line">		&#123;</div><div class="line"></div><div class="line">			<span class="keyword">if</span>( flag ) </div><div class="line">			&#123;</div><div class="line"></div><div class="line">			<span class="keyword">int</span> t1  = <span class="number">0</span> ; </div><div class="line">			<span class="keyword">int</span> t2 = <span class="number">0</span> ; </div><div class="line">			t1 += dfs( i , now_floor + <span class="number">1</span> , <span class="literal">true</span> ) ;</div><div class="line">			t2 += dfs( remain_points - i , now_floor + <span class="number">1</span> , <span class="literal">false</span> ) ;</div><div class="line">			ans += ( t1 % <span class="number">9901</span>  * t2 % <span class="number">9901</span> ) % <span class="number">9901</span>  ; </div><div class="line"></div><div class="line">			t1 = <span class="number">0</span> ; </div><div class="line">			t2 = <span class="number">0</span> ; </div><div class="line">			t2 += dfs( remain_points - i , now_floor + <span class="number">1</span> , <span class="literal">true</span> ) ;</div><div class="line">			t1 += dfs( i , now_floor + <span class="number">1</span> , <span class="literal">false</span> ) ;</div><div class="line">			ans += ( t1 %<span class="number">9901</span> * t2 % <span class="number">9901</span>  ) % <span class="number">9901</span> ;</div><div class="line">			ans += dfs( i , now_floor + <span class="number">1</span> , <span class="literal">true</span> ) % <span class="number">9901</span> * dfs( remain_points - i , now_floor + <span class="number">1</span> , <span class="literal">true</span> ) %<span class="number">9901</span> ; </div><div class="line">			&#125;</div><div class="line"></div><div class="line">			<span class="keyword">else</span> </div><div class="line">			&#123;</div><div class="line">				ans += dfs( i , now_floor + <span class="number">1</span> , <span class="literal">false</span> ) % <span class="number">9901</span>  * dfs( remain_points - i , now_floor + <span class="number">1</span> , <span class="literal">false</span> ) % <span class="number">9901</span> ; </div><div class="line">			&#125;</div><div class="line"></div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">//printf(" dfs( %d , %d , %d ) : %d \n " , remain_points , now_floor , floor , ans ) ; </span></div><div class="line">	<span class="keyword">return</span> dp[remain_points+<span class="number">1</span>][now_floor][flag] = ans % <span class="number">9901</span> ; </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	freopen(<span class="string">"nocows.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</div><div class="line">	freopen(<span class="string">"nocows.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</div><div class="line">	<span class="built_in">memset</span>( dp , <span class="number">-1</span> , <span class="keyword">sizeof</span>(dp ) ) ;</div><div class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k ;</div><div class="line">	<span class="built_in">cout</span> &lt;&lt; dfs( n , <span class="number">1</span> , <span class="literal">true</span> )  % <span class="number">9901</span> &lt;&lt; <span class="built_in">endl</span> ;</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span> ; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>成功AC。</p>
+<h2 id="四次方DP-AC）"><a href="#四次方DP-AC）" class="headerlink" title="四次方DP(AC）"></a>四次方DP(AC）</h2><p>考虑改写成DP形式。<br>用<code>dp[i][j]</code>表示使用$i$个节点，恰好构成$j$层的方案数。<br>则dp的转移方程，和上文所说的三种情况一样。枚举两维，二维转移即可。</p>
+<p>代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">ID:xiekeyi1</span></div><div class="line"><span class="comment">PROG:nocows</span></div><div class="line"><span class="comment">LANG:C++</span></div><div class="line"><span class="comment"> */</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span> ;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">200</span> + <span class="number">10</span> , maxk = <span class="number">100</span> + <span class="number">10</span> ;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> modp = <span class="number">9901</span> ;</div><div class="line"><span class="keyword">int</span> n , k ;</div><div class="line"><span class="keyword">int</span> dp[maxn][maxk]; <span class="comment">// dp[i][j] means the number of schemes with points i in floor j ;</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	freopen(<span class="string">"nocows.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</div><div class="line">	freopen(<span class="string">"nocows.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</div><div class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k ;</div><div class="line"></div><div class="line">	dp[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">1</span> ;  <span class="comment">// 边界情况，1个节点构成1层是一个方案，其他都是0.</span></div><div class="line">	<span class="comment">//枚举每一层。</span></div><div class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> now_floor = <span class="number">1</span> ; now_floor &lt;= k ; now_floor++)</div><div class="line">	&#123;</div><div class="line">		<span class="comment">//枚举对于第now_floor层来说，用1到n个节点构造的情况。</span></div><div class="line">		<span class="keyword">for</span>( <span class="keyword">int</span> now_point = <span class="number">1</span> ; now_point &lt;= n ; now_point++ )</div><div class="line">		&#123;</div><div class="line">			<span class="comment">//枚举对于第now_floor层，用now_point节点构造。</span></div><div class="line">			<span class="comment">// 用enum_point去构造左子树，用 now_point - 1 - enum_point构造右子树。</span></div><div class="line">			<span class="keyword">for</span>( <span class="keyword">int</span> enum_point = <span class="number">1</span> ; enum_point &lt;= now_point - <span class="number">1</span>  ; enum_point++)</div><div class="line">			&#123;</div><div class="line">				<span class="keyword">int</span> less_than_nowfloor = <span class="number">0</span> ;</div><div class="line">				<span class="comment">// 统计左子树是i-1层，右子树从 1到i- 2层的情况(对应讨论1)</span></div><div class="line">				<span class="keyword">for</span>( <span class="keyword">int</span> enum_floor = <span class="number">1</span> ; enum_floor &lt;= now_floor - <span class="number">2</span> ; enum_floor++ )</div><div class="line">					less_than_nowfloor += dp[ now_point - <span class="number">1</span> - enum_point ][ enum_floor ] % modp  ;</div><div class="line">				less_than_nowfloor %= modp ; </div><div class="line">				dp[now_point][now_floor] += dp[ enum_point ][ now_floor - <span class="number">1</span> ] % modp * less_than_nowfloor % modp ;</div><div class="line">				dp[now_point][now_floor] %= modp  ; </div><div class="line"></div><div class="line">				<span class="comment">// 统计左子树是1到i - 2 层，右子树是i-1层的情况(对应讨论2)</span></div><div class="line">				less_than_nowfloor = <span class="number">0</span> ;</div><div class="line"></div><div class="line">				<span class="keyword">for</span>( <span class="keyword">int</span> enum_floor = <span class="number">1</span> ; enum_floor &lt;= now_floor - <span class="number">2</span> ; enum_floor++ )</div><div class="line">					less_than_nowfloor += dp[enum_point][enum_floor] % modp  ; </div><div class="line">				less_than_nowfloor %= modp ; </div><div class="line">				dp[now_point][now_floor] +=</div><div class="line">					less_than_nowfloor % modp * dp[ now_point - <span class="number">1</span> - enum_point][now_floor<span class="number">-1</span>] % modp ;</div><div class="line">				dp[now_point][now_floor] %= modp ; </div><div class="line"></div><div class="line">				<span class="comment">// 统计当两边都是i-1层的情况(对应讨论3)</span></div><div class="line">				dp[now_point][now_floor] += </div><div class="line">					dp[ enum_point][now_floor<span class="number">-1</span>]  % modp *  </div><div class="line">					dp[ now_point  - <span class="number">1</span> - enum_point][now_floor<span class="number">-1</span>] % modp ; </div><div class="line">				dp[now_point][now_floor] %= modp  ;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line"></div><div class="line">	<span class="built_in">cout</span> &lt;&lt; dp[n][k] % modp &lt;&lt; <span class="built_in">endl</span> ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="三次方DP-AC"><a href="#三次方DP-AC" class="headerlink" title="三次方DP(AC)"></a>三次方DP(AC)</h2><p>注意到四次方DP，每次都重复计算了$1到i-2$层的情况。因此我们考虑可以使用数组<code>sum[i][j]</code>表示使用$i$个节点，构成的少于$j$层的方案数。</p>
+<p>代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">ID:xiekeyi1</span></div><div class="line"><span class="comment">PROG:nocows</span></div><div class="line"><span class="comment">LANG:C++</span></div><div class="line"><span class="comment"> */</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span> ;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">200</span> + <span class="number">10</span> , maxk = <span class="number">100</span> + <span class="number">10</span> ;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> modp = <span class="number">9901</span> ;</div><div class="line"><span class="keyword">int</span> n , k ;</div><div class="line"><span class="keyword">int</span> dp[maxn][maxk]; <span class="comment">// dp[i][j] means the number of schemes with points i in floor j ;</span></div><div class="line"><span class="keyword">int</span> sum[maxn][maxk]; <span class="comment">// sum[i][j] means the number of schemes with points i less   floor j ; </span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	freopen(<span class="string">"nocows.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</div><div class="line">	freopen(<span class="string">"nocows.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</div><div class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; k ;</div><div class="line"></div><div class="line">	dp[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">1</span> ; </div><div class="line"></div><div class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= k ; i++)</div><div class="line">		sum[<span class="number">1</span>][i] = <span class="number">1</span> ; </div><div class="line"></div><div class="line">	<span class="comment">//枚举每一层</span></div><div class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> now_floor = <span class="number">1</span> ; now_floor &lt;= k ; now_floor++)</div><div class="line">	&#123;</div><div class="line">		<span class="comment">// 枚举对于第now_floor层，使用1到n个节点去构造。</span></div><div class="line">		<span class="keyword">for</span>( <span class="keyword">int</span> now_point = <span class="number">1</span> ; now_point &lt;= n ; now_point++ )</div><div class="line">		&#123;</div><div class="line">			<span class="comment">//枚举左子树节点个数。</span></div><div class="line">			<span class="keyword">for</span>( <span class="keyword">int</span> enum_point = <span class="number">1</span> ; enum_point &lt;= now_point - <span class="number">1</span>  ; enum_point++)</div><div class="line">			&#123;</div><div class="line">				<span class="comment">// 对应讨论1</span></div><div class="line">				dp[now_point][now_floor] +=</div><div class="line">					dp[enum_point][now_floor<span class="number">-1</span>] * sum[now_point - enum_point - <span class="number">1</span> ][ now_floor<span class="number">-2</span>];</div><div class="line">				<span class="comment">// 对应讨论2</span></div><div class="line">				dp[now_point][now_floor] +=</div><div class="line">					dp[now_point-enum_point<span class="number">-1</span>][now_floor<span class="number">-1</span>] * sum[enum_point][ now_floor<span class="number">-2</span>];</div><div class="line">				<span class="comment">// 对应讨论3.</span></div><div class="line">				dp[now_point][now_floor] +=</div><div class="line">					dp[now_point-enum_point<span class="number">-1</span>][now_floor<span class="number">-1</span>] * dp[enum_point][now_floor<span class="number">-1</span>];</div><div class="line">				dp[now_point][now_floor] %= modp ; </div><div class="line">			&#125;</div><div class="line">			<span class="comment">// 这个方法的核心。</span></div><div class="line">			<span class="comment">// 维护sum数组。</span></div><div class="line">			<span class="keyword">for</span>( <span class="keyword">int</span> j = <span class="number">1</span> ; j &lt;= now_floor ; j++)</div><div class="line">				sum[now_point][j] = ( sum[now_point][j<span class="number">-1</span>] + dp[now_point][j] ) % modp ; </div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">cout</span> &lt;&lt; dp[n][k] % modp &lt;&lt; <span class="built_in">endl</span> ;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这个<code>sum</code>数组用了前缀和的思想。一开始我把<code>sum</code>数组放到了第三层循环里面，变成了四次方的DP。结果答案是对的，但是$TLE$了。(上面那个四次方DP能过大概是因为枚举的状态少一些吧。每次不一定把循环跑满了。)</p>
+<p>因为我们把dp方程写成加和的形式，会发现:</p>
+<p>$$sum[i][nowfloor-2]=\sum_{j=1}^{nowfloor-2}{sum[i][j]}$$</p>
+<p>也就是说，每次更新了<code>dp[now_point][now_floor]</code>数组后，<code>sum</code>数组显然需要一同更新。<br>因为每次更新的时候<code>dp</code>的时候，<code>now_point</code>都是新出现的，所以这一维不需要去变化。而层数因为<code>sum[now_point][now_floor]</code>表示的是小于<code>now_floor</code>的情况，所以所有大于等于<code>now_floor</code>等都应该遍历去更新。这里可以利用构造前缀和的思想去操作。 <em>（关于转移而来的状态，由代码很容易看出都是已经被计算过的)</em></p>
+<h2 id="三次方DP-AC-1"><a href="#三次方DP-AC-1" class="headerlink" title="三次方DP(AC)"></a>三次方DP(AC)</h2><p>看到有题解使用的方法是，用<code>dp[i][j]</code>表示用i个节点，构造出的小于等于<code>j</code>个节点的情况。然后最终答案是<code>dp[n][k] - dp[n-1][k]</code>。 这个方法也很巧妙。代码量极少。我认为这个方法是把我上一个方法的dp数组和sum数组结合起来而产生的dp方法。<br>因为复杂度和我的代码区别不是很大，加上别人的这个想法我目前理解的不是很透彻，也并非我自己独立思考得来，这道题我也想了五六天了。所以这个方法暂时没有去花时间思考和实现。有机会可能会补上。</p>
+<h2 id="一些优化"><a href="#一些优化" class="headerlink" title="一些优化"></a>一些优化</h2><p>这道题还有一些优化部分。<br>如</p>
+<ul>
+<li>注意到每层字数分配的节点肯定都是奇数个，所以可以以2递增。</li>
+<li>对于每层子树，很容易计算出最大节点数。借此剪枝。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/DP/" rel="tag"># DP</a>
+          
+            <a href="/tags/USACO/" rel="tag"># USACO</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/ACM/USACO/Chapter2/USACO-2-3-4-MoneySystems背包/" rel="next" title="USACO-2.3.4-MoneySystems-背包">
+                <i class="fa fa-chevron-left"></i> USACO-2.3.4-MoneySystems-背包
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTQ2My84MDI3"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Xie Keyi" />
+            
+              <p class="site-author-name" itemprop="name">Xie Keyi</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/xiekeyi98" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:xiekeyi98@gmail.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://xiekeyi98.gitbooks.io/acm-template/content/" target="_blank" title="ACM-TEMPLATE">
+                    
+                      <i class="fa fa-fw fa-globe"></i>ACM-TEMPLATE</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题意"><span class="nav-number">1.</span> <span class="nav-text">题意:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#做法："><span class="nav-number">2.</span> <span class="nav-text">做法：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#暴搜-TLE"><span class="nav-number">2.1.</span> <span class="nav-text">暴搜(TLE)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#压状态爆搜-TLE"><span class="nav-number">2.2.</span> <span class="nav-text">压状态爆搜(TLE)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#压状态记忆化搜索-AC"><span class="nav-number">2.3.</span> <span class="nav-text">压状态记忆化搜索(AC)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四次方DP-AC）"><span class="nav-number">2.4.</span> <span class="nav-text">四次方DP(AC）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三次方DP-AC"><span class="nav-number">2.5.</span> <span class="nav-text">三次方DP(AC)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三次方DP-AC-1"><span class="nav-number">2.6.</span> <span class="nav-text">三次方DP(AC)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些优化"><span class="nav-number">2.7.</span> <span class="nav-text">一些优化</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xie Keyi</span>
+
+<a href="http://www.miitbeian.gov.cn/">陕ICP备17019730号</a> 
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
