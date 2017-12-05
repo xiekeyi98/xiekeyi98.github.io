@@ -78,6 +78,13 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 
+
+# Local Search
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
 deploy:
   type: git
   repo:
@@ -91,6 +98,7 @@ deploy:
 #  type: git
 #  repo: ubuntu@123.207.213.62:~/git/hexo.git
 #  branch: master
+
 
 
 

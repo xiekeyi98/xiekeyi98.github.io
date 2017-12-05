@@ -1,8 +1,8 @@
-title:
+﻿title:
   archive: 归档
   category: 分类
   tag: 标签
-  schedule: 日程表
+  schedule: 日程表  
 
 author: 博主
 
@@ -16,6 +16,7 @@ menu:
   schedule: 日程表
   sitemap: 站点地图
   commonweal: 公益404
+  friendlink: 友情链接
 
 sidebar:
   overview: 站点概览
