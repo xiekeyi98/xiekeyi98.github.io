@@ -88,7 +88,7 @@ search:
 deploy:
   type: git
   repo:
-    github: https://github.com/xiekeyi98/xiekeyi98.github.io.git,master
+    github: git@github.com:xiekeyi98/xiekeyi98.github.io.git,master
     tencent: ubuntu@123.207.213.62:~/git/hexo.git,master
 #deploy:
 #  type: git

@@ -89,7 +89,7 @@ menu:
   tags: /tags/ || tags
   categories: /categories/ || th
   archives: /archives/ || archive
-  #friendlink: /friendlink/ || friendlink
+  friendlink: /friendlink/ || friendlink
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
