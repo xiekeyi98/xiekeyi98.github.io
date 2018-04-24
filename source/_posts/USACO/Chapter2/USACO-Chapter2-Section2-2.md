@@ -12,7 +12,8 @@ USACO-Chapter2-Section2.2
 <!--more-->
 ### 2.2.1 Preface Numbering
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:preface
@@ -163,13 +164,15 @@ int main()
 		cout << "M" << ' ' << cnt_m << endl ;
 	return 0 ;
 }
-```
+{% endcodeblock %} 
+{% endspoiler %}
 
 ### 2.2.2 subset
 
 #### 暴力*(TLE)*
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:subset
@@ -211,11 +214,16 @@ int main()
 
 	cout << dfs( n , n + 1  , 0 ) / 2 << endl ;
 }
-```
+
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 #### 01背包求方案数
 
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:subset
@@ -281,11 +289,14 @@ int main()
 	cout << solve(n) / 2  << endl ;
 	return 0 ;
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 ### 2.2.3 runround
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:runround
@@ -372,11 +383,14 @@ int main()
 	}
 	return 0; 
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 ### 2.2.4 lamps
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:lamps
@@ -492,5 +506,6 @@ int main()
 
 	return 0 ; 
 }
-```
 
+{% endcodeblock %} 
+{% endspoiler %}

@@ -115,7 +115,8 @@ aba构成的串，可以由ab转移而来，也可以由aba转移而来。
 
 做法1代码：
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 // enumerate every interval .
 #include<bits/stdc++.h>
 using namespace std ;
@@ -158,12 +159,14 @@ int main()
 	cout << ans << endl ;
 	return 0;
 }
-```
+{% endcodeblock %} 
+{% endspoiler %}
 
 
 
 做法2代码：
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 #include<bits/stdc++.h>
 using namespace std ;
 
@@ -196,6 +199,7 @@ int main()
 	cout << max( { dp[s.size()-1][0] , dp[s.size()-1][1] , dp[s.size()-1][2] } ) << endl ;
 	return 0 ; 
 }
-```
+{% endcodeblock %} 
+{% endspoiler %}
 
 

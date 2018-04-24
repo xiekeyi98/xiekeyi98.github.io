@@ -11,7 +11,8 @@ tags:
 
 ### 1castle
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:castle
@@ -100,11 +101,15 @@ int main()
 	     << ans_row << ' ' << ans_col << ' ' << dir << endl ;
 	return 0 ;
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 
 ### 2frac1
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:frac1
@@ -152,10 +157,14 @@ int main()
 		printf("%d/%d\n",x[i].fenzi,x[i].fenmu);
 	return 0 ; 
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 ### 3sort3
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:sort3
@@ -203,10 +212,14 @@ int main()
 	cout << ans << endl ;
 	return 0 ; 
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 ### 4holstein
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:holstein
@@ -279,10 +292,14 @@ int main()
 	}
 	return  0 ; 
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 ### 5hamming
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:hamming
@@ -370,5 +387,6 @@ int main()
 		cout << endl ;
 	return 0 ; 
 }
-```
 
+{% endcodeblock %} 
+{% endspoiler %}

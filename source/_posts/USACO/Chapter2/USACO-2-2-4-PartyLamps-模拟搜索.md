@@ -37,7 +37,9 @@ tags:
 本来想自己写个实现`set<string>`功能的，用来处理去重，不过了解了一下，似乎要用到字符串hash。暂时还没学过，遂作罢。
 
 代码：
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:lamps
@@ -153,7 +155,9 @@ int main()
 
 	return 0 ; 
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 ------
 

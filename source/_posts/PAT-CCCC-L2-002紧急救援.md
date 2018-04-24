@@ -6,6 +6,8 @@ categories: ACM
 tags: 
 - 图论
 - dijkstra
+- CCCC
+- PAT
 ---
 
 
@@ -33,8 +35,8 @@ tags:
 1. ** 如何在邻接矩阵的情况下处理重边?**
 2. ** 为什么很多人的迪杰斯特拉，都要源点先在循环外松弛一圈，我尝试了一下，放在循环内松弛也是可以的。所以这个有什么问题吗？**
 
-AC代码：
-```C++
+{% spoiler code %}
+{% codeblock lang:cpp %}
 #include<bits/stdc++.h>
 using namespace std ;
 const int maxn = 550 ;
@@ -143,7 +145,8 @@ int main()
 
   cout << endl ;
 }
-```
+{% endcodeblock %}
+{% endspoiler %} 
 
 
 错了这么多次终于A了，真的是爽到。

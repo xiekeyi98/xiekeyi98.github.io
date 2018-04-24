@@ -9,7 +9,8 @@ tags:
 ---
 
 ### 1milk
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:milk
@@ -67,11 +68,13 @@ int main()
 	cout << ans << endl ;
 	return 0 ; 
 }
-```
+{% endcodeblock %} 
+{% endspoiler %}
 
 ### 2barn1
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:barn1
@@ -145,11 +148,13 @@ int main()
     cout << ans << endl ; 
     return 0 ; 
 }
-```
+{% endcodeblock %} 
+{% endspoiler %}
 
 ### 3crypt1
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:crypt1
@@ -217,10 +222,12 @@ int main()
 	cout << ans << endl ;
 	return 0 ; 
 }
-```
+{% endcodeblock %} 
+{% endspoiler %}
 
 ### 4combo
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:combo
@@ -306,11 +313,14 @@ int main()
 	cout << ans << endl ;
 	return 0 ; 
 }
-```
 
+{% endcodeblock %} 
+{% endspoiler %}
 
 ### 5wormhole
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:wormhole
@@ -409,10 +419,13 @@ int main()
 	cout << ans << endl ;
 	return 0  ; 
 }
-```
+{% endcodeblock %} 
+{% endspoiler %}
 
 ### 6skidegisn
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG: skidesign 
@@ -452,13 +465,15 @@ int main()
 	cout << ans << endl ;
 	return 0 ; 
 }
-```
 
+{% endcodeblock %} 
+{% endspoiler %}
 
 
 ** 错误代码 **
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG: skidesign 
@@ -502,6 +517,7 @@ int main()
 	cout << ans << endl ;
 	return 0 ; 
 }
-```
 
+{% endcodeblock %} 
+{% endspoiler %}
 

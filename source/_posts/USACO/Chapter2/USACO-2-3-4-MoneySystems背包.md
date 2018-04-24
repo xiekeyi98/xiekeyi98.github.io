@@ -62,7 +62,9 @@ for( int i = 1 ; i <= v ; i++)
 后来发现那种`dfs`行不通以后，我考虑用`dfs(n,i)`表示，当前还剩下$n$个钱没有被表示，目前是第$i$枚硬币。
 这样写下来的代码为：
 
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 long long dfs( int n , int i )
 {
 	if( dp[n][i] != - 1 )
@@ -80,7 +82,9 @@ long long dfs( int n , int i )
 
 	return dp[n][i] = ans ; 
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 成功AC。
 看到这个`dfs`后，感觉就是多重背包的意思啊。所以又进一步想了下如何改成多重背包。
 对于多重背包来讲，用`dp[i][j]`表示对于`i`个物品，放在容积为`j`的背包里的方案数*(这里之前的博客里就是有点问题，表达的太啰嗦了)*。那么边界条件就是`dp[0][0] = 1 , dp[others][others] = 0` 显然只有$0$个物品，放在$0$的背包里的方案数是$1$，除此之外其他都是$0$。

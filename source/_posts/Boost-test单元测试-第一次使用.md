@@ -31,6 +31,9 @@ tags:
 
 boost.test库里还有很多更强大的东西，但是因为这次我只需要做一些简单的测试，所以并没有进一步学习。希望以后有机会可以学到如何使用大文件大数据(像模拟一个本地OJ一样)。
 
+
+{% spoiler code %} 
+{% codeblock lang:cpp %}
 代码如下：
 ```c++
 #define BOOST_TEST_DYN_LINK
@@ -126,6 +129,10 @@ BOOST_AUTO_TEST_CASE( PLUS )
 			"st.query(..) result: " << st->query(0,9) ); //; check the modify ;  
 	delete st;
 }
-```
+{% endcodeblock %}
+{% endspoiler %}
 
-运行结果：![](/images/boost_test.png);
+运行结果：![](/images/boost_test.png)
+
+
+

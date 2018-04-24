@@ -105,8 +105,9 @@ $$ C\_n^m = C\_{n-1}^m + C\_{n-1}^{m-1} $$
 因为卡了一段时间，所以写下来整理一下自己思路。
 
 代码：
-```c++
 
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:subset
@@ -173,4 +174,6 @@ int main()
 	return 0 ;
 }
 
-```
+
+{% endcodeblock %} 
+{% endspoiler %}

@@ -68,7 +68,9 @@ WA的数据是$738192$.
 
 代码：
 
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:runround
@@ -138,4 +140,6 @@ int main()
 	}
 	return 0; 
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}

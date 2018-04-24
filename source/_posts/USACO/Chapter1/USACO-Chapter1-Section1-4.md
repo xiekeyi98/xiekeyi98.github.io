@@ -10,7 +10,8 @@ tags:
 
 ### 1ariprog
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:ariprog
@@ -88,10 +89,14 @@ int main()
 
 	return 0 ; 
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 ### 2milk3
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
+
 /*
 ID:xiekeyi1
 PROG:milk3
@@ -163,5 +168,5 @@ int main()
 	cout <<  aa[3]  << endl ;
 	return 0 ; 
 }
-```
-
+{% endcodeblock %} 
+{% endspoiler %}

@@ -10,7 +10,8 @@ tags:
 
 ### 1numtri
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:numtri
@@ -49,12 +50,14 @@ int main()
 	cout << ans << endl ;
 	return 0 ;
 }
-```
 
+{% endcodeblock %} 
+{% endspoiler %}
 
 ### 2pprime
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:pprime
@@ -231,11 +234,15 @@ int main()
 	func( a , b , d1 , d2 ) ; 
 	return 0 ;
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 ### 3sprime
 
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:sprime
@@ -290,6 +297,7 @@ int main()
 	dfs(n) ;
 	return 0 ;
 }
-```
 
+{% endcodeblock %} 
+{% endspoiler %}
 

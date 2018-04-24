@@ -11,7 +11,8 @@ tags:
 
 ### 1milk2
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:milk2
@@ -67,10 +68,14 @@ int main()
 	cout << ans1 << ' ' << ans2 << endl ;
 	return 0 ; 
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
+
 ### 2transform
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:transform
@@ -235,10 +240,13 @@ int main()
 	cout << rolate(n) << endl ;
 	return 0 ; 
 }
-```
 
+{% endcodeblock %} 
+{% endspoiler %}
 ### 3namenum
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi
 PROG:namenum
@@ -287,11 +295,14 @@ int main()
 	fin.close() ; 
 	return 0 ; 
 }
-```
+{% endcodeblock %} 
+{% endspoiler %}
 
 ### 4palsquare
 
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:palsquare
@@ -363,11 +374,14 @@ int main()
 
 	return 0 ; 
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 ### 5dualpal
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:dualpal
@@ -427,6 +441,6 @@ int main()
 	}
 	return 0 ; 
 }
-```
-
+{% endcodeblock %} 
+{% endspoiler %}
 

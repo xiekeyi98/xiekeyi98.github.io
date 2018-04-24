@@ -30,7 +30,9 @@ tags:
 因为，第i个串只要有一种能达到即可，一种方法还是多种，对之后的决策和选择都没有影响。这样保证了前面的串只要能达到都会只计算一种能达到的情况，并且不会重复计算。
 
 代码:
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:prefix
@@ -116,13 +118,16 @@ int main()
 
 	cout << dfs(0) << endl ;
 }
-```
+{% endcodeblock %} 
+{% endspoiler %}
 
 由此也可以改成递推的方式。
 
 
 
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:prefix
@@ -174,6 +179,7 @@ int main()
 	cout << ans << endl ;
 	return 0 ; 
 }
-```
+{% endcodeblock %} 
+{% endspoiler %}
 我是从访问过的向没访问过的转移,似乎有人是从没访问过的去找访问过的转移。
 

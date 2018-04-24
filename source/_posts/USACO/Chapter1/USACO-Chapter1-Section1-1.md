@@ -13,6 +13,8 @@ tags:
 ### 0test
 
 ```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:test
@@ -31,11 +33,12 @@ int main()
 	cout << a + b << endl ;
 	return 0 ; 
 }
-```
-
+{% endcodeblock %} 
+{% endspoiler %}
 ### 1ride
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:ride
@@ -63,11 +66,13 @@ int main()
 		cout << "STAY" << endl ;
 	return 0 ; 
 }
-```
+{% endcodeblock %} 
+{% endspoiler %}
 
 ### 2gift
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:gift1
@@ -122,9 +127,12 @@ int main()
 	}
 	return 0 ;
 }
-```
+{% endcodeblock %}
+{% endspoiler %}
 
 
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 ### 3friday
 
 ```c++
@@ -210,10 +218,14 @@ int main()
 	     << ' ' << a[5] << endl ;
 	return 0 ; 
 }
-```
+{% endcodeblock %} 
+{% endspoiler %}
+
 
 ### 4beads
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:beads
@@ -248,5 +260,6 @@ int main()
 	cout << min( ans , n ) << endl ;
 	return 0 ; 
 }
-```
 
+{% endcodeblock %} 
+{% endspoiler %}

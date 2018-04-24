@@ -13,7 +13,8 @@ encoding: UTF-8
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://xiekeyi98.github.io
+#url: http://xiekeyi98.github.io
+url: https://xiekeyi98.com
 root: /
 permalink: :category/:title/ 
 permalink_defaults:
@@ -74,10 +75,20 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: next
-
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 
+#BAIDU
+baidu_url_submit:
+  
+  count: 100 
+  host: www.xiekeyi98.com 
+  token: GTLC0k0To7e7o82a 
+  path: baidu_urls.txt 
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
 
 # Local Search
 search:
@@ -86,10 +97,13 @@ search:
   format: html
   limit: 10000
 deploy:
-  type: git
+- type: git
   repo:
     github: git@github.com:xiekeyi98/xiekeyi98.github.io.git,master
     tencent: ubuntu@123.207.213.62:~/git/hexo.git,master
+- type: baidu_url_submitter
+
+
 #deploy:
 #  type: git
 #  repo: https://github.com/xiekeyi98/xiekeyi98.github.io.git
@@ -98,7 +112,6 @@ deploy:
 #  type: git
 #  repo: ubuntu@123.207.213.62:~/git/hexo.git
 #  branch: master
-
 
 
 

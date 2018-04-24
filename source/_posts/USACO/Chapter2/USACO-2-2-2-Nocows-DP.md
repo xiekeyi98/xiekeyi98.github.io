@@ -49,7 +49,8 @@ tags:
 
 代码：
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:nocows
@@ -108,7 +109,9 @@ int main()
 	cin >> n >> k ;
 	cout << dfs( n , 1 , k ) % 9901 << endl ;
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 这样的代码毫无疑问是会T的。时间复杂度$O( n * 2^k )$ 
 
@@ -124,7 +127,8 @@ int main()
 
 代码:
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:nocows
@@ -206,7 +210,8 @@ int main()
 	cout << dfs( n , 1 , true ) << endl ;
 	return 0 ; 
 }
-```
+{% endcodeblock %} 
+{% endspoiler %}
 
 
 这个代码的时间复杂度和上面的方法没有本质的区别。因此毫无疑问，依然是一个$TLE$的代码。
@@ -218,7 +223,8 @@ int main()
 我们用`dp[maxn][maxk][flag]` 表示一个状态，加上记忆化搜索后。
 代码如下：
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:nocows
@@ -301,8 +307,9 @@ int main()
 	cout << dfs( n , 1 , true )  % 9901 << endl ;
 	return 0 ; 
 }
-```
 
+{% endcodeblock %} 
+{% endspoiler %}
 
 成功AC。
 
@@ -316,7 +323,8 @@ int main()
 
 代码：
 
-```c++
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:nocows
@@ -377,8 +385,9 @@ int main()
 
 	cout << dp[n][k] % modp << endl ;
 }
-```
 
+{% endcodeblock %} 
+{% endspoiler %}
 
 ## 三次方DP(AC)
 
@@ -387,7 +396,9 @@ int main()
 
 
 代码：
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:nocows
@@ -441,7 +452,9 @@ int main()
 	}
 	cout << dp[n][k] % modp << endl ;
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 这个`sum`数组用了前缀和的思想。一开始我把`sum`数组放到了第三层循环里面，变成了四次方的DP。结果答案是对的，但是$TLE$了。(上面那个四次方DP能过大概是因为枚举的状态少一些吧。每次不一定把循环跑满了。)
 
 因为我们把dp方程写成加和的形式，会发现:

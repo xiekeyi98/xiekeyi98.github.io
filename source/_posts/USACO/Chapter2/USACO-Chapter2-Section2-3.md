@@ -15,7 +15,9 @@ tags:
 
 # 1Prefix 
 
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:prefix
@@ -98,13 +100,17 @@ int main()
 
 	cout << dfs(0) << endl ;
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 # 2nocows
 
 ## 爆搜(TLE)
 
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:nocows
@@ -166,10 +172,14 @@ int main()
 	cin >> n >> k ;
 	cout << dfs( n , 1 , k ) % 9901 << endl ;
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 ##  压状态爆搜(TLE)
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:nocows
@@ -246,11 +256,15 @@ int main()
 	cout << dfs( n , 1 , true ) << endl ;
 	return 0 ; 
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 ##  压状态记忆化搜索
 
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:nocows
@@ -333,10 +347,14 @@ int main()
 	cout << dfs( n , 1 , true )  % 9901 << endl ;
 	return 0 ; 
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 ## 四次方DP
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:nocows
@@ -396,10 +414,14 @@ int main()
 
 	cout << dp[n][k] % modp << endl ;
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 ## 三次方DP
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:nocows
@@ -452,11 +474,15 @@ int main()
 
 	cout << dp[n][k] % modp << endl ;
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 # 3zerosum
 
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG: zerosum 
@@ -607,12 +633,16 @@ int main()
 	return 0 ;
 
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 # 4money
 
 ## 记忆化搜索
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekey1
 PROG:money
@@ -659,10 +689,14 @@ int main()
 		cin >> a[i] ; 
 	cout << dfs( n , 1 ) << endl ;
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 ## 多重背包
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekey1
 PROG:money
@@ -703,10 +737,14 @@ int main()
 	cout << dp[v][n] << endl ;
 	return 0 ;
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 ## 完全背包
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekey1
 PROG:money
@@ -749,10 +787,14 @@ int main()
 	cout << dp[v][n] << endl ;
 	return 0 ;
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
 
 # 5Controlling Companies
-```c++
+
+{% spoiler code %}
+{% codeblock lang:cpp %} 
 /*
 ID:xiekeyi1
 PROG:concom
@@ -819,4 +861,6 @@ int main()
 
 	return 0 ; 
 }
-```
+
+{% endcodeblock %} 
+{% endspoiler %}
