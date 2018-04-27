@@ -2,15 +2,21 @@
 
 
 
+
+
+
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
+
+
+
 
 
 
@@ -38,10 +44,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
 
 
 
@@ -50,42 +52,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar-32x32.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar-32x32.png?v=6.2.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar-16x16.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar-16x16.png?v=6.2.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Darkè,л���㣬Keyi Xie,�㷨�����ݽṹ��ACM��ICPC���������CS" />
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
 
 
 
 
 
 
-
-
-
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="Dark猫">
-<meta property="og:url" content="https://xiekeyi98.com/page/3/index.html">
-<meta property="og:site_name" content="Dark猫">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Dark猫">
 
 
 
@@ -94,15 +79,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '5.1.3',
+    version: '6.2.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -114,12 +97,33 @@
 </script>
 
 
+  
+
+
+
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Dark猫">
+<meta property="og:url" content="https://xiekeyi98.com/page/3/index.html">
+<meta property="og:site_name" content="Dark猫">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Dark猫">
+
+
+
+
+
 
   <link rel="canonical" href="https://xiekeyi98.com/page/3/"/>
 
 
 
-
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>Dark猫</title>
   
@@ -131,9 +135,37 @@
 
 
 
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -150,7 +182,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Dark猫</span>
         <span class="logo-line-after"><i></i></span>
@@ -162,7 +194,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -170,86 +202,75 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-friendlink">
-          <a href="/friendlink/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
-            
-            友情链接
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-friendlink">
+    <a href="/friendlink/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-link"></i> <br />friendlink</a>
+  </li>
 
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
         </li>
       
     </ul>
+  
+
   
 
   
@@ -280,12 +301,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -296,6 +328,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -322,11 +356,21 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ACM/USACO/Chapter1/USACO-Chapter1-Section1-1/" itemprop="url">USACO Chapter1 Section1.1</a></h2>
+                <a class="post-title-link" href="/ACM/USACO/Chapter1/USACO-Chapter1-Section1-1/" itemprop="url">
+                  USACO Chapter1 Section1.1
+                </a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -334,13 +378,30 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-08T16:53:51+08:00">
-                2017-11-08
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-11-08 16:53:51" itemprop="dateCreated datePublished" datetime="2017-11-08T16:53:51+08:00">2017-11-08</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-03-26 16:09:44" itemprop="dateModified" datetime="2018-03-26T16:09:44+08:00">2018-03-26</time>
+              
             
           </span>
 
@@ -356,11 +417,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a></span>
 
                 
                 
@@ -380,7 +437,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">阅读次数：</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -417,6 +474,9 @@
         
       
     </div>
+
+    
+
     
     
     
@@ -453,6 +513,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -479,11 +541,21 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ACM/遇到的不错的思维水题/" itemprop="url">遇到的不错的思维水题</a></h2>
+                <a class="post-title-link" href="/ACM/遇到的不错的思维水题/" itemprop="url">
+                  遇到的不错的思维水题
+                </a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -491,13 +563,30 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-07T19:26:14+08:00">
-                2017-11-07
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-11-07 19:26:14" itemprop="dateCreated datePublished" datetime="2017-11-07T19:26:14+08:00">2017-11-07</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-03-26 16:04:32" itemprop="dateModified" datetime="2018-03-26T16:04:32+08:00">2018-03-26</time>
+              
             
           </span>
 
@@ -513,11 +602,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a></span>
 
                 
                 
@@ -537,7 +622,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">阅读次数：</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -564,22 +649,70 @@
       
         
           
-          本文持续更新。
-题目
-矩阵翻转问题
-给定一个01矩阵n*m ， \(n , m \leq 1000\) 。 两人轮流操作： 每次选择一个数值为1的点： 使得每次选择的点(包含)到右下角的矩阵01状态翻转。 无法操作则输。 问先手必胜还是后手必胜？
-题目来源: 2017Summertraini
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ACM/遇到的不错的思维水题/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>本文持续更新。</p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="矩阵翻转问题"><a href="#矩阵翻转问题" class="headerlink" title="矩阵翻转问题"></a>矩阵翻转问题</h2><p>给定一个01矩阵n*m ，  $n , m \leq 1000$ 。<br>两人轮流操作：<br>每次选择一个数值为1的点：<br>使得每次选择的点<em>(包含)</em>到右下角的矩阵01状态翻转。<br>无法操作则输。<br>问先手必胜还是后手必胜？</p>
+<p><em>题目来源: 2017Summertraining V8 讲课 博弈论</em></p>
+<h2 id="树翻转问题"><a href="#树翻转问题" class="headerlink" title="树翻转问题"></a>树翻转问题</h2><p>上一道题进阶版：<a href="http://acm.hdu.edu.cn/showproblem.php?pid=5963" target="_blank" rel="noopener">hdu5963(2016 CCPC 合肥)</a></p>
+<p>一棵树，每个边有一个边权1,0。每次选一个边权为1的边，<br>将从这个边开始到根的路径的所有边的边权翻转。<br>不能操作则输。<br>问先手胜还是后手胜？</p>
+<h2 id="K倍动态减法游戏"><a href="#K倍动态减法游戏" class="headerlink" title="K倍动态减法游戏"></a>K倍动态减法游戏</h2><p>两个人轮流取石子，第一次取可以取任意个(0除外)，但是不能取完，以后每次都只能取不超过上一次取的k倍(0除外)。</p>
+<p>问先手必胜，还是后手必胜？</p>
+<ol>
+<li>当k = 2时 <a href="http://acm.hdu.edu.cn/showproblem.php?pid=2516" target="_blank" rel="noopener">hdu2516</a></li>
+<li>当$1 \leq k \leq 1e5$  <a href="http://acm.hdu.edu.cn/showproblem.php?pid=2580" target="_blank" rel="noopener">hdu2580</a></li>
+</ol>
+<h2 id="毒药问题"><a href="#毒药问题" class="headerlink" title="毒药问题"></a>毒药问题</h2><p>1000个瓶子中有一瓶毒药（编号000 ~ 999 ），一只老鼠吃到毒药一周后会死，瓶子里有无穷多的药水，老鼠可以吃任意瓶药水。</p>
+<ol>
+<li>如果只有10只老鼠，如何在一周内检测出老鼠所吃的毒药的编号是由哪几位数字组成？（如毒药为 413号的话，答案是1 3 4 、 3 1 4 、 4 1 3 等都对）</li>
+<li>如果只有10只老鼠，如何在一周内检测出所吃的毒药是哪一瓶？</li>
+<li>如果要在两周内检测出哪一瓶是毒药，最少需要几只老鼠？</li>
+</ol>
+<h2 id="Codeforces-Taxes"><a href="#Codeforces-Taxes" class="headerlink" title="Codeforces Taxes"></a>Codeforces Taxes</h2><p>题目链接：<a href="http://codeforces.com/contest/584/problem/D" target="_blank" rel="noopener">Codeforces Round #382 (Div. 2)-735D TAXES</a></p>
+<p>题意：年收入是N，那么需要缴税额是N除自身外的最大因子。为了偷税可以把N拆成K个数，但是拆成的数不能为1，因为这样会被税务局发现。找出最小税额。</p>
+<h2 id="好像是CCPC-2017-哈尔滨题"><a href="#好像是CCPC-2017-哈尔滨题" class="headerlink" title="好像是CCPC 2017 哈尔滨题"></a>好像是CCPC 2017 哈尔滨题</h2><p>输入一个n，已知该数列是由 1 - n 共n个数组成的。 要求构造一个数列，数列满足</p>
+<script type="math/tex; mode=display">a\_{n} \\bmod  |  a\_{n} - a\_{n-2}   | =0</script><p>给出任意一个满足要求的数列。</p>
+<h2 id="——"><a href="#——" class="headerlink" title="——-"></a>——-</h2><h1 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h1><h2 id="矩阵反转问题"><a href="#矩阵反转问题" class="headerlink" title="矩阵反转问题"></a>矩阵反转问题</h2><p>我们观察到无论如何进行游戏，每次必将使局面减少1个1(换句话说，将1个1恒久地变为0了，不可能再变回来了)</p>
+<p>因此局面是朝着右下角不断缩小的。</p>
+<p>最后必然缩小到最后一个格。</p>
+<p>那么，如果右下角一开始是0，先手无论如何操作，都会将右下角变成1，后手只要将右下角一个变成0。那么这样操作下去，给先手的人一定是一个右下角是0的局面。所以先手必输。</p>
+<p>反之，先手必胜。</p>
+<p><em>(这道题很适合讲完博弈论的必胜必败态后出一下2333)</em></p>
+<h2 id="树翻转问题-1"><a href="#树翻转问题-1" class="headerlink" title="树翻转问题"></a>树翻转问题</h2><p>考虑假如只有一条链，那么先手如果将第一个边的1变成0，后手无论怎么操作，都只能把这个1变回去，或者不可操作输了。</p>
+<p>因此，如果第一个边是1，那么先手必胜。</p>
+<p>如果是树的话，只需要知道和这棵树的根节点连接的边权为1的边的个数是奇数还是偶数就可以了。</p>
+<p><em>(这里已经有点SG函数、异或之类的意思了)</em></p>
+<h2 id="k倍动态减法游戏。"><a href="#k倍动态减法游戏。" class="headerlink" title="k倍动态减法游戏。"></a>k倍动态减法游戏。</h2><p><strong>我目前对这里的理解还有一些问题，未完待续，仅供参考。</strong></p>
+<ol>
+<li>当k等于1时，我们将石子数拆成二进制数，会发现先手如果每次只取1个的话，会把最后一位由1变成0，或者由0变成1。因此，只要最后一位是1的话，先手必胜。否则后手必胜。(因为局面必定会缩小到最后只有一位)</li>
+<li><ol>
+<li><p>当k等于2时，同样将石子拆成二进制数，如果第一次取了1个，会发现第二次取只能取1个（即将最后一位0 1变换）或者取2个（即将倒数第二位0 1变换） ， 然后由任何一个正整数都可以由两个斐波那契数相加得到，求解.(我对这里不太理解，未完待续)</p>
+</li>
+<li><p>用必胜态必败态DP转移得到。不过这里细节比较多，比如<code>dp[n][n]</code>在第一手的时候因为不能拿完，但是在第二手又可以拿完，这里需要注意一下变化。 <em>这道题V8当时主要讲的是如何把$O(n^{3})$ </em>(朴素)<em> 优化到$O(n^{2})$ </em>(减少维数)<em> 再优化到$O(n)$ </em>(单调栈)* 。 第一次听讲的时候惊艳了。</p>
+</li>
+</ol>
+</li>
+<li><p>当到k倍的问题的时候，请参考<a href="https://wenku.baidu.com/view/40a4a16fd0d233d4b04e6912.html" target="_blank" rel="noopener">NOI2009冬令营论文——《从“k倍动态减法游戏”出发探究一类组合游戏问题》</a></p>
+</li>
+</ol>
+<h2 id="毒药问题-1"><a href="#毒药问题-1" class="headerlink" title="毒药问题"></a>毒药问题</h2><ol>
+<li><del>这其实是我一开始错误的想法改编后成的问题。</del><br>对于这样的话，只要让所有数字带0的药水，给第0个老鼠吃，所有数字带1的药水给第1个老鼠吃即可由哪几只老鼠死亡来判断所含数字。</li>
+<li>将1000瓶药水的编号二进制拆分，正好是10位以内，即可把10只老鼠分别对应一个二进制位。由此准确确定毒药的二进制位，转成十进制即可。</li>
+<li>将1000瓶药水三进制拆分，这样第一天可确定毒药每一位数字是否为0，第二天可确定是否为1，然后排除法确定哪些是2。<br>1000转成三进制是7位，所以需要7只老鼠。</li>
+</ol>
+<h2 id="Codeforces-Taxes-1"><a href="#Codeforces-Taxes-1" class="headerlink" title="Codeforces Taxes"></a>Codeforces Taxes</h2><p>哥德巴赫猜想。</p>
+<p>需要注意的是，人们熟知的哥德巴赫猜想，是$1+1=2$，但是那是建立在1被作为素数的情况下。<br>因此，现代的哥德巴赫猜想有些不同。</p>
+<blockquote>
+<p>原初猜想的现代陈述为：任一大于5的整数都可写成三个质数之和。欧拉在回信中也提出另一等价版本，即任一大于2的偶数都可写成两个质数之和。<br>今日常见的猜想陈述为欧拉的版本，即任一大于2的偶数都可写成两个素数之和，亦称为“强哥德巴赫猜想”或“关于偶数的哥德巴赫猜想”。<br>从关于偶数的哥德巴赫猜想，可推出：任一大于7的奇数都可写成三个质数之和的猜想。后者称为“弱哥德巴赫猜想”或“关于奇数的哥德巴赫猜想”。若关于偶数的哥德巴赫猜想是对的，则关于奇数的哥德巴赫猜想也会是对的。弱哥德巴赫猜想尚未完全解决，但1937年时前苏联数学家维诺格拉多夫已经证明充分大的奇质数都能写成三个质数的和，也称为“哥德巴赫-维诺格拉朵夫定理”或“三素数定理”。</p>
+</blockquote>
+<p>因此，我们只需要对 大于7的奇数，判断他是否是由一个质数+2这个质数得来的，如果是，则答案为2，否则为3.<br>对大于2的偶数，答案为2.</p>
+<h2 id="好像是CCPC-2017-哈尔滨的题"><a href="#好像是CCPC-2017-哈尔滨的题" class="headerlink" title="好像是CCPC 2017 哈尔滨的题"></a>好像是CCPC 2017 哈尔滨的题</h2><p>本来我想的是任意偶数差两个都可以满足要求，但是奇数和质数就不太满足，然后考虑了一下，质数要满足，必定是$ a_{n} 与 a_{n-2} $ 相差1。因为任何数 mod 1 都是0 。<br>所以考虑构造数字的方法就是 类似于蛇形填数，第 1、3、5、7、…. n-1 依次填1234567，然后n-2、6、4、…2 以此填写8 9 10 11…  即可</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+          
         
       
     </div>
+
+    
+
     
     
     
@@ -616,6 +749,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -642,11 +777,21 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/ACM/Codeforces/Codeforces-442-Div-2-877B-Nikita-and-String/" itemprop="url">Codeforces 442 Div.2 877B Nikita and String</a></h2>
+                <a class="post-title-link" href="/ACM/Codeforces/Codeforces-442-Div-2-877B-Nikita-and-String/" itemprop="url">
+                  Codeforces 442 Div.2 877B Nikita and String
+                </a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -654,13 +799,30 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-07T16:45:08+08:00">
-                2017-11-07
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-11-07 16:45:08" itemprop="dateCreated datePublished" datetime="2017-11-07T16:45:08+08:00">2017-11-07</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-03-26 16:06:04" itemprop="dateModified" datetime="2018-03-26T16:06:04+08:00">2018-03-26</time>
+              
             
           </span>
 
@@ -676,11 +838,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a></span>
 
                 
                 
@@ -700,7 +858,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">阅读次数：</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -727,19 +885,42 @@
       
         
           
-          题目链接： Codeforces 442 Div.2 B
-题意: 给出一个只由小写字母ab组成的串，删除任意字符后，将剩下的拼起来（不改变顺序） ，问剩下的串满足由:\(s\_{1}\)、\(s\_{2}\)、\(s\_{3}\) 组成，其中\(s\_{1}\)为全部由小写字母a组成的或者是空串，
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/ACM/Codeforces/Codeforces-442-Div-2-877B-Nikita-and-String/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>题目链接： <a href="http://codeforces.com/contest/877/problem/B" target="_blank" rel="noopener">Codeforces 442 Div.2 B</a></p>
+<p>题意: 给出一个只由小写字母ab组成的串，删除任意字符后，将剩下的拼起来（不改变顺序） ，问剩下的串满足由:$s_{1}$、$s_{2}$、$s_{3}$ 组成，其中$s_{1}$为全部由小写字母a组成的或者是空串，$s_{2}$为全部由小写字母b组成的或者是空串,<br>$s_{3}$为全部由小写字母a组成的或者是空串。<br>求满足这样条件的串，最长的长度是多少？( |s| &lt;  5000  ) </p>
+<p>一开始比赛的时候，我考虑的是维护一个前缀和，把a看为正数，把b看为负数。<br>然后前缀和维护的话大概就是这么一个样子。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( <span class="keyword">int</span> j = i ; j &lt; length + <span class="number">1</span> ; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>( s[i] == s[j] )</span><br><span class="line">				cnt++;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				i = j - <span class="number">1</span>  ;</span><br><span class="line">				<span class="keyword">if</span>( s[i] == <span class="string">'a'</span> )</span><br><span class="line">					a.push_back( cnt ) ;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(s[i] == <span class="string">'b'</span> )</span><br><span class="line">					a.push_back( -cnt ) ;</span><br><span class="line">				cnt = <span class="number">0</span> ;	</span><br><span class="line">				<span class="keyword">break</span> ;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后我想当然的认为，这道题就是求<br><code>Max{ a[i] + a[j] + a[k] ) ( i &lt; j &lt;  ) }</code></p>
+<p>结果WA了整整一个比赛。</p>
+<p>主要原因是没有考虑到，有可能拼起来更长的情况。<br>比如:<br>aaaabaaaaa</p>
+<p>这样，可以把b删去后把a全部看成一起，这个做法没有考虑到这个情况。</p>
+<p><strong>思维太僵化了，其实有很简单的做法。结果经常自己陷入一开始的思维定式跳不出来。</strong> </p>
+<hr>
+<h3 id="做法1"><a href="#做法1" class="headerlink" title="做法1"></a>做法1</h3><p>因为数据量只由5000，所以其实可以直接$n^{2}$枚举分界点，然后前缀和之类的统计一下就可以了。</p>
+<p><strong>这道题细节不算少，分界点如何枚举，如何处理空串这类，我处理了不短的时间。</strong></p>
+<p>时间复杂度: $O(n^{2})$ （前缀和） </p>
+<h3 id="做法2"><a href="#做法2" class="headerlink" title="做法2"></a>做法2</h3><p>我们可以用<code>dp[n][3]</code>这样的数组表示，其中<code>dp[0]</code>表示只由a构成的串，<code>dp[1]</code>表示由a、b构成的串，<code>dp[2]</code>表示由a、b、a构成的串。</p>
+<p>那么，当我<code>s[i] == &#39;a&#39;</code> 时，<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>] + <span class="number">1</span>;</span><br><span class="line">dp[i][<span class="number">1</span>] = dp[i<span class="number">-1</span>][<span class="number">1</span>] ;</span><br><span class="line">dp[i][<span class="number">2</span>] = max( dp[i<span class="number">-1</span>][<span class="number">1</span>] + <span class="number">1</span> , dp[i<span class="number">-1</span>][<span class="number">2</span>] + <span class="number">1</span> ) ;</span><br></pre></td></tr></table></figure></p>
+<p>当 <code>s[i] == &#39;b&#39;</code> 时<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>] ;</span><br><span class="line">dp[i][<span class="number">1</span>] = max( dp[i<span class="number">-1</span>][<span class="number">1</span>] + <span class="number">1</span> , dp[i<span class="number">-1</span>][<span class="number">0</span>] + <span class="number">1</span> ) ;</span><br><span class="line">dp[i][<span class="number">2</span>] = dp[i<span class="number">-1</span>][<span class="number">2</span>] ;</span><br></pre></td></tr></table></figure></p>
+<p>转移应该是显而易见的。</p>
+<p>对于只由a构成的串，每次都是遇到a的时候加一。<br>由ab构成的串，可以由 只由a的串转移而来，或者由ab串转移而来。<br>aba构成的串，可以由ab转移而来，也可以由aba转移而来。</p>
+<p>时间复杂度: $O(n)$</p>
+<h3 id="做法3"><a href="#做法3" class="headerlink" title="做法3"></a>做法3</h3><p>我们可以把a看做是1，b看做是2，b后面的a看做是3.</p>
+<p>那么题目就变成了求最长上升子序列（LIS）问题。</p>
+<p>求LIS的做法有 $O(n^{2})$和$O(nlogn)$的做法。</p>
+<p>这个写法本质上其实和做法2很像，因为只由3个数字的LIS，所以可以用做法2去实现。</p>
+<p>因为这个方法细节较多，b前后的问题比较难处理，而且有了更容易理解的做法2.</p>
+<p>因此没有写这个做法的代码。</p>
+<hr>
+<p>做法1代码：</p>
+<div class="spoiler collapsed"><div class="spoiler-title">code</div><div class="spoiler-content"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="comment">// enumerate every interval .</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span> ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">5050</span> ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[maxn] , b[maxn];</span><br><span class="line"><span class="keyword">char</span> s[maxn];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span> , s + <span class="number">1</span> ) ;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> length = <span class="built_in">strlen</span>(s+<span class="number">1</span>)  ;</span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= length ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>( s[i] == <span class="string">'a'</span> )</span><br><span class="line">            a[i] = a[i<span class="number">-1</span>] + <span class="number">1</span> ;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            a[i] = a[i<span class="number">-1</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>( s[i] == <span class="string">'b'</span> )</span><br><span class="line">            b[i] = b[i<span class="number">-1</span>] + <span class="number">1</span> ;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            b[i] = b[i<span class="number">-1</span>]  ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span> ; </span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt;= length + <span class="number">1</span> ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> j = i ; j &lt;=  length + <span class="number">1</span> ; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            ans = max( ans , a[i] + b[j] - b[i] + ( ( j &gt;= length + <span class="number">1</span> ) ? <span class="number">0</span> : ( a[length] - a[j] ) ) ) ;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> </div></div>
+<p>做法2代码：<br><div class="spoiler collapsed"><div class="spoiler-title">code</div><div class="spoiler-content"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span> ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">5050</span> ; </span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dp[maxn][<span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s ;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; s ;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; s.size() ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>( s[i] == <span class="string">'a'</span> )</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>] + <span class="number">1</span>;</span><br><span class="line">            dp[i][<span class="number">1</span>] = dp[i<span class="number">-1</span>][<span class="number">1</span>] ;</span><br><span class="line">            dp[i][<span class="number">2</span>] = max( dp[i<span class="number">-1</span>][<span class="number">1</span>] + <span class="number">1</span> , dp[i<span class="number">-1</span>][<span class="number">2</span>] + <span class="number">1</span> ) ;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>( s[i] == <span class="string">'b'</span> )</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>] ;</span><br><span class="line">            dp[i][<span class="number">1</span>] = max( dp[i<span class="number">-1</span>][<span class="number">1</span>] + <span class="number">1</span> , dp[i<span class="number">-1</span>][<span class="number">0</span>] + <span class="number">1</span> ) ;</span><br><span class="line">            dp[i][<span class="number">2</span>] = dp[i<span class="number">-1</span>][<span class="number">2</span>] ;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; max( &#123; dp[s.size()<span class="number">-1</span>][<span class="number">0</span>] , dp[s.size()<span class="number">-1</span>][<span class="number">1</span>] , dp[s.size()<span class="number">-1</span>][<span class="number">2</span>] &#125; ) &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> ; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> </div></div></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+          
         
       
     </div>
+
+    
+
     
     
     
@@ -778,6 +959,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -802,11 +985,21 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/其他/利用HEXO-github-io搭建博客/" itemprop="url">利用HEXO+github.io搭建博客</a></h2>
+                <a class="post-title-link" href="/其他/利用HEXO-github-io搭建博客/" itemprop="url">
+                  利用HEXO+github.io搭建博客
+                </a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -814,13 +1007,30 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-22T21:45:45+08:00">
-                2017-10-22
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-10-22 21:45:45" itemprop="dateCreated datePublished" datetime="2017-10-22T21:45:45+08:00">2017-10-22</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-03-26 16:04:29" itemprop="dateModified" datetime="2018-03-26T16:04:29+08:00">2018-03-26</time>
+              
             
           </span>
 
@@ -836,11 +1046,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/其他/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/其他/" itemprop="url" rel="index"><span itemprop="name">其他</span></a></span>
 
                 
                 
@@ -860,7 +1066,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">阅读次数：</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -887,19 +1093,117 @@
       
         
           
-          发现很多人都自建博客，比较可控也比较干净清爽，于是准备自己也搭建一个博客。 一方面熟悉一下具体流程，一方面是因为自己有一个空闲的腾讯云服务器。 正好可以把它利用起来。
-优点: * 可自己随意发表文章，没什么广告，清爽。 * 可自己折腾前端、研究建站。 * 很多东西存于本地，方便移植、备份、管理。 
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/其他/利用HEXO-github-io搭建博客/" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+            <p>发现很多人都自建博客，比较可控也比较干净清爽，于是准备自己也搭建一个博客。<br>一方面熟悉一下具体流程，一方面是因为自己有一个空闲的腾讯云服务器。<br>正好可以把它利用起来。</p>
+<p><strong>优点:</strong></p>
+<ul>
+<li>可自己随意发表文章，没什么广告，清爽。</li>
+<li>可自己折腾前端、研究建站。</li>
+<li>很多东西存于本地，方便移植、备份、管理。</li>
+<li>可以本地预览</li>
+</ul>
+<p><strong>缺点:</strong></p>
+<ul>
+<li>需要自己域名、服务器。比较花钱。( <a href="https://pages.github.com/" target="_blank" rel="noopener">github.io</a> ) 有免费空间。</li>
+<li>搭建比较麻烦。<em>(本来我还想实习运维，结果自己照着框架、教程，还搭了一个周末)</em></li>
+</ul>
+<hr>
+<p>事先了解了一下，常用的博客框架有<a href="http://jekyll.com.cn/" target="_blank" rel="noopener">jekyll<em>(github官方推荐)</em></a>、<a href="https://hexo.io/" target="_blank" rel="noopener">HEXO</a>、<a href="https://cn.wordpress.org/" target="_blank" rel="noopener">Wordpress</a> 。</p>
+<p>wordpress收费，比较贵。优点是很容易搭建、比较友好。<br>不过因为自己本来就是为了折腾和学习，感觉优点反而成了缺点。所以不考虑了。</p>
+<p>  一开始比较想搭建jekyll，毕竟github官方推荐，和<a href="https://pages.github.com/" target="_blank" rel="noopener">github.io</a>配合最好。但是看HEXO扩展、支持又比较多。所以在这两个里面摇摆不定。</p>
+<p>后来研究了一下发现jekyll是基于ruby的。</p>
+<p>因为我认为我在Windows下写博客比较多，在Linux下主要只是写代码。 e<br>了解到ruby环境在Windows下比较难以搭建，比较麻烦。而HEXO是基于nodejs的，nodejs在Windows环境下比较友好。<br>考虑到这一点后，果断选择了HEXO。</p>
+<hr>
+<h2 id="本机环境搭建"><a href="#本机环境搭建" class="headerlink" title="本机环境搭建"></a>本机环境搭建</h2><h3 id="安装Git环境"><a href="#安装Git环境" class="headerlink" title="安装Git环境"></a>安装Git环境</h3><p>随便在<a href="https://git-scm.com/" target="_blank" rel="noopener">git</a>官网下载安装就好了。</p>
+<p>注意一下它可以自动这是Path ，并且可以将Windows的回车换行转换成Linux的风格换行，这两个地方选择一下，在Windows下会变得比较方面。</p>
+<p>在cmd(powershell)中输入 <code>git --version</code> , 显示版本号后即安装成功。</p>
+<h3 id="安装Node-js环境"><a href="#安装Node-js环境" class="headerlink" title="安装Node.js环境"></a>安装Node.js环境</h3><p>在<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> 找到适合自己系统的环境安装，一路下一步即可。</p>
+<p>在cmd(powershell)中输入<code>npm --version</code> ， 显示版本号后即安装成功。</p>
+<h3 id="安装HEXO"><a href="#安装HEXO" class="headerlink" title="安装HEXO"></a>安装HEXO</h3><p>命令行下输入 <code>npm install hexo-cli -g</code> , <code>npm install hexo --save</code> .</p>
+<p>npm是Node.js的包管理工具，可以理解为npm是用来安装Node.js程序的</p>
+<p>hexo-cli是 hexo - Command Line Interface  ，Hexo的命令行模式。</p>
+<p><code>-g</code>是指 <code>-global</code>， 全局安装。</p>
+<ol>
+<li>表示将安装包放在 <code>/usr/local</code> 或 nodejs的安装目录。</li>
+<li>可以直接在命令行中使用。</li>
+</ol>
+<p><code>--save</code> 是指自动处理一下依赖关系，将依赖关系的版本号和模块添加到 package.json 里。</p>
+<p>安装完成后，cmd(powersheel)中输入 <code>hexo --version</code> ， 显示版本号后即安装成功。</p>
+<h3 id="本地使用HEXO"><a href="#本地使用HEXO" class="headerlink" title="本地使用HEXO"></a>本地使用HEXO</h3><p>新建一个自己博客的文件夹。</p>
+<p>用命令行进入该文件夹，输入 <code>hexo init</code> ，初始化本文件夹为hexo目录。 然后输入 <code>npm install</code> ，用npm自动安装所需要的组件。</p>
+<p>接下来输入 <code>hexo g</code> ，即可生成博客。<br>输入 <code>hexo s</code> ， 即可在 <code>http://localhost:4000/</code> 中预览自己的博客。</p>
+<p>现在基本就可以使用HEXO了。</p>
+<p><strong>HEXO常用命令</strong></p>
+<ul>
+<li><code>hexo new &quot;title&quot;</code>  即可在<code>source/_post/</code> 文件夹里找到，在里面写文章即可。</li>
+<li><code>hexo new page &quot;newpage&quot;</code> 会在<code>source/</code> 文件夹内创建一个新文件夹，对应一个新的页面（需要和<code>_config.yml</code>)相关联。</li>
+<li><code>hexo g</code> 生成本地页面</li>
+<li><code>hexo d</code> 将本地页面发布到网站上</li>
+<li><code>hexo d -g</code> ， 等价于 <code>hexo g ; hexo d</code></li>
+<li><code>hexo s</code> 开启本地服务器 ，可在本地预览。</li>
+</ul>
+<h3 id="HEXO的主题"><a href="#HEXO的主题" class="headerlink" title="HEXO的主题"></a>HEXO的主题</h3><p>可在github等很多地方找到。<br>使用方法各不相同，主要改好<code>_config.yml</code>和<code>/themes/对应主题/_config.yml</code> 即可</p>
+<p><em>少部分主题怎么调都调不对，可考虑是主题问题。一开始我使用<a href="https://github.com/letiantian/huno" target="_blank" rel="noopener">huno</a><br>，tags怎么调都有一些问题，后来换了主题后解决 </em></p>
+<p>这里推荐<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">NEXT</a> 主题，<br>使用教程多，持续更新，使用方便。</p>
+<h2 id="服务器端配置"><a href="#服务器端配置" class="headerlink" title="服务器端配置"></a>服务器端配置</h2><h3 id="配置git"><a href="#配置git" class="headerlink" title="配置git"></a>配置git</h3><p>设置git的user name和email，用于标识自己git的身份。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;Yourname&quot;</span><br><span class="line">git config --global user.email &quot;Youemail@xxx.com&quot;</span><br></pre></td></tr></table></figure></p>
+<p>这样就把全局的名字设置好了。</p>
+<h3 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h3><p>运行 <code>ssh-keygen -t rsa -C &quot;xxxxx@xxx.com&quot;</code></p>
+<p>-t用于制定密钥类型为rsa，-C提供一个注释.</p>
+<p>这样就生成了一对公钥和私钥。</p>
+<p>LINUX默认放在<code>/home/.ssh</code>目录下<br>WINDOWS默认在<code>C:\Users\xxxx\.ssh</code> 下</p>
+<p>将公钥<code>id_rsa.pub</code> 内的内容复制放到<code>仓库-setting-Deploy keys</code>下 或放到<code>个人设置-SSH and GPG keys</code>下即可<br>通过自己的私钥和公钥配对来证明自己本人。</p>
+<h3 id="Github-Pages"><a href="#Github-Pages" class="headerlink" title="Github Pages"></a>Github Pages</h3><p>Github提供了 xxxx.github.io 这个域名供我们使用。</p>
+<p>我们在github里新建一个仓库，取名为 xxxxx.github.io (必须取这个名字)<br>然后github会自动帮我们配置好各种文件。</p>
+<p>之后在HEXO安装包里找到<code>_config.xml</code> ， 写成如下这段（<em>如果前面有#号删掉即可，#号表示注释</em>）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">	type: git</span><br><span class="line">	repo: https://github.com/xxxxx/xxxxxx.github.io.git</span><br><span class="line">	branch: master</span><br></pre></td></tr></table></figure></p>
+<p>然后即可通过 <code>HEXO D</code> 将自己已经生成的数据发布到该域名了。</p>
+<p>之后即可通过该域名访问你的博客了，也可自己购买域名后做<code>CNAME</code>解析。</p>
+<h3 id="备份问题"><a href="#备份问题" class="headerlink" title="备份问题"></a>备份问题</h3><p>做好备份可以方便跨电脑写作或更换电脑等情况。</p>
+<p>我是新建了一个仓库用来备份，只要<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git init </span><br><span class="line">git add .</span><br><span class="line">git commit</span><br><span class="line">git push</span><br></pre></td></tr></table></figure></p>
+<p>这样就可以了。</p>
+<p>有的人是新建分支来备份，我因为还不太熟练git所以没有采用。</p>
+<p>另外有部分已经有git下来的文件夹(比如我的主题) 我还不知道怎么用git push 上去。</p>
+<p>在此提供一个思路。</p>
+<hr>
+<h2 id="将其部署在自己的云服务器上"><a href="#将其部署在自己的云服务器上" class="headerlink" title="将其部署在自己的云服务器上"></a>将其部署在自己的云服务器上</h2><p>这是我折腾最久的一点。。。</p>
+<p>我的环境是Ubuntu 16.04 LTS 腾讯云。</p>
+<p>需要安装git和nginx.<br>git是用来使自己的博客文件夹能推送发布到云服务器。<br>nginx是用来使自己的云服务器可以变成一个HTTP服务器，被广泛使用。</p>
+<blockquote>
+<p>Nginx (engine x) 是一个高性能的HTTP和反向代理服务器，也是一个IMAP/POP3/SMTP服务器。</p>
+</blockquote>
+<h3 id="安装git-ubuntu大多默认自带"><a href="#安装git-ubuntu大多默认自带" class="headerlink" title="安装git(ubuntu大多默认自带)"></a>安装git(ubuntu大多默认自带)</h3><p><code>apt-get install git</code></p>
+<h3 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h3><p><code>apt-get install nginx</code></p>
+<h3 id="配置云服务器"><a href="#配置云服务器" class="headerlink" title="配置云服务器"></a>配置云服务器</h3><p>在<code>/home/.ssh</code>文件夹下创建一个<code>authorized_keys</code>文件，将<code>id_rsa.pub</code>复制后粘贴到这个文件内，即可在自己电脑上SSH到这台服务器。</p>
+<p><strong>建议创建一个专用的git用户来确保安全。</strong></p>
+<p>不过我一开始创建用户后很多权限处理都不太对，后来用默认用户成功以后也就没有再创建用户了。</p>
+<p>然后在本地创建一个目录作为git仓库</p>
+<p>比如在<code>/home</code>下</p>
+<p><code>mkdir git</code><br>创建一个git文件夹<br><code>chown -R $USER:$USER /home/git</code><br><code>chmod -R 755 /home/git</code><br>使当前用户有权限在这个git文件夹下搞事。</p>
+<p><code>cd /home/git</code> 进入该文件夹后 <code>git init --bare hexo.git</code></p>
+<p>创建一个<code>hexo.git</code>文件夹作为git仓库。</p>
+<p>在<code>/home/git/hexo.git/hook</code> 文件夹下有一个<code>post-update.sample</code>文件，重命名为<code>post-update</code>后，修改内容为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">cd /</span><br><span class="line">cd /usr/share/nginx/html/</span><br><span class="line">git clone /home/git/hexo.git</span><br><span class="line">cp -rf hexo/* .</span><br><span class="line">rm -rf hexo</span><br></pre></td></tr></table></figure>
+<p>表示每当该目录有更新，用bash命令，进入nginx默认目录，克隆该目录，将hexo的文件都复制下来，并删除hexo文件夹。</p>
+<p>现在即可通过该云服务器IP访问自己博客了。</p>
+<h3 id="修改本机HEXO下的-config-yml"><a href="#修改本机HEXO下的-config-yml" class="headerlink" title="修改本机HEXO下的_config.yml"></a>修改本机HEXO下的_config.yml</h3><p>参照上文github.io的<code>deploy</code>写法即可。</p>
+<p>也可以像我这样同时推送多个仓库(防止github无法正常访问，也为自己云服务器到期后切换到github提供方便）</p>
+<p>一开始试了好多写法，发现都不太对。<br>最后查了下发现是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo:</span><br><span class="line">    github: https://github.com/xxxxxx/xxxxx.github.io.git,master</span><br><span class="line">    tencent: ubuntu@xxx.xxx.xxx.xxx.xxx:~/git/hexo.git,master</span><br></pre></td></tr></table></figure></p>
+<p>简单来说就是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">repo:</span><br><span class="line">	标签名: 地址 , 分支</span><br></pre></td></tr></table></figure></p>
+<h4 id="遇到的一些坑"><a href="#遇到的一些坑" class="headerlink" title="遇到的一些坑"></a>遇到的一些坑</h4><ol>
+<li><code>/usr/share/nginx/html/</code>是nginx默认做网页的目录，不过不同安装方式该目录似乎不同。因此需要在<code>/etc/nginx/</code>的<code>nginx.conf</code>或<code>/sites-enabled</code>文件夹内 ，将root 后面的目录改为 <code>/usr/share/nginx/html/</code>文件夹。(发现还有的改site-available)文件夹的。</li>
+<li>有的人修改的不是<code>post-update</code>文件，而是<code>/hook/</code>下新创建了一个<code>post-receive</code>文件进行了一些操作。<br>我没有试过，不知道是否可行</li>
+<li>有很多时候问题是权限不够，我被这个坑了很久。请把用到的相关目录都添加相应权限。<em>权限添加修改方法上文已给出</em></li>
+</ol>
+<hr>
+<p>本文目的是为了给像我一样想自己搭建博客，又不知道怎么搭建，并且遇到很多坑不知道怎么解决的人一些帮助。</p>
+<p><strong>本文致力于使大家看完后都可以搭建成功。</strong></p>
+<p>因为本文开始动笔比学习搭建博客晚了一段时间，所以有些坑踩过后，不一定还记得是什么了，因此会有一些疏漏。<br>在阅读本文中有什么困难和不清晰，麻烦和我联系或评论。<br>以便我加以完善，方便更多人可以搭建出自己的博客。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+          
         
       
     </div>
+
+    
+
     
     
     
@@ -934,15 +1238,12 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -977,75 +1278,133 @@
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
-          <nav class="site-state motion-element">
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-            
-              <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
               
-                  <span class="site-state-item-count">24</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
 
-            
               
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
               
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
+            </nav>
+          
 
           
 
-          <div class="links-of-author motion-element">
-            
+          
+            <div class="links-of-author motion-element">
               
                 <span class="links-of-author-item">
-                  <a href="https://github.com/xiekeyi98" target="_blank" title="GitHub">
-                    
-                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  <a href="https://github.com/xiekeyi98" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="mailto:xiekeyi98@gmail.com" target="_blank" title="E-Mail">
-                    
-                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  <a href="mailto:xiekeyi98@gmail.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="https://xiekeyi98.gitbooks.io/acm-template/content/" target="_blank" title="ACM-TEMPLATE">
-                    
-                      <i class="fa fa-fw fa-globe"></i>ACM-TEMPLATE</a>
+                  <a href="https://xiekeyi98.gitbooks.io/acm-template/content/" target="_blank" title="ACM-TEMPLATE" rel="external nofollow"><i class="fa fa-fw fa-globe"></i>ACM-TEMPLATE</a>
+                  
                 </span>
               
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
             
-          </div>
-
           
-          
-
-          
-          
-
           
 
         </div>
@@ -1065,18 +1424,25 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Xie Keyi</span>
 
-<a href="http://www.miitbeian.gov.cn/">陕ICP备17019730号</a> 
+  <span class="author" itemprop="copyrightHolder">Xie Keyi</span>
+    <a href="http://www.miitbeian.gov.cn/">陕ICP备17019730号</a> 
+
+  
+
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
 
 
@@ -1084,12 +1450,31 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.2.0</div>
 
 
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
 
 
 
@@ -1137,7 +1522,11 @@
 
 
 
-  
+
+
+
+
+
 
 
 
@@ -1157,16 +1546,6 @@
 
   
   
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
     <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
@@ -1175,18 +1554,13 @@
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
 
 
 
@@ -1194,9 +1568,9 @@
   
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=6.2.0"></script>
 
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.2.0"></script>
 
 
 
@@ -1205,15 +1579,11 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
 
 
 
   
-
-
-  
-
 
 
 
@@ -1230,8 +1600,6 @@
 
 
   
-
-
 
 
 
@@ -1293,6 +1661,8 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -1326,6 +1696,7 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
                 var articleUrl = decodeURIComponent(data.url);
                 var indexOfTitle = [];
@@ -1625,35 +1996,24 @@
             var counter = results[0];
             counter.fetchWhenSave(true);
             counter.increment("time");
+            
             counter.save(null, {
               success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
               },
               error: function(counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
               }
             });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
         },
         error: function(error) {
@@ -1675,48 +2035,61 @@
 
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+
+  
+
+  
+  
+
+  
+  
+    
+      
+    
+      
+        
+      
+    
+      
+    
+      
+    
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
 </script>
 
-
-  
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
         for (i=0; i < all.length; i += 1) {
           all[i].SourceElement().parentNode.className += ' has-jax';
         }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
+
+  
+  
+
+  
+
+  
+
+  
 
   
 

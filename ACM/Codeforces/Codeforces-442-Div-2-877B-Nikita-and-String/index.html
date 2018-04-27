@@ -2,15 +2,21 @@
 
 
 
+
+
+
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
+
+
+
 
 
 
@@ -38,10 +44,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
 
 
 
@@ -50,47 +52,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar-32x32.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar-32x32.png?v=6.2.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar-16x16.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar-16x16.png?v=6.2.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="DP,codeforces,枚举," />
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
 
 
 
 
 
 
-
-
-
-
-<meta name="description" content="题目链接： Codeforces 442 Div.2 B 题意: 给出一个只由小写字母ab组成的串，删除任意字符后，将剩下的拼起来（不改变顺序） ，问剩下的串满足由:\(s\_{1}\)、\(s\_{2}\)、\(s\_{3}\) 组成，其中\(s\_{1}\)为全部由小写字母a组成的或者是空串，\(s\_{2}\)为全部由小写字母b组成的或者是空串, \(s\_{3}\)为全部由小写字母a组成">
-<meta name="keywords" content="DP,codeforces,枚举">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Codeforces 442 Div.2 877B Nikita and String">
-<meta property="og:url" content="https://xiekeyi98.com/ACM/Codeforces/Codeforces-442-Div-2-877B-Nikita-and-String/index.html">
-<meta property="og:site_name" content="Dark猫">
-<meta property="og:description" content="题目链接： Codeforces 442 Div.2 B 题意: 给出一个只由小写字母ab组成的串，删除任意字符后，将剩下的拼起来（不改变顺序） ，问剩下的串满足由:\(s\_{1}\)、\(s\_{2}\)、\(s\_{3}\) 组成，其中\(s\_{1}\)为全部由小写字母a组成的或者是空串，\(s\_{2}\)为全部由小写字母b组成的或者是空串, \(s\_{3}\)为全部由小写字母a组成">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-26T08:06:04.132Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Codeforces 442 Div.2 877B Nikita and String">
-<meta name="twitter:description" content="题目链接： Codeforces 442 Div.2 B 题意: 给出一个只由小写字母ab组成的串，删除任意字符后，将剩下的拼起来（不改变顺序） ，问剩下的串满足由:\(s\_{1}\)、\(s\_{2}\)、\(s\_{3}\) 组成，其中\(s\_{1}\)为全部由小写字母a组成的或者是空串，\(s\_{2}\)为全部由小写字母b组成的或者是空串, \(s\_{3}\)为全部由小写字母a组成">
 
 
 
@@ -99,15 +79,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '5.1.3',
+    version: '6.2.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -119,12 +97,38 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="题目链接： Codeforces 442 Div.2 B 题意: 给出一个只由小写字母ab组成的串，删除任意字符后，将剩下的拼起来（不改变顺序） ，问剩下的串满足由:$s_{1}$、$s_{2}$、$s_{3}$ 组成，其中$s_{1}$为全部由小写字母a组成的或者是空串，$s_{2}$为全部由小写字母b组成的或者是空串,$s_{3}$为全部由小写字母a组成的或者是空串。求满足这样条件的串，最长的">
+<meta name="keywords" content="DP,codeforces,枚举">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Codeforces 442 Div.2 877B Nikita and String">
+<meta property="og:url" content="https://xiekeyi98.com/ACM/Codeforces/Codeforces-442-Div-2-877B-Nikita-and-String/index.html">
+<meta property="og:site_name" content="Dark猫">
+<meta property="og:description" content="题目链接： Codeforces 442 Div.2 B 题意: 给出一个只由小写字母ab组成的串，删除任意字符后，将剩下的拼起来（不改变顺序） ，问剩下的串满足由:$s_{1}$、$s_{2}$、$s_{3}$ 组成，其中$s_{1}$为全部由小写字母a组成的或者是空串，$s_{2}$为全部由小写字母b组成的或者是空串,$s_{3}$为全部由小写字母a组成的或者是空串。求满足这样条件的串，最长的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-26T08:06:04.132Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Codeforces 442 Div.2 877B Nikita and String">
+<meta name="twitter:description" content="题目链接： Codeforces 442 Div.2 B 题意: 给出一个只由小写字母ab组成的串，删除任意字符后，将剩下的拼起来（不改变顺序） ，问剩下的串满足由:$s_{1}$、$s_{2}$、$s_{3}$ 组成，其中$s_{1}$为全部由小写字母a组成的或者是空串，$s_{2}$为全部由小写字母b组成的或者是空串,$s_{3}$为全部由小写字母a组成的或者是空串。求满足这样条件的串，最长的">
+
+
+
+
+
 
   <link rel="canonical" href="https://xiekeyi98.com/ACM/Codeforces/Codeforces-442-Div-2-877B-Nikita-and-String/"/>
 
 
 
-
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>Codeforces 442 Div.2 877B Nikita and String | Dark猫</title>
   
@@ -136,9 +140,37 @@
 
 
 
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -154,7 +186,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Dark猫</span>
         <span class="logo-line-after"><i></i></span>
@@ -166,7 +198,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -174,86 +206,75 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-friendlink">
-          <a href="/friendlink/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
-            
-            友情链接
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-friendlink">
+    <a href="/friendlink/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-link"></i> <br />friendlink</a>
+  </li>
 
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
         </li>
       
     </ul>
+  
+
   
 
   
@@ -284,12 +305,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
 
@@ -300,6 +332,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -324,11 +358,19 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Codeforces 442 Div.2 877B Nikita and String</h2>
+          <h2 class="post-title" itemprop="name headline">Codeforces 442 Div.2 877B Nikita and String
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -336,13 +378,30 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-07T16:45:08+08:00">
-                2017-11-07
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-11-07 16:45:08" itemprop="dateCreated datePublished" datetime="2017-11-07T16:45:08+08:00">2017-11-07</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-03-26 16:06:04" itemprop="dateModified" datetime="2018-03-26T16:06:04+08:00">2018-03-26</time>
+              
             
           </span>
 
@@ -358,11 +417,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a></span>
 
                 
                 
@@ -382,12 +437,20 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">阅读次数：</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
           
 
           
@@ -407,40 +470,40 @@
       
 
       
-        <p>题目链接： <a href="http://codeforces.com/contest/877/problem/B" target="_blank" rel="external">Codeforces 442 Div.2 B</a></p>
-<p>题意: 给出一个只由小写字母ab组成的串，删除任意字符后，将剩下的拼起来（不改变顺序） ，问剩下的串满足由:<span class="math inline">\(s\_{1}\)</span>、<span class="math inline">\(s\_{2}\)</span>、<span class="math inline">\(s\_{3}\)</span> 组成，其中<span class="math inline">\(s\_{1}\)</span>为全部由小写字母a组成的或者是空串，<span class="math inline">\(s\_{2}\)</span>为全部由小写字母b组成的或者是空串, <span class="math inline">\(s\_{3}\)</span>为全部由小写字母a组成的或者是空串。 求满足这样条件的串，最长的长度是多少？( |s| &lt; 5000 )</p>
-<p>一开始比赛的时候，我考虑的是维护一个前缀和，把a看为正数，把b看为负数。 然后前缀和维护的话大概就是这么一个样子。 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>( <span class="keyword">int</span> j = i ; j &lt; length + <span class="number">1</span> ; j++)</div><div class="line">		&#123;</div><div class="line">			<span class="keyword">if</span>( s[i] == s[j] )</div><div class="line">				cnt++;</div><div class="line">			<span class="keyword">else</span></div><div class="line">			&#123;</div><div class="line">				i = j - <span class="number">1</span>  ;</div><div class="line">				<span class="keyword">if</span>( s[i] == <span class="string">'a'</span> )</div><div class="line">					a.push_back( cnt ) ;</div><div class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(s[i] == <span class="string">'b'</span> )</div><div class="line">					a.push_back( -cnt ) ;</div><div class="line">				cnt = <span class="number">0</span> ;	</div><div class="line">				<span class="keyword">break</span> ;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
-<p>然后我想当然的认为，这道题就是求 <code>Max{ a[i] + a[j] + a[k] ) ( i &lt; j &lt;  ) }</code></p>
+        <p>题目链接： <a href="http://codeforces.com/contest/877/problem/B" target="_blank" rel="noopener">Codeforces 442 Div.2 B</a></p>
+<p>题意: 给出一个只由小写字母ab组成的串，删除任意字符后，将剩下的拼起来（不改变顺序） ，问剩下的串满足由:$s_{1}$、$s_{2}$、$s_{3}$ 组成，其中$s_{1}$为全部由小写字母a组成的或者是空串，$s_{2}$为全部由小写字母b组成的或者是空串,<br>$s_{3}$为全部由小写字母a组成的或者是空串。<br>求满足这样条件的串，最长的长度是多少？( |s| &lt;  5000  ) </p>
+<p>一开始比赛的时候，我考虑的是维护一个前缀和，把a看为正数，把b看为负数。<br>然后前缀和维护的话大概就是这么一个样子。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( <span class="keyword">int</span> j = i ; j &lt; length + <span class="number">1</span> ; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>( s[i] == s[j] )</span><br><span class="line">				cnt++;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				i = j - <span class="number">1</span>  ;</span><br><span class="line">				<span class="keyword">if</span>( s[i] == <span class="string">'a'</span> )</span><br><span class="line">					a.push_back( cnt ) ;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(s[i] == <span class="string">'b'</span> )</span><br><span class="line">					a.push_back( -cnt ) ;</span><br><span class="line">				cnt = <span class="number">0</span> ;	</span><br><span class="line">				<span class="keyword">break</span> ;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后我想当然的认为，这道题就是求<br><code>Max{ a[i] + a[j] + a[k] ) ( i &lt; j &lt;  ) }</code></p>
 <p>结果WA了整整一个比赛。</p>
-<p>主要原因是没有考虑到，有可能拼起来更长的情况。 比如: aaaabaaaaa</p>
+<p>主要原因是没有考虑到，有可能拼起来更长的情况。<br>比如:<br>aaaabaaaaa</p>
 <p>这样，可以把b删去后把a全部看成一起，这个做法没有考虑到这个情况。</p>
-<p><strong>思维太僵化了，其实有很简单的做法。结果经常自己陷入一开始的思维定式跳不出来。</strong></p>
+<p><strong>思维太僵化了，其实有很简单的做法。结果经常自己陷入一开始的思维定式跳不出来。</strong> </p>
 <hr>
-<h3 id="做法1">做法1</h3>
-<p>因为数据量只由5000，所以其实可以直接<span class="math inline">\(n^{2}\)</span>枚举分界点，然后前缀和之类的统计一下就可以了。</p>
+<h3 id="做法1"><a href="#做法1" class="headerlink" title="做法1"></a>做法1</h3><p>因为数据量只由5000，所以其实可以直接$n^{2}$枚举分界点，然后前缀和之类的统计一下就可以了。</p>
 <p><strong>这道题细节不算少，分界点如何枚举，如何处理空串这类，我处理了不短的时间。</strong></p>
-<p>时间复杂度: <span class="math inline">\(O(n^{2})\)</span> （前缀和）</p>
-<h3 id="做法2">做法2</h3>
-<p>我们可以用<code>dp[n][3]</code>这样的数组表示，其中<code>dp[0]</code>表示只由a构成的串，<code>dp[1]</code>表示由a、b构成的串，<code>dp[2]</code>表示由a、b、a构成的串。</p>
-<p>那么，当我<code>s[i] == 'a'</code> 时， <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>] + <span class="number">1</span>;</div><div class="line">dp[i][<span class="number">1</span>] = dp[i<span class="number">-1</span>][<span class="number">1</span>] ;</div><div class="line">dp[i][<span class="number">2</span>] = max( dp[i<span class="number">-1</span>][<span class="number">1</span>] + <span class="number">1</span> , dp[i<span class="number">-1</span>][<span class="number">2</span>] + <span class="number">1</span> ) ;</div></pre></td></tr></table></figure></p>
-<p>当 <code>s[i] == 'b'</code> 时 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>] ;</div><div class="line">dp[i][<span class="number">1</span>] = max( dp[i<span class="number">-1</span>][<span class="number">1</span>] + <span class="number">1</span> , dp[i<span class="number">-1</span>][<span class="number">0</span>] + <span class="number">1</span> ) ;</div><div class="line">dp[i][<span class="number">2</span>] = dp[i<span class="number">-1</span>][<span class="number">2</span>] ;</div></pre></td></tr></table></figure></p>
+<p>时间复杂度: $O(n^{2})$ （前缀和） </p>
+<h3 id="做法2"><a href="#做法2" class="headerlink" title="做法2"></a>做法2</h3><p>我们可以用<code>dp[n][3]</code>这样的数组表示，其中<code>dp[0]</code>表示只由a构成的串，<code>dp[1]</code>表示由a、b构成的串，<code>dp[2]</code>表示由a、b、a构成的串。</p>
+<p>那么，当我<code>s[i] == &#39;a&#39;</code> 时，<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>] + <span class="number">1</span>;</span><br><span class="line">dp[i][<span class="number">1</span>] = dp[i<span class="number">-1</span>][<span class="number">1</span>] ;</span><br><span class="line">dp[i][<span class="number">2</span>] = max( dp[i<span class="number">-1</span>][<span class="number">1</span>] + <span class="number">1</span> , dp[i<span class="number">-1</span>][<span class="number">2</span>] + <span class="number">1</span> ) ;</span><br></pre></td></tr></table></figure></p>
+<p>当 <code>s[i] == &#39;b&#39;</code> 时<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>] ;</span><br><span class="line">dp[i][<span class="number">1</span>] = max( dp[i<span class="number">-1</span>][<span class="number">1</span>] + <span class="number">1</span> , dp[i<span class="number">-1</span>][<span class="number">0</span>] + <span class="number">1</span> ) ;</span><br><span class="line">dp[i][<span class="number">2</span>] = dp[i<span class="number">-1</span>][<span class="number">2</span>] ;</span><br></pre></td></tr></table></figure></p>
 <p>转移应该是显而易见的。</p>
-<p>对于只由a构成的串，每次都是遇到a的时候加一。 由ab构成的串，可以由 只由a的串转移而来，或者由ab串转移而来。 aba构成的串，可以由ab转移而来，也可以由aba转移而来。</p>
-<p>时间复杂度: <span class="math inline">\(O(n)\)</span></p>
-<h3 id="做法3">做法3</h3>
-<p>我们可以把a看做是1，b看做是2，b后面的a看做是3.</p>
+<p>对于只由a构成的串，每次都是遇到a的时候加一。<br>由ab构成的串，可以由 只由a的串转移而来，或者由ab串转移而来。<br>aba构成的串，可以由ab转移而来，也可以由aba转移而来。</p>
+<p>时间复杂度: $O(n)$</p>
+<h3 id="做法3"><a href="#做法3" class="headerlink" title="做法3"></a>做法3</h3><p>我们可以把a看做是1，b看做是2，b后面的a看做是3.</p>
 <p>那么题目就变成了求最长上升子序列（LIS）问题。</p>
-<p>求LIS的做法有 <span class="math inline">\(O(n^{2})\)</span>和<span class="math inline">\(O(nlogn)\)</span>的做法。</p>
+<p>求LIS的做法有 $O(n^{2})$和$O(nlogn)$的做法。</p>
 <p>这个写法本质上其实和做法2很像，因为只由3个数字的LIS，所以可以用做法2去实现。</p>
 <p>因为这个方法细节较多，b前后的问题比较难处理，而且有了更容易理解的做法2.</p>
 <p>因此没有写这个做法的代码。</p>
 <hr>
 <p>做法1代码：</p>
-<div class="spoiler collapsed"><div class="spoiler-title">code</div><div class="spoiler-content"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line"><span class="comment">// enumerate every interval .</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span> ;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">5050</span> ;</div><div class="line"></div><div class="line"><span class="keyword">int</span> a[maxn] , b[maxn];</div><div class="line"><span class="keyword">char</span> s[maxn];</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line"></div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span> , s + <span class="number">1</span> ) ;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> length = <span class="built_in">strlen</span>(s+<span class="number">1</span>)  ;</div><div class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= length ; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>( s[i] == <span class="string">'a'</span> )</div><div class="line">            a[i] = a[i<span class="number">-1</span>] + <span class="number">1</span> ;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            a[i] = a[i<span class="number">-1</span>];</div><div class="line"></div><div class="line"></div><div class="line">        <span class="keyword">if</span>( s[i] == <span class="string">'b'</span> )</div><div class="line">            b[i] = b[i<span class="number">-1</span>] + <span class="number">1</span> ;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            b[i] = b[i<span class="number">-1</span>]  ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> ans = <span class="number">0</span> ; </div><div class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt;= length + <span class="number">1</span> ; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> j = i ; j &lt;=  length + <span class="number">1</span> ; j++)</div><div class="line">        &#123;</div><div class="line">            ans = max( ans , a[i] + b[j] - b[i] + ( ( j &gt;= length + <span class="number">1</span> ) ? <span class="number">0</span> : ( a[length] - a[j] ) ) ) ;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span> ;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure> </div></div>
-<p>做法2代码： <div class="spoiler collapsed"><div class="spoiler-title">code</div><div class="spoiler-content"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span> ;</div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">5050</span> ; </div><div class="line"></div><div class="line"><span class="keyword">int</span> dp[maxn][<span class="number">3</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">string</span> s ;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; s ;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; s.size() ; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>( s[i] == <span class="string">'a'</span> )</div><div class="line">        &#123;</div><div class="line">            dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>] + <span class="number">1</span>;</div><div class="line">            dp[i][<span class="number">1</span>] = dp[i<span class="number">-1</span>][<span class="number">1</span>] ;</div><div class="line">            dp[i][<span class="number">2</span>] = max( dp[i<span class="number">-1</span>][<span class="number">1</span>] + <span class="number">1</span> , dp[i<span class="number">-1</span>][<span class="number">2</span>] + <span class="number">1</span> ) ;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span>( s[i] == <span class="string">'b'</span> )</div><div class="line">        &#123;</div><div class="line">            dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>] ;</div><div class="line">            dp[i][<span class="number">1</span>] = max( dp[i<span class="number">-1</span>][<span class="number">1</span>] + <span class="number">1</span> , dp[i<span class="number">-1</span>][<span class="number">0</span>] + <span class="number">1</span> ) ;</div><div class="line">            dp[i][<span class="number">2</span>] = dp[i<span class="number">-1</span>][<span class="number">2</span>] ;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; max( &#123; dp[s.size()<span class="number">-1</span>][<span class="number">0</span>] , dp[s.size()<span class="number">-1</span>][<span class="number">1</span>] , dp[s.size()<span class="number">-1</span>][<span class="number">2</span>] &#125; ) &lt;&lt; <span class="built_in">endl</span> ;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span> ; </div><div class="line">&#125;</div></pre></td></tr></table></figure> </div></div></p>
+<div class="spoiler collapsed"><div class="spoiler-title">code</div><div class="spoiler-content"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="comment">// enumerate every interval .</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span> ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">5050</span> ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[maxn] , b[maxn];</span><br><span class="line"><span class="keyword">char</span> s[maxn];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span> , s + <span class="number">1</span> ) ;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> length = <span class="built_in">strlen</span>(s+<span class="number">1</span>)  ;</span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= length ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>( s[i] == <span class="string">'a'</span> )</span><br><span class="line">            a[i] = a[i<span class="number">-1</span>] + <span class="number">1</span> ;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            a[i] = a[i<span class="number">-1</span>];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>( s[i] == <span class="string">'b'</span> )</span><br><span class="line">            b[i] = b[i<span class="number">-1</span>] + <span class="number">1</span> ;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            b[i] = b[i<span class="number">-1</span>]  ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span> ; </span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt;= length + <span class="number">1</span> ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> j = i ; j &lt;=  length + <span class="number">1</span> ; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            ans = max( ans , a[i] + b[j] - b[i] + ( ( j &gt;= length + <span class="number">1</span> ) ? <span class="number">0</span> : ( a[length] - a[j] ) ) ) ;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> </div></div>
+<p>做法2代码：<br><div class="spoiler collapsed"><div class="spoiler-title">code</div><div class="spoiler-content"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span> ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">5050</span> ; </span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dp[maxn][<span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> s ;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; s ;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; s.size() ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>( s[i] == <span class="string">'a'</span> )</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>] + <span class="number">1</span>;</span><br><span class="line">            dp[i][<span class="number">1</span>] = dp[i<span class="number">-1</span>][<span class="number">1</span>] ;</span><br><span class="line">            dp[i][<span class="number">2</span>] = max( dp[i<span class="number">-1</span>][<span class="number">1</span>] + <span class="number">1</span> , dp[i<span class="number">-1</span>][<span class="number">2</span>] + <span class="number">1</span> ) ;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>( s[i] == <span class="string">'b'</span> )</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>] ;</span><br><span class="line">            dp[i][<span class="number">1</span>] = max( dp[i<span class="number">-1</span>][<span class="number">1</span>] + <span class="number">1</span> , dp[i<span class="number">-1</span>][<span class="number">0</span>] + <span class="number">1</span> ) ;</span><br><span class="line">            dp[i][<span class="number">2</span>] = dp[i<span class="number">-1</span>][<span class="number">2</span>] ;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; max( &#123; dp[s.size()<span class="number">-1</span>][<span class="number">0</span>] , dp[s.size()<span class="number">-1</span>][<span class="number">1</span>] , dp[s.size()<span class="number">-1</span>][<span class="number">2</span>] &#125; ) &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> ; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> </div></div></p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
       
     </div>
+
+    
+
     
     
     
@@ -510,14 +573,6 @@
           </div>
           
 
-
-          
-
-  
-    <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTQ2My84MDI3"></div>
-    </div>
-
   
 
 
@@ -563,75 +618,133 @@
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
-          <nav class="site-state motion-element">
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-            
-              <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
               
-                  <span class="site-state-item-count">24</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
 
-            
               
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
               
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
+            </nav>
+          
 
           
 
-          <div class="links-of-author motion-element">
-            
+          
+            <div class="links-of-author motion-element">
               
                 <span class="links-of-author-item">
-                  <a href="https://github.com/xiekeyi98" target="_blank" title="GitHub">
-                    
-                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  <a href="https://github.com/xiekeyi98" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="mailto:xiekeyi98@gmail.com" target="_blank" title="E-Mail">
-                    
-                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  <a href="mailto:xiekeyi98@gmail.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="https://xiekeyi98.gitbooks.io/acm-template/content/" target="_blank" title="ACM-TEMPLATE">
-                    
-                      <i class="fa fa-fw fa-globe"></i>ACM-TEMPLATE</a>
+                  <a href="https://xiekeyi98.gitbooks.io/acm-template/content/" target="_blank" title="ACM-TEMPLATE" rel="external nofollow"><i class="fa fa-fw fa-globe"></i>ACM-TEMPLATE</a>
+                  
                 </span>
               
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
             
-          </div>
-
           
-          
-
-          
-          
-
           
 
         </div>
@@ -667,18 +780,25 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Xie Keyi</span>
 
-<a href="http://www.miitbeian.gov.cn/">陕ICP备17019730号</a> 
+  <span class="author" itemprop="copyrightHolder">Xie Keyi</span>
+    <a href="http://www.miitbeian.gov.cn/">陕ICP备17019730号</a> 
+
+  
+
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
 
 
@@ -686,12 +806,31 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.2.0</div>
 
 
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
 
 
 
@@ -739,7 +878,11 @@
 
 
 
-  
+
+
+
+
+
 
 
 
@@ -759,16 +902,6 @@
 
   
   
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
     <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
@@ -777,18 +910,13 @@
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
 
 
 
@@ -796,30 +924,26 @@
   
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=6.2.0"></script>
 
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.2.0"></script>
 
 
 
   
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
 
 
 
   
 
 
-  
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
 
+
+
+  
 
 
 
@@ -836,19 +960,6 @@
 
 
   
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
-  
-
-
 
 
 
@@ -910,6 +1021,8 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -943,6 +1056,7 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
                 var articleUrl = decodeURIComponent(data.url);
                 var indexOfTitle = [];
@@ -1242,35 +1356,24 @@
             var counter = results[0];
             counter.fetchWhenSave(true);
             counter.increment("time");
+            
             counter.save(null, {
               success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
               },
               error: function(counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
               }
             });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
         },
         error: function(error) {
@@ -1292,48 +1395,49 @@
 
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
 </script>
 
-
-  
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
         for (i=0; i < all.length; i += 1) {
           all[i].SourceElement().parentNode.className += ' has-jax';
         }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
+
+  
+  
+
+  
+
+  
+
+  
 
   
 

@@ -2,15 +2,21 @@
 
 
 
+
+
+
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
+
+
+
 
 
 
@@ -38,10 +44,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
 
 
 
@@ -50,47 +52,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar-32x32.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar-32x32.png?v=6.2.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar-16x16.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar-16x16.png?v=6.2.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="USACO," />
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
 
 
 
 
 
 
-
-
-
-
-<meta name="description" content="USACO-Chapter1-Section1.4">
-<meta name="keywords" content="USACO">
-<meta property="og:type" content="article">
-<meta property="og:title" content="USACO-Chapter1-Section1.4">
-<meta property="og:url" content="https://xiekeyi98.com/ACM/USACO/Chapter1/USACO-Chapter1-Section1-4/index.html">
-<meta property="og:site_name" content="Dark猫">
-<meta property="og:description" content="USACO-Chapter1-Section1.4">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-26T11:27:09.026Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="USACO-Chapter1-Section1.4">
-<meta name="twitter:description" content="USACO-Chapter1-Section1.4">
 
 
 
@@ -99,15 +79,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '5.1.3',
+    version: '6.2.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -119,12 +97,38 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="USACO-Chapter1-Section1.4">
+<meta name="keywords" content="USACO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="USACO-Chapter1-Section1.4">
+<meta property="og:url" content="https://xiekeyi98.com/ACM/USACO/Chapter1/USACO-Chapter1-Section1-4/index.html">
+<meta property="og:site_name" content="Dark猫">
+<meta property="og:description" content="USACO-Chapter1-Section1.4">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-26T11:27:09.026Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="USACO-Chapter1-Section1.4">
+<meta name="twitter:description" content="USACO-Chapter1-Section1.4">
+
+
+
+
+
 
   <link rel="canonical" href="https://xiekeyi98.com/ACM/USACO/Chapter1/USACO-Chapter1-Section1-4/"/>
 
 
 
-
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>USACO-Chapter1-Section1.4 | Dark猫</title>
   
@@ -136,9 +140,37 @@
 
 
 
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -154,7 +186,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Dark猫</span>
         <span class="logo-line-after"><i></i></span>
@@ -166,7 +198,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -174,86 +206,75 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-friendlink">
-          <a href="/friendlink/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
-            
-            友情链接
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-friendlink">
+    <a href="/friendlink/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-link"></i> <br />friendlink</a>
+  </li>
 
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
         </li>
       
     </ul>
+  
+
   
 
   
@@ -284,12 +305,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
 
@@ -300,6 +332,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -324,11 +358,19 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">USACO-Chapter1-Section1.4</h2>
+          <h2 class="post-title" itemprop="name headline">USACO-Chapter1-Section1.4
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -336,13 +378,30 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-08T17:18:29+08:00">
-                2017-11-08
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2017-11-08 17:18:29" itemprop="dateCreated datePublished" datetime="2017-11-08T17:18:29+08:00">2017-11-08</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-03-26 19:27:09" itemprop="dateModified" datetime="2018-03-26T19:27:09+08:00">2018-03-26</time>
+              
             
           </span>
 
@@ -358,11 +417,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a></span>
 
                 
                 
@@ -382,20 +437,26 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">阅读次数：</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
           
 
           
-
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
           
 
           
-              <div class="post-description">
-                  USACO-Chapter1-Section1.4
-              </div>
+
+          
+              <div class="post-description">USACO-Chapter1-Section1.4</div>
           
 
         </div>
@@ -411,13 +472,14 @@
       
 
       
-        <h3 id="ariprog">1ariprog</h3>
-<div class="spoiler collapsed"><div class="spoiler-title">code</div><div class="spoiler-content"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">ID:xiekeyi1</span></div><div class="line"><span class="comment">PROG:ariprog</span></div><div class="line"><span class="comment">LANG:C++</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span> ;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">250</span> * <span class="number">250</span> * <span class="number">2</span> ; </div><div class="line"><span class="keyword">bool</span> a[maxn + <span class="number">10</span> ] ; </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">( <span class="keyword">int</span> m )</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">memset</span>( a , <span class="literal">false</span> , <span class="keyword">sizeof</span>(a) ) ;</div><div class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt;= m ; i++)</div><div class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> j = i ; j &lt;= m ; j++)</div><div class="line">            a[ i*i + j*j ] = <span class="literal">true</span> ;</div><div class="line">    <span class="keyword">return</span> ; </div><div class="line">&#125;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">    <span class="keyword">int</span> a , b ;    </div><div class="line">    node( <span class="keyword">int</span> _a , <span class="keyword">int</span> _b) : a(_a) , b(_b) &#123;&#125;  </div><div class="line">&#125;;</div><div class="line"><span class="built_in">vector</span>&lt;node&gt; ans ; </div><div class="line"></div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">( struct node a , struct node b )</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">if</span>( a.b &lt; b.b )</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span> ;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span>( a.b == b.b )</div><div class="line">        <span class="keyword">return</span> a.a &lt; b.a ;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span> ;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    freopen(<span class="string">"ariprog.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</div><div class="line">    freopen(<span class="string">"ariprog.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</div><div class="line">    <span class="keyword">int</span> n , m;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m ; </div><div class="line">    init(m) ;</div><div class="line">    <span class="keyword">int</span> d = <span class="number">1</span> ;</div><div class="line">    <span class="keyword">int</span> maxx = m*m + m*m ; </div><div class="line">    <span class="keyword">bool</span> flag = <span class="literal">false</span> ;</div><div class="line">    <span class="keyword">while</span>( ( n - <span class="number">1</span> ) * d &lt;= maxx) </div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt;= maxx - ( n - <span class="number">1</span> ) * d ; i++)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">bool</span> f = <span class="literal">true</span> ; </div><div class="line">            <span class="keyword">for</span>( <span class="keyword">int</span> j = i ; j &lt;= i + ( n - <span class="number">1</span> ) * d ; j +=d )</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span>( a[j] == <span class="literal">false</span> )</div><div class="line">                &#123;</div><div class="line">                    f = <span class="literal">false</span> ;</div><div class="line">                    <span class="keyword">break</span> ;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>( f ) </div><div class="line">            &#123;</div><div class="line">                ans.push_back( node(i,d) ) ;</div><div class="line">                flag = <span class="literal">true</span> ;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        d++ ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    sort( ans.begin() , ans.end() , cmp ) ; </div><div class="line">    <span class="keyword">if</span>( flag )  </div><div class="line">        <span class="keyword">for</span>( <span class="built_in">vector</span>&lt;node&gt; :: iterator iter = ans.begin() ; iter != ans.end() ; iter++)</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; iter-&gt;a &lt;&lt; <span class="string">' '</span> &lt;&lt; iter-&gt;b &lt;&lt; <span class="built_in">endl</span> ;</div><div class="line"></div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"NONE"</span> &lt;&lt; <span class="built_in">endl</span> ;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span> ; </div><div class="line">&#125;</div><div class="line"></div></pre></td></tr></table></figure> </div></div>
-<h3 id="milk3">2milk3</h3>
-<div class="spoiler collapsed"><div class="spoiler-title">code</div><div class="spoiler-content"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">ID:xiekeyi1</span></div><div class="line"><span class="comment">PROG:milk3</span></div><div class="line"><span class="comment">LANG:C++</span></div><div class="line"><span class="comment">*/</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span> ;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn =<span class="number">25</span>;</div><div class="line"><span class="keyword">bool</span> vis[maxn][maxn];</div><div class="line"><span class="keyword">bool</span> note[maxn];</div><div class="line"></div><div class="line"><span class="keyword">int</span> aa[<span class="number">4</span>];</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">( <span class="keyword">int</span> a , <span class="keyword">int</span> b , <span class="keyword">int</span> c )</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">if</span>( vis[a][b] )</div><div class="line">        <span class="keyword">return</span> ;</div><div class="line">    vis[a][b] = <span class="literal">true</span> ;</div><div class="line">    <span class="keyword">if</span>( a == <span class="number">0</span> )</div><div class="line">        note[c] = <span class="literal">true</span> ;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> temp[<span class="number">4</span>];</div><div class="line">    temp[<span class="number">1</span>] = a , temp[<span class="number">2</span>] = b , temp[<span class="number">3</span>]  = c ;</div><div class="line"></div><div class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= <span class="number">3</span> ; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> j = <span class="number">1</span> ; j &lt;= <span class="number">3</span> ; j++)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span>( i != j )</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">if</span>( temp[i] != <span class="number">0</span> &amp;&amp; temp[j] &lt; aa[j] )</div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">if</span>( temp[i] &lt;= aa[j] - temp[j] )</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">int</span> t1 = temp[i] , t2 = temp[j] ;</div><div class="line">                        temp[j] += temp[i] ;</div><div class="line">                        temp[i] = <span class="number">0</span> ;</div><div class="line">                        dfs( temp[<span class="number">1</span>] ,temp[<span class="number">2</span>] , temp[<span class="number">3</span>]);</div><div class="line">                        temp[i] = t1 , temp[j] = t2 ; </div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    <span class="keyword">if</span>( temp[i] &gt; aa[j] - temp[j] )</div><div class="line">                    &#123;</div><div class="line">                        <span class="keyword">int</span> t1= temp[i] , t2 = temp[j] ;</div><div class="line">                        temp[i] -= aa[j] - temp[j] ;</div><div class="line">                        temp[j] = aa[j] ;</div><div class="line">                        dfs( temp[<span class="number">1</span>] , temp[<span class="number">2</span>] , temp[<span class="number">3</span>]);</div><div class="line">                        temp[i] = t1 , temp[j] = t2 ;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    freopen(<span class="string">"milk3.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</div><div class="line">    freopen(<span class="string">"milk3.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; aa[<span class="number">1</span>] &gt;&gt; aa[<span class="number">2</span>] &gt;&gt; aa[<span class="number">3</span>] ; </div><div class="line">    dfs( <span class="number">0</span>,<span class="number">0</span>,aa[<span class="number">3</span>]) ;</div><div class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt;= aa[<span class="number">3</span>] - <span class="number">1</span> ; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>( note[i] )</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">' '</span> ;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">cout</span> &lt;&lt;  aa[<span class="number">3</span>]  &lt;&lt; <span class="built_in">endl</span> ;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span> ; </div><div class="line">&#125;</div></pre></td></tr></table></figure> </div></div>
+        <h3 id="1ariprog"><a href="#1ariprog" class="headerlink" title="1ariprog"></a>1ariprog</h3><div class="spoiler collapsed"><div class="spoiler-title">code</div><div class="spoiler-content"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">ID:xiekeyi1</span></span><br><span class="line"><span class="comment">PROG:ariprog</span></span><br><span class="line"><span class="comment">LANG:C++</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span> ;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">250</span> * <span class="number">250</span> * <span class="number">2</span> ; </span><br><span class="line"><span class="keyword">bool</span> a[maxn + <span class="number">10</span> ] ; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">( <span class="keyword">int</span> m )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>( a , <span class="literal">false</span> , <span class="keyword">sizeof</span>(a) ) ;</span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt;= m ; i++)</span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> j = i ; j &lt;= m ; j++)</span><br><span class="line">            a[ i*i + j*j ] = <span class="literal">true</span> ;</span><br><span class="line">    <span class="keyword">return</span> ; </span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> a , b ;    </span><br><span class="line">    node( <span class="keyword">int</span> _a , <span class="keyword">int</span> _b) : a(_a) , b(_b) &#123;&#125;  </span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;node&gt; ans ; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">( struct node a , struct node b )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( a.b &lt; b.b )</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span> ;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>( a.b == b.b )</span><br><span class="line">        <span class="keyword">return</span> a.a &lt; b.a ;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span> ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    freopen(<span class="string">"ariprog.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">"ariprog.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</span><br><span class="line">    <span class="keyword">int</span> n , m;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m ; </span><br><span class="line">    init(m) ;</span><br><span class="line">    <span class="keyword">int</span> d = <span class="number">1</span> ;</span><br><span class="line">    <span class="keyword">int</span> maxx = m*m + m*m ; </span><br><span class="line">    <span class="keyword">bool</span> flag = <span class="literal">false</span> ;</span><br><span class="line">    <span class="keyword">while</span>( ( n - <span class="number">1</span> ) * d &lt;= maxx) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt;= maxx - ( n - <span class="number">1</span> ) * d ; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">bool</span> f = <span class="literal">true</span> ; </span><br><span class="line">            <span class="keyword">for</span>( <span class="keyword">int</span> j = i ; j &lt;= i + ( n - <span class="number">1</span> ) * d ; j +=d )</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>( a[j] == <span class="literal">false</span> )</span><br><span class="line">                &#123;</span><br><span class="line">                    f = <span class="literal">false</span> ;</span><br><span class="line">                    <span class="keyword">break</span> ;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>( f ) </span><br><span class="line">            &#123;</span><br><span class="line">                ans.push_back( node(i,d) ) ;</span><br><span class="line">                flag = <span class="literal">true</span> ;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        d++ ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sort( ans.begin() , ans.end() , cmp ) ; </span><br><span class="line">    <span class="keyword">if</span>( flag )  </span><br><span class="line">        <span class="keyword">for</span>( <span class="built_in">vector</span>&lt;node&gt; :: iterator iter = ans.begin() ; iter != ans.end() ; iter++)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; iter-&gt;a &lt;&lt; <span class="string">' '</span> &lt;&lt; iter-&gt;b &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"NONE"</span> &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> ; </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure> </div></div>
+<h3 id="2milk3"><a href="#2milk3" class="headerlink" title="2milk3"></a>2milk3</h3><div class="spoiler collapsed"><div class="spoiler-title">code</div><div class="spoiler-content"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">ID:xiekeyi1</span></span><br><span class="line"><span class="comment">PROG:milk3</span></span><br><span class="line"><span class="comment">LANG:C++</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span> ;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn =<span class="number">25</span>;</span><br><span class="line"><span class="keyword">bool</span> vis[maxn][maxn];</span><br><span class="line"><span class="keyword">bool</span> note[maxn];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> aa[<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">( <span class="keyword">int</span> a , <span class="keyword">int</span> b , <span class="keyword">int</span> c )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( vis[a][b] )</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    vis[a][b] = <span class="literal">true</span> ;</span><br><span class="line">    <span class="keyword">if</span>( a == <span class="number">0</span> )</span><br><span class="line">        note[c] = <span class="literal">true</span> ;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> temp[<span class="number">4</span>];</span><br><span class="line">    temp[<span class="number">1</span>] = a , temp[<span class="number">2</span>] = b , temp[<span class="number">3</span>]  = c ;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= <span class="number">3</span> ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> j = <span class="number">1</span> ; j &lt;= <span class="number">3</span> ; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>( i != j )</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>( temp[i] != <span class="number">0</span> &amp;&amp; temp[j] &lt; aa[j] )</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>( temp[i] &lt;= aa[j] - temp[j] )</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">int</span> t1 = temp[i] , t2 = temp[j] ;</span><br><span class="line">                        temp[j] += temp[i] ;</span><br><span class="line">                        temp[i] = <span class="number">0</span> ;</span><br><span class="line">                        dfs( temp[<span class="number">1</span>] ,temp[<span class="number">2</span>] , temp[<span class="number">3</span>]);</span><br><span class="line">                        temp[i] = t1 , temp[j] = t2 ; </span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span>( temp[i] &gt; aa[j] - temp[j] )</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">int</span> t1= temp[i] , t2 = temp[j] ;</span><br><span class="line">                        temp[i] -= aa[j] - temp[j] ;</span><br><span class="line">                        temp[j] = aa[j] ;</span><br><span class="line">                        dfs( temp[<span class="number">1</span>] , temp[<span class="number">2</span>] , temp[<span class="number">3</span>]);</span><br><span class="line">                        temp[i] = t1 , temp[j] = t2 ;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    freopen(<span class="string">"milk3.in"</span>,<span class="string">"r"</span>,<span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">"milk3.out"</span>,<span class="string">"w"</span>,<span class="built_in">stdout</span>);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; aa[<span class="number">1</span>] &gt;&gt; aa[<span class="number">2</span>] &gt;&gt; aa[<span class="number">3</span>] ; </span><br><span class="line">    dfs( <span class="number">0</span>,<span class="number">0</span>,aa[<span class="number">3</span>]) ;</span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt;= aa[<span class="number">3</span>] - <span class="number">1</span> ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>( note[i] )</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">' '</span> ;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt;  aa[<span class="number">3</span>]  &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> ; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> </div></div>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
       
     </div>
+
+    
+
     
     
     
@@ -483,14 +545,6 @@
           </div>
           
 
-
-          
-
-  
-    <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTQ2My84MDI3"></div>
-    </div>
-
   
 
 
@@ -536,75 +590,133 @@
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
-          <nav class="site-state motion-element">
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-            
-              <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
               
-                  <span class="site-state-item-count">24</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
 
-            
               
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
               
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
+            </nav>
+          
 
           
 
-          <div class="links-of-author motion-element">
-            
+          
+            <div class="links-of-author motion-element">
               
                 <span class="links-of-author-item">
-                  <a href="https://github.com/xiekeyi98" target="_blank" title="GitHub">
-                    
-                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  <a href="https://github.com/xiekeyi98" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="mailto:xiekeyi98@gmail.com" target="_blank" title="E-Mail">
-                    
-                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  <a href="mailto:xiekeyi98@gmail.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="https://xiekeyi98.gitbooks.io/acm-template/content/" target="_blank" title="ACM-TEMPLATE">
-                    
-                      <i class="fa fa-fw fa-globe"></i>ACM-TEMPLATE</a>
+                  <a href="https://xiekeyi98.gitbooks.io/acm-template/content/" target="_blank" title="ACM-TEMPLATE" rel="external nofollow"><i class="fa fa-fw fa-globe"></i>ACM-TEMPLATE</a>
+                  
                 </span>
               
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
             
-          </div>
-
           
-          
-
-          
-          
-
           
 
         </div>
@@ -620,7 +732,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ariprog"><span class="nav-number">1.</span> <span class="nav-text">1ariprog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#milk3"><span class="nav-number">2.</span> <span class="nav-text">2milk3</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1ariprog"><span class="nav-number">1.</span> <span class="nav-text">1ariprog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2milk3"><span class="nav-number">2.</span> <span class="nav-text">2milk3</span></a></li></ol></div>
             
 
           </div>
@@ -640,18 +752,25 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Xie Keyi</span>
 
-<a href="http://www.miitbeian.gov.cn/">陕ICP备17019730号</a> 
+  <span class="author" itemprop="copyrightHolder">Xie Keyi</span>
+    <a href="http://www.miitbeian.gov.cn/">陕ICP备17019730号</a> 
+
+  
+
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
 
 
@@ -659,12 +778,31 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.2.0</div>
 
 
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
 
 
 
@@ -712,7 +850,11 @@
 
 
 
-  
+
+
+
+
+
 
 
 
@@ -732,16 +874,6 @@
 
   
   
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
     <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
@@ -750,18 +882,13 @@
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
 
 
 
@@ -769,30 +896,26 @@
   
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=6.2.0"></script>
 
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.2.0"></script>
 
 
 
   
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
 
 
 
   
 
 
-  
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
 
+
+
+  
 
 
 
@@ -809,19 +932,6 @@
 
 
   
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
-  
-
-
 
 
 
@@ -883,6 +993,8 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -916,6 +1028,7 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
                 var articleUrl = decodeURIComponent(data.url);
                 var indexOfTitle = [];
@@ -1215,35 +1328,24 @@
             var counter = results[0];
             counter.fetchWhenSave(true);
             counter.increment("time");
+            
             counter.save(null, {
               success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
               },
               error: function(counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
               }
             });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
         },
         error: function(error) {
@@ -1265,21 +1367,8 @@
 
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
 
+  
 
   
   
@@ -1287,6 +1376,17 @@
   
   
 
+  
+
+
+  
+  
+
+  
+
+  
+
+  
 
   
 

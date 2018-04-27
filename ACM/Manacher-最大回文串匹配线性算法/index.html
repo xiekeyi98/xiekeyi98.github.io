@@ -2,15 +2,21 @@
 
 
 
+
+
+
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
+
+
+
 
 
 
@@ -38,10 +44,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
 
 
 
@@ -50,47 +52,25 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar-32x32.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar-32x32.png?v=6.2.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar-16x16.png?v=5.1.3">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar-16x16.png?v=6.2.0">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="ACM,算法,Manacher,字符串," />
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
 
 
 
 
 
 
-
-
-
-
-<meta name="description" content="线性求最大回文串匹配算法。">
-<meta name="keywords" content="ACM,算法,Manacher,字符串">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Manacher-最大回文串匹配线性算法">
-<meta property="og:url" content="https://xiekeyi98.com/ACM/Manacher-最大回文串匹配线性算法/index.html">
-<meta property="og:site_name" content="Dark猫">
-<meta property="og:description" content="线性求最大回文串匹配算法。">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-25T09:57:29.114Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Manacher-最大回文串匹配线性算法">
-<meta name="twitter:description" content="线性求最大回文串匹配算法。">
 
 
 
@@ -99,15 +79,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    version: '5.1.3',
+    version: '6.2.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -119,12 +97,38 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="线性求最大回文串匹配算法。">
+<meta name="keywords" content="ACM,算法,Manacher,字符串">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Manacher-最大回文串匹配线性算法">
+<meta property="og:url" content="https://xiekeyi98.com/ACM/Manacher-最大回文串匹配线性算法/index.html">
+<meta property="og:site_name" content="Dark猫">
+<meta property="og:description" content="线性求最大回文串匹配算法。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-25T09:57:29.114Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Manacher-最大回文串匹配线性算法">
+<meta name="twitter:description" content="线性求最大回文串匹配算法。">
+
+
+
+
+
 
   <link rel="canonical" href="https://xiekeyi98.com/ACM/Manacher-最大回文串匹配线性算法/"/>
 
 
 
-
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>Manacher-最大回文串匹配线性算法 | Dark猫</title>
   
@@ -136,9 +140,37 @@
 
 
 
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -154,7 +186,7 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Dark猫</span>
         <span class="logo-line-after"><i></i></span>
@@ -166,7 +198,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -174,86 +206,75 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-friendlink">
-          <a href="/friendlink/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-link"></i> <br />
-            
-            友情链接
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-friendlink">
+    <a href="/friendlink/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-link"></i> <br />friendlink</a>
+  </li>
 
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
         </li>
       
     </ul>
+  
+
   
 
   
@@ -284,12 +305,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
 
@@ -300,6 +332,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -324,11 +358,19 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Manacher-最大回文串匹配线性算法</h2>
+          <h2 class="post-title" itemprop="name headline">Manacher-最大回文串匹配线性算法
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -336,13 +378,30 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-27T15:02:05+08:00">
-                2018-03-27
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2018-03-27 15:02:05" itemprop="dateCreated datePublished" datetime="2018-03-27T15:02:05+08:00">2018-03-27</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-04-25 17:57:29" itemprop="dateModified" datetime="2018-04-25T17:57:29+08:00">2018-04-25</time>
+              
             
           </span>
 
@@ -358,11 +417,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM/" itemprop="url" rel="index">
-                    <span itemprop="name">ACM</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ACM/" itemprop="url" rel="index"><span itemprop="name">ACM</span></a></span>
 
                 
                 
@@ -382,12 +437,20 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">阅读次数：</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
           
 
           
@@ -407,52 +470,49 @@
       
 
       
-        <p>线性求最大回文串匹配算法。 <a id="more"></a></p>
+        <p>线性求最大回文串匹配算法。<br><a id="more"></a></p>
 <p>以往我是不太爱学算法的，尤其是这种适用面很狭窄的算法，因为总感觉算法这东西学了也不一定考，考了也不一定能A。不过最近刷题的时候发现，自己经常遇到的一些题，虽然和我学过的算法没什么关系，但是代码技巧和思维技巧，明明就是我学XX算法的时候的思路嘛。再加上我最近的代码能力有所增强，看新算法、学新算法的时间我感觉明显缩短，理解力up↑up↑。于是开始喜欢看新算法了。</p>
 <hr>
 <p>据说这个算法赛场上很难有机会用到，因为适用面狭窄。</p>
-<p>关于最大回文串的匹配，常见的算法有两种： 1. 用<span class="math inline">\(O(n^2)\)</span>的时间复杂度，暴力枚举每一个子串。再对于每一个子串，用<span class="math inline">\(O(n)\)</span>的复杂度去判断他是否是一个回文串。总时间复杂度为<span class="math inline">\(O(n^3)\)</span>。 2. 用<span class="math inline">\(O(n)\)</span>的时间复杂度去枚举中轴，对于每一个中轴，用<span class="math inline">\(O(n)\)</span>的时间复杂度去向两边扩展。总时间复杂度为<span class="math inline">\(O(n^2)\)</span>。(注意，这种方法对于偶数中轴和奇数中轴会有一些不一样的情况需要考虑。)</p>
-<h1 id="manacher马拉车算法">Manacher（马拉车）算法</h1>
-<p>这种算法可以看做是上面第二种算法的一个改进(成电视频中认为这是一个剪枝)。 对于第二种算法，如果当前匹配GG了，那么下一次匹配，依然要从<span class="math inline">\(1\)</span>(或<span class="math inline">\(0\)</span>)开始重新去检查回文串。</p>
+<p>关于最大回文串的匹配，常见的算法有两种：</p>
+<ol>
+<li>用$O(n^2)$的时间复杂度，暴力枚举每一个子串。再对于每一个子串，用$O(n)$的复杂度去判断他是否是一个回文串。总时间复杂度为$O(n^3)$。</li>
+<li>用$O(n)$的时间复杂度去枚举中轴，对于每一个中轴，用$O(n)$的时间复杂度去向两边扩展。总时间复杂度为$O(n^2)$。(注意，这种方法对于偶数中轴和奇数中轴会有一些不一样的情况需要考虑。)</li>
+</ol>
+<h1 id="Manacher（马拉车）算法"><a href="#Manacher（马拉车）算法" class="headerlink" title="Manacher（马拉车）算法"></a>Manacher（马拉车）算法</h1><p>这种算法可以看做是上面第二种算法的一个改进(成电视频中认为这是一个剪枝)。<br>对于第二种算法，如果当前匹配GG了，那么下一次匹配，依然要从$1$(或$0$)开始重新去检查回文串。</p>
 <p>然而，回文串里面有大量相似和冗余的信息，我们希望能用回文串本身的一些性质和所包含的信息，去避免每次都要从头开始匹配的问题。</p>
 <p>首先，我们需要对串本身进行一些改进，以避免第二种算法对于奇数和偶数需要分开判断的情况。我们在串的每个字母前后都加入特殊字符<code>#</code>，如对于<code>aaa</code>来说，改变后串为<code>#a#a#a</code>。</p>
-<p>接下来我们约定四个变量表示： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Ma[i] <span class="comment">// Ma表示改进后串，Ma[i]表示第i个字符</span></div><div class="line">Mp[i] <span class="comment">// 表示从第i个字符开始向两边延伸，最多可以延伸Mp[i]位（他们都是回文串）。</span></div><div class="line">Mx <span class="comment">// 表示之前延伸过的所有回文串，所到达过的最右端。</span></div><div class="line">Id <span class="comment">// 表示Mx所对应的回文串的中心。</span></div></pre></td></tr></table></figure></p>
-<p>首先我们初始化：$Mx = 0 , Id = 0 $ 接下来我们和第二种算法所做的基本一样，枚举中轴： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 为缩减代码，这里使用strlen函数，实际使用中请务必注意。</span></div><div class="line"><span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="built_in">strlen</span>(Ma) ; i++ )</div></pre></td></tr></table></figure></p>
-<h2 id="分类讨论">分类讨论</h2>
-<h3 id="情况1-mx-i">情况1 Mx &gt; i</h3>
-<p>那么如果我们枚举中发现$ Mx &gt; i <span class="math inline">\(，便可以说明，之前肯定有某一个串，曾经更新覆盖过\)</span>i<span class="math inline">\(，我们能否利用对称的性质，使\)</span>i$能有一个比较大的初始值，然后再进行常规操作。</p>
-<p><strong>由$ Mx &gt; i $ ，我们可以知道显然有$ Mx &gt; i &gt; id <span class="math inline">\(，那么既然\)</span>Mx和Mx'<span class="math inline">\(对称，中轴\)</span>id<span class="math inline">\(知道，那么\)</span>i<span class="math inline">\(和\)</span>i'$也一定会对称。</strong> 这是这个算法的核心。 <span class="math inline">\(i&#39;\)</span>的坐标是多少呢？就是$ 2 * id - i $ 由 $ id - ( i - id ) $得到 。</p>
-<h4 id="情况1-i和i都在mx与mx内">情况(1) i和i'都在Mx与Mx'内</h4>
-<p>那么我们是不是可以直接使用 $ Mp[i] = Mp[ 2 * id - i ] <span class="math inline">\(呢？ 在\)</span>i<span class="math inline">\(和\)</span>i'<span class="math inline">\(都在\)</span>Mx<span class="math inline">\(和\)</span>Mx'$内时，这是正确无误的。</p>
+<p>接下来我们约定四个变量表示：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Ma[i] <span class="comment">// Ma表示改进后串，Ma[i]表示第i个字符</span></span><br><span class="line">Mp[i] <span class="comment">// 表示从第i个字符开始向两边延伸，最多可以延伸Mp[i]位（他们都是回文串）。</span></span><br><span class="line">Mx <span class="comment">// 表示之前延伸过的所有回文串，所到达过的最右端。</span></span><br><span class="line">Id <span class="comment">// 表示Mx所对应的回文串的中心。</span></span><br></pre></td></tr></table></figure></p>
+<p>首先我们初始化：$Mx = 0 , Id = 0 $<br>接下来我们和第二种算法所做的基本一样，枚举中轴：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 为缩减代码，这里使用strlen函数，实际使用中请务必注意。</span></span><br><span class="line"><span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="built_in">strlen</span>(Ma) ; i++ )</span><br></pre></td></tr></table></figure></p>
+<h2 id="分类讨论"><a href="#分类讨论" class="headerlink" title="分类讨论"></a>分类讨论</h2><h3 id="情况1-Mx-gt-i"><a href="#情况1-Mx-gt-i" class="headerlink" title="情况1 Mx &gt; i"></a>情况1 Mx &gt; i</h3><p>那么如果我们枚举中发现$ Mx &gt; i $，便可以说明，之前肯定有某一个串，曾经更新覆盖过$i$，我们能否利用对称的性质，使$i$能有一个比较大的初始值，然后再进行常规操作。</p>
+<p><strong>由$ Mx &gt; i $ ，我们可以知道显然有$ Mx &gt; i &gt; id $，那么既然$Mx和Mx’$对称，中轴$id$知道，那么$i$和$i’$也一定会对称。</strong><br>这是这个算法的核心。<br>$i’$的坐标是多少呢？就是$ 2 * id - i $ 由 $ id - ( i - id )  $得到 。</p>
+<h4 id="情况-1-i和i’都在Mx与Mx’内"><a href="#情况-1-i和i’都在Mx与Mx’内" class="headerlink" title="情况(1) i和i’都在Mx与Mx’内"></a>情况(1) i和i’都在Mx与Mx’内</h4><p>那么我们是不是可以直接使用 $ Mp[i] = Mp[ 2 * id - i ] $呢？<br>在$i$和$i’$都在$Mx$和$Mx’$内时，这是正确无误的。</p>
 <p>但是还有另外一种情况。</p>
-<h4 id="情况2-i在mx外">情况(2) i'在Mx'外</h4>
-<p>当<span class="math inline">\(i&#39;\)</span>很长，延伸到了<span class="math inline">\(Mx&#39;\)</span>外时，我们并不能保证<span class="math inline">\(i\)</span>也能一如既往的延伸到<span class="math inline">\(Mx\)</span>以外。这时候我们只能保证<span class="math inline">\(i\)</span>在<span class="math inline">\(Mx\)</span>以内的时候，是对称的。 所以这时候 <span class="math display">\[ Mp[i] = Mx - i \]</span></p>
-<h4 id="情况1和情况2">情况(1)和情况(2)</h4>
-<p>我们并不关心具体是什么情况，因为这对时间复杂度没有影响。所以我们只要<code>Mp[i] = min( Mp[2*id-i] , Mx - i )</code> 就足够了。</p>
-<h3 id="情况2-mx-i">情况2 Mx &lt;= i</h3>
-<p>遇到这种情况我们怎么办呢？老老实实的去扩展吧。但是在这里我们可以一边扩展，一边去更新<code>Mp[i]</code>的值。 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span>( Ma[ i + Mp[i] ] == Ma[ i - Mp[i] ] ) Mp[i]++;</div></pre></td></tr></table></figure></p>
+<h4 id="情况-2-i’在Mx’外"><a href="#情况-2-i’在Mx’外" class="headerlink" title="情况(2) i’在Mx’外"></a>情况(2) i’在Mx’外</h4><p>当$i’$很长，延伸到了$Mx’$外时，我们并不能保证$i$也能一如既往的延伸到$Mx$以外。这时候我们只能保证$i$在$Mx$以内的时候，是对称的。<br>所以这时候</p>
+<script type="math/tex; mode=display">Mp[i] = Mx - i</script><h4 id="情况-1-和情况-2"><a href="#情况-1-和情况-2" class="headerlink" title="情况(1)和情况(2)"></a>情况(1)和情况(2)</h4><p>我们并不关心具体是什么情况，因为这对时间复杂度没有影响。所以我们只要<code>Mp[i] = min( Mp[2*id-i] , Mx - i )</code> 就足够了。</p>
+<h3 id="情况2-Mx-lt-i"><a href="#情况2-Mx-lt-i" class="headerlink" title="情况2 Mx &lt;= i"></a>情况2 Mx &lt;= i</h3><p>遇到这种情况我们怎么办呢？老老实实的去扩展吧。但是在这里我们可以一边扩展，一边去更新<code>Mp[i]</code>的值。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>( Ma[ i + Mp[i] ] == Ma[ i - Mp[i] ] ) Mp[i]++;</span><br></pre></td></tr></table></figure></p>
 <p>这样即就是一遍扩展，一遍更新了。</p>
-<h2 id="manacher完整实现">Manacher完整实现</h2>
-<p>最后，我们把上面这几部分组合一下，并注意更新<span class="math inline">\(Mx\)</span>和<span class="math inline">\(Id\)</span>的值，就可以了。</p>
-<div class="spoiler collapsed"><div class="spoiler-title">code</div><div class="spoiler-content"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; size ; i++)</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>( Mx &gt; i )</div><div class="line">    &#123;</div><div class="line">        Mp[i] = min( Mp[ <span class="number">2</span> * Id - i ] , Mx - i ) ;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        Mp[i] = <span class="number">1</span> ;</div><div class="line">    <span class="keyword">while</span>( Ma[i + Mp[i] ] == Ma[i - Mp[i]] )</div><div class="line">        Mp[i]++;</div><div class="line">    <span class="keyword">if</span>( i + Mp[i] &gt; Mx )</div><div class="line">    &#123;</div><div class="line">        Mx = i + Mp[i] ;</div><div class="line">        Id = i ;</div><div class="line">    &#125;</div><div class="line">    ans = max( ans , Mp[i] ) ;</div><div class="line">&#125;</div></pre></td></tr></table></figure></div></div>
-<p><strong>最终第i个字符的回文串长度为<span class="math inline">\(Mp[i] - 1\)</span></strong> ## 时间复杂度</p>
-<p>这个时间复杂度不是特别好算，我们可以使用摊还分析。具体可以参考一下其他量化分析文章，会很详细。简单的理解可以是： 发现<span class="math inline">\(Mx\)</span>每次最少往右移动<span class="math inline">\(1\)</span>，并且除此之外其他的不会对复杂度有贡献。</p>
-<h2 id="遇到的一些问题">遇到的一些问题</h2>
-<ol style="list-style-type: decimal">
-<li>理解为何<span class="math inline">\(Mp\)</span>数组只是记录了向其中一边延伸的问题，却可以做最终答案： 因为#号的存在，使得两边的#号必然相等，那么，一边就可以看做是两边了。</li>
-<li>需要正确理解为什么第i个字符的回文串长度需要<span class="math inline">\(-1\)</span>： 同样因为#的存在，当以#为中心，需要去除中心的#，当以非#为中心，需要去除相邻的一个#。</li>
+<h2 id="Manacher完整实现"><a href="#Manacher完整实现" class="headerlink" title="Manacher完整实现"></a>Manacher完整实现</h2><p>最后，我们把上面这几部分组合一下，并注意更新$Mx$和$Id$的值，就可以了。</p>
+<div class="spoiler collapsed"><div class="spoiler-title">code</div><div class="spoiler-content"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; size ; i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>( Mx &gt; i )</span><br><span class="line">    &#123;</span><br><span class="line">        Mp[i] = min( Mp[ <span class="number">2</span> * Id - i ] , Mx - i ) ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        Mp[i] = <span class="number">1</span> ;</span><br><span class="line">    <span class="keyword">while</span>( Ma[i + Mp[i] ] == Ma[i - Mp[i]] )</span><br><span class="line">        Mp[i]++;</span><br><span class="line">    <span class="keyword">if</span>( i + Mp[i] &gt; Mx )</span><br><span class="line">    &#123;</span><br><span class="line">        Mx = i + Mp[i] ;</span><br><span class="line">        Id = i ;</span><br><span class="line">    &#125;</span><br><span class="line">    ans = max( ans , Mp[i] ) ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></div>
+<p><strong>最终第i个字符的回文串长度为$Mp[i] - 1$</strong> </p>
+<h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p>这个时间复杂度不是特别好算，我们可以使用摊还分析。具体可以参考一下其他量化分析文章，会很详细。简单的理解可以是：<br>发现$Mx$每次最少往右移动$1$，并且除此之外其他的不会对复杂度有贡献。</p>
+<h2 id="遇到的一些问题"><a href="#遇到的一些问题" class="headerlink" title="遇到的一些问题"></a>遇到的一些问题</h2><ol>
+<li>理解为何$Mp$数组只是记录了向其中一边延伸的问题，却可以做最终答案：<br>因为#号的存在，使得两边的#号必然相等，那么，一边就可以看做是两边了。</li>
+<li>需要正确理解为什么第i个字符的回文串长度需要$-1$：<br>同样因为#的存在，当以#为中心，需要去除中心的#，当以非#为中心，需要去除相邻的一个#。</li>
 <li>边界等问题。(有些地方会把开头加一些其他的特殊字符以避免边界问题。目前这类问题我还没有遇到)</li>
 </ol>
-<h2 id="参考资料">参考资料</h2>
-<ul>
-<li><a href="https://www.bilibili.com/video/av20495920" target="_blank" rel="external">电子科技大学-字符串算法选讲</a> (昨天很多博客没看清楚，看了这个半个小时就会了)</li>
-<li><a href="https://www.zhihu.com/question/37289584" target="_blank" rel="external">有什么浅显易懂的Manacher Algorithm详解 - 知乎</a> (和第一个一起使用）</li>
-<li><a href="http://www.cnblogs.com/biyeymyhjob/archive/2012/10/04/2711527.html" target="_blank" rel="external">O(n)回文子串(Manacher)算法</a></li>
-<li><a href="https://www.zhihu.com/question/30226229" target="_blank" rel="external">如何证明Manacher算法的时间复杂度是O(n)</a></li>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://www.bilibili.com/video/av20495920" target="_blank" rel="noopener">电子科技大学-字符串算法选讲</a> (昨天很多博客没看清楚，看了这个半个小时就会了)</li>
+<li><a href="https://www.zhihu.com/question/37289584" target="_blank" rel="noopener">有什么浅显易懂的Manacher Algorithm详解 - 知乎</a> (和第一个一起使用）</li>
+<li><a href="http://www.cnblogs.com/biyeymyhjob/archive/2012/10/04/2711527.html" target="_blank" rel="noopener">O(n)回文子串(Manacher)算法</a></li>
+<li><a href="https://www.zhihu.com/question/30226229" target="_blank" rel="noopener">如何证明Manacher算法的时间复杂度是O(n)</a></li>
 </ul>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
       
     </div>
+
+    
+
     
     
     
@@ -524,14 +584,6 @@
           </div>
           
 
-
-          
-
-  
-    <div class="comments" id="comments">
-      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTQ2My84MDI3"></div>
-    </div>
-
   
 
 
@@ -577,75 +629,133 @@
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
-          <nav class="site-state motion-element">
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-            
-              <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
               
-                  <span class="site-state-item-count">24</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
 
-            
               
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
               
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
+            </nav>
+          
 
           
 
-          <div class="links-of-author motion-element">
-            
+          
+            <div class="links-of-author motion-element">
               
                 <span class="links-of-author-item">
-                  <a href="https://github.com/xiekeyi98" target="_blank" title="GitHub">
-                    
-                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  <a href="https://github.com/xiekeyi98" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="mailto:xiekeyi98@gmail.com" target="_blank" title="E-Mail">
-                    
-                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  <a href="mailto:xiekeyi98@gmail.com" target="_blank" title="E-Mail" rel="external nofollow"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="https://xiekeyi98.gitbooks.io/acm-template/content/" target="_blank" title="ACM-TEMPLATE">
-                    
-                      <i class="fa fa-fw fa-globe"></i>ACM-TEMPLATE</a>
+                  <a href="https://xiekeyi98.gitbooks.io/acm-template/content/" target="_blank" title="ACM-TEMPLATE" rel="external nofollow"><i class="fa fa-fw fa-globe"></i>ACM-TEMPLATE</a>
+                  
                 </span>
               
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
             
-          </div>
-
           
-          
-
-          
-          
-
           
 
         </div>
@@ -661,7 +771,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#manacher马拉车算法"><span class="nav-number">1.</span> <span class="nav-text">Manacher（马拉车）算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分类讨论"><span class="nav-number">1.1.</span> <span class="nav-text">分类讨论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#情况1-mx-i"><span class="nav-number">1.1.1.</span> <span class="nav-text">情况1 Mx > i</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#情况1-i和i都在mx与mx内"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">情况(1) i和i'都在Mx与Mx'内</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#情况2-i在mx外"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">情况(2) i'在Mx'外</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#情况1和情况2"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">情况(1)和情况(2)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情况2-mx-i"><span class="nav-number">1.1.2.</span> <span class="nav-text">情况2 Mx <= i</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#manacher完整实现"><span class="nav-number">1.2.</span> <span class="nav-text">Manacher完整实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的一些问题"><span class="nav-number">1.3.</span> <span class="nav-text">遇到的一些问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.4.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Manacher（马拉车）算法"><span class="nav-number">1.</span> <span class="nav-text">Manacher（马拉车）算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#分类讨论"><span class="nav-number">1.1.</span> <span class="nav-text">分类讨论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#情况1-Mx-gt-i"><span class="nav-number">1.1.1.</span> <span class="nav-text">情况1 Mx &gt; i</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#情况-1-i和i’都在Mx与Mx’内"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">情况(1) i和i’都在Mx与Mx’内</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#情况-2-i’在Mx’外"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">情况(2) i’在Mx’外</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#情况-1-和情况-2"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">情况(1)和情况(2)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情况2-Mx-lt-i"><span class="nav-number">1.1.2.</span> <span class="nav-text">情况2 Mx &lt;= i</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Manacher完整实现"><span class="nav-number">1.2.</span> <span class="nav-text">Manacher完整实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间复杂度"><span class="nav-number">1.3.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的一些问题"><span class="nav-number">1.4.</span> <span class="nav-text">遇到的一些问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.5.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -681,18 +791,25 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Xie Keyi</span>
 
-<a href="http://www.miitbeian.gov.cn/">陕ICP备17019730号</a> 
+  <span class="author" itemprop="copyrightHolder">Xie Keyi</span>
+    <a href="http://www.miitbeian.gov.cn/">陕ICP备17019730号</a> 
+
+  
+
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
 
 
@@ -700,12 +817,31 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Pisces</a> v6.2.0</div>
 
 
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
 
 
 
@@ -753,7 +889,11 @@
 
 
 
-  
+
+
+
+
+
 
 
 
@@ -773,16 +913,6 @@
 
   
   
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
     <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
@@ -791,18 +921,13 @@
     <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
 
 
 
@@ -810,30 +935,26 @@
   
 
 
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=6.2.0"></script>
 
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.2.0"></script>
 
 
 
   
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
 
 
 
   
 
 
-  
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
 
+
+
+  
 
 
 
@@ -850,19 +971,6 @@
 
 
   
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
-    </script>
-  
-
-
 
 
 
@@ -924,6 +1032,8 @@
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -957,6 +1067,7 @@
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
                 var articleUrl = decodeURIComponent(data.url);
                 var indexOfTitle = [];
@@ -1256,35 +1367,24 @@
             var counter = results[0];
             counter.fetchWhenSave(true);
             counter.increment("time");
+            
             counter.save(null, {
               success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
               },
               error: function(counter, error) {
                 console.log('Failed to save Visitor num, with error message: ' + error.message);
               }
             });
           } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
         },
         error: function(error) {
@@ -1306,48 +1406,49 @@
 
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
 </script>
 
-
-  
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
         for (i=0; i < all.length; i += 1) {
           all[i].SourceElement().parentNode.className += ' has-jax';
         }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
+
+  
+  
+
+  
+
+  
+
+  
 
   
 
