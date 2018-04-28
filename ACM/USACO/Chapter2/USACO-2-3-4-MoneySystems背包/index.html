@@ -114,7 +114,7 @@
 <meta property="og:site_name" content="Dark猫">
 <meta property="og:description" content="(记忆化搜索 完全背包 多重背包)求方案数。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-26T11:30:58.156Z">
+<meta property="og:updated_time" content="2018-04-28T13:30:30.682Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="USACO-2.3.4-MoneySystems-背包">
 <meta name="twitter:description" content="(记忆化搜索 完全背包 多重背包)求方案数。">
@@ -444,7 +444,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">3.8k</span>
+                <span title="本文字数">3.7k</span>
               
 
               
@@ -480,7 +480,8 @@
       
         <p>(记忆化搜索 完全背包 多重背包)求方案数。</p>
 <a id="more"></a>
-<p>题意： &gt;题目描述 &gt;母牛们不但创建了它们自己的政府而且选择了建立了自己的货币系统。由于它们特殊的思考方式，它们对货币的数值感到好奇。 &gt;传统地，一个货币系统是由<span class="math inline">\(1,5,10,20\)</span>或<span class="math inline">\(25,50,\)</span>和<span class="math inline">\(100\)</span>的单位面值组成的。 &gt;母牛想知道有多少种不同的方法来用货币系统中的货币来构造一个确定的数值。 &gt;举例来说, 使用一个货币系统 <span class="math inline">\({1,2,5,10,...}\)</span>产生<span class="math inline">\(18\)</span>单位面值的一些可能的方法是: $ 18x1, 9x2, 8x2+2x1, 3x5+2+1$ ,等等其它。 写一个程序来计算有多少种方法用给定的货币系统来构造一定数量的面值。保证总数将会适合long long (C/C++) 和 Int64 (Free Pascal)，即在<span class="math inline">\(0\)</span>到<span class="math inline">\(2^{63}-1\)</span>之间。 &gt;输入输出格式 &gt;输入格式： &gt;货币系统中货币的种类数目是 V ($ 1 V 25 $)。要构造的数量钱是 N (<span class="math inline">\(1 \leq N \leq10,000\)</span>)。 &gt;第一行: 二个整数，V 和 N 。 &gt;第二行： 可用的货币的面值 。 &gt;输出格式: &gt;单独的一行包含那个可能的用这v种硬币凑足n单位货币的方案数。 &gt;输入输出样例 &gt;输入样例#1： &gt;3 10 &gt;1 2 5 &gt;输出样例#1： &gt;10 &gt;说明 &gt;翻译来自NOCOW &gt;USACO 2.3</p>
+<p>题意： <strong>题目描述</strong></p>
+<p>母牛们不但创建了它们自己的政府而且选择了建立了自己的货币系统。由于它们特殊的思考方式，它们对货币的数值感到好奇。 传统地，一个货币系统是由<span class="math inline">\(1,5,10,20\)</span>或<span class="math inline">\(25,50,\)</span>和<span class="math inline">\(100\)</span>的单位面值组成的。 母牛想知道有多少种不同的方法来用货币系统中的货币来构造一个确定的数值。 举例来说, 使用一个货币系统 <span class="math inline">\({1,2,5,10,...}\)</span>产生<span class="math inline">\(18\)</span>单位面值的一些可能的方法是: $ 18x1, 9x2, 8x2+2x1, 3x5+2+1$ ,等等其它。 写一个程序来计算有多少种方法用给定的货币系统来构造一定数量的面值。保证总数将会适合long long (C/C++) 和 Int64 (Free Pascal)，即在<span class="math inline">\(0\)</span>到<span class="math inline">\(2^{63}-1\)</span>之间。 <strong>输入输出格式</strong> <strong>输入格式：</strong> 货币系统中货币的种类数目是 V ($ 1 V 25 $)。要构造的数量钱是 N (<span class="math inline">\(1 \leq N \leq10,000\)</span>)。 第一行: 二个整数，V 和 N 。 第二行： 可用的货币的面值 。 <strong>输出格式:</strong> 单独的一行包含那个可能的用这v种硬币凑足n单位货币的方案数。 <strong>输入输出样例</strong> <strong>输入样例#1： </strong> 3 10 1 2 5 <strong>输出样例#1：</strong> 10 说明 翻译来自NOCOW USACO 2.3</p>
 <p>做法：</p>
 <p>一开始考虑<code>dfs</code>。 本来考虑的是用<code>dfs(i)</code>表示，当前还剩下<code>n</code>块钱没有组成。用下面这种方法去解决。 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= v ; i++)</span><br><span class="line">	<span class="keyword">if</span>( n  &gt;= a[i] ) </span><br><span class="line">		dfs( n - a[i] ) ;</span><br><span class="line"><span class="comment">// 退出条件是 n == 0</span></span><br></pre></td></tr></table></figure></p>
 <p>不过这种方法，后来发现有点蠢。因为我无法处理比如：先选<span class="math inline">\(1\)</span>后选<span class="math inline">\(2\)</span> 和 先选<span class="math inline">\(2\)</span>后选<span class="math inline">\(1\)</span>这样的重复情况。想了一下如何去重，发现去重的话，不同情况下不一样。应该是自己走远了。</p>
