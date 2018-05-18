@@ -106,18 +106,18 @@
 
 
 
-  <meta name="description" content="题目链接： Codeforces 442 Div.2 B 题意: 给出一个只由小写字母ab组成的串，删除任意字符后，将剩下的拼起来（不改变顺序） ，问剩下的串满足由:\(s\_{1}\)、\(s\_{2}\)、\(s\_{3}\) 组成，其中\(s\_{1}\)为全部由小写字母a组成的或者是空串，\(s\_{2}\)为全部由小写字母b组成的或者是空串, \(s\_{3}\)为全部由小写字母a组成">
+  <meta name="description" content="题目链接： Codeforces 442 Div.2 B">
 <meta name="keywords" content="DP,codeforces,枚举">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces 442 Div.2 877B Nikita and String">
 <meta property="og:url" content="https://xiekeyi98.com/ACM/Codeforces/Codeforces-442-Div-2-877B-Nikita-and-String/index.html">
 <meta property="og:site_name" content="Dark猫">
-<meta property="og:description" content="题目链接： Codeforces 442 Div.2 B 题意: 给出一个只由小写字母ab组成的串，删除任意字符后，将剩下的拼起来（不改变顺序） ，问剩下的串满足由:\(s\_{1}\)、\(s\_{2}\)、\(s\_{3}\) 组成，其中\(s\_{1}\)为全部由小写字母a组成的或者是空串，\(s\_{2}\)为全部由小写字母b组成的或者是空串, \(s\_{3}\)为全部由小写字母a组成">
+<meta property="og:description" content="题目链接： Codeforces 442 Div.2 B">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-26T08:06:04.132Z">
+<meta property="og:updated_time" content="2018-04-28T13:35:52.521Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codeforces 442 Div.2 877B Nikita and String">
-<meta name="twitter:description" content="题目链接： Codeforces 442 Div.2 B 题意: 给出一个只由小写字母ab组成的串，删除任意字符后，将剩下的拼起来（不改变顺序） ，问剩下的串满足由:\(s\_{1}\)、\(s\_{2}\)、\(s\_{3}\) 组成，其中\(s\_{1}\)为全部由小写字母a组成的或者是空串，\(s\_{2}\)为全部由小写字母b组成的或者是空串, \(s\_{3}\)为全部由小写字母a组成">
+<meta name="twitter:description" content="题目链接： Codeforces 442 Div.2 B">
 
 
 
@@ -478,7 +478,7 @@
       
 
       
-        <p>题目链接： <a href="http://codeforces.com/contest/877/problem/B" target="_blank" rel="noopener">Codeforces 442 Div.2 B</a></p>
+        <p>题目链接： <a href="http://codeforces.com/contest/877/problem/B" target="_blank" rel="noopener">Codeforces 442 Div.2 B</a> <a id="more"></a></p>
 <p>题意: 给出一个只由小写字母ab组成的串，删除任意字符后，将剩下的拼起来（不改变顺序） ，问剩下的串满足由:<span class="math inline">\(s\_{1}\)</span>、<span class="math inline">\(s\_{2}\)</span>、<span class="math inline">\(s\_{3}\)</span> 组成，其中<span class="math inline">\(s\_{1}\)</span>为全部由小写字母a组成的或者是空串，<span class="math inline">\(s\_{2}\)</span>为全部由小写字母b组成的或者是空串, <span class="math inline">\(s\_{3}\)</span>为全部由小写字母a组成的或者是空串。 求满足这样条件的串，最长的长度是多少？( |s| &lt; 5000 )</p>
 <p>一开始比赛的时候，我考虑的是维护一个前缀和，把a看为正数，把b看为负数。 然后前缀和维护的话大概就是这么一个样子。 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( <span class="keyword">int</span> j = i ; j &lt; length + <span class="number">1</span> ; j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>( s[i] == s[j] )</span><br><span class="line">				cnt++;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				i = j - <span class="number">1</span>  ;</span><br><span class="line">				<span class="keyword">if</span>( s[i] == <span class="string">'a'</span> )</span><br><span class="line">					a.push_back( cnt ) ;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(s[i] == <span class="string">'b'</span> )</span><br><span class="line">					a.push_back( -cnt ) ;</span><br><span class="line">				cnt = <span class="number">0</span> ;	</span><br><span class="line">				<span class="keyword">break</span> ;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
 <p>然后我想当然的认为，这道题就是求 <code>Max{ a[i] + a[j] + a[k] ) ( i &lt; j &lt;  ) }</code></p>
