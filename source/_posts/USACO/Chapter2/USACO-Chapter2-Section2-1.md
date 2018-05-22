@@ -3,11 +3,12 @@ title: USACO-Chapter2-Section2.1
 mathjax: false
 date: 2017-11-08 17:24:13
 categories: ACM
-description: USACO-Chapter2-Section2.1
 tags:
 - USACO
 ---
 
+USACO-Chapter2-Section2.1
+<!--more-->
 
 ### 1castle
 
