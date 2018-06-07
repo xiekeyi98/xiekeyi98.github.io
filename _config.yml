@@ -16,7 +16,8 @@ encoding: UTF-8
 #url: http://xiekeyi98.github.io
 url: https://xiekeyi98.com
 root: /
-permalink: :category/:title/ 
+#permalink: :category/:title/ 
+permalink: :abbrlink.html  # “posts/” 可自行更换 （ 链接唯一化)
 permalink_defaults:
 
 # Directory
@@ -113,6 +114,10 @@ deploy:
 #  repo: ubuntu@123.207.213.62:~/git/hexo.git
 #  branch: master
 
+# abbrlink config 链接唯一化
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: dec    # 进制：dec(default) and hex
 
 symbols_count_time:
   symbols: true
