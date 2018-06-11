@@ -114,10 +114,10 @@
         <category>ACM</category>
       </categories>
       <tags>
-        <tag>ACM</tag>
-        <tag>算法</tag>
         <tag>Manacher</tag>
         <tag>字符串</tag>
+        <tag>ACM</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -128,10 +128,10 @@
         <category>ACM</category>
       </categories>
       <tags>
-        <tag>Manacher</tag>
-        <tag>字符串</tag>
         <tag>CCCC</tag>
         <tag>PAT</tag>
+        <tag>Manacher</tag>
+        <tag>字符串</tag>
       </tags>
   </entry>
   <entry>
@@ -143,8 +143,8 @@
       </categories>
       <tags>
         <tag>测试</tag>
-        <tag>工程</tag>
         <tag>Boost</tag>
+        <tag>工程</tag>
       </tags>
   </entry>
   <entry>
@@ -155,10 +155,10 @@
         <category>ACM</category>
       </categories>
       <tags>
-        <tag>图论</tag>
-        <tag>dijkstra</tag>
         <tag>CCCC</tag>
         <tag>PAT</tag>
+        <tag>图论</tag>
+        <tag>dijkstra</tag>
       </tags>
   </entry>
   <entry>
