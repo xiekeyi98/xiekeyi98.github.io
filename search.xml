@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[USACO-3.2.3-Spinning Wheels]]></title>
+    <url>%2Fa0f3a879.html</url>
+    <content type="text"><![CDATA[模拟 题意：给出5个轮子，每个轮组有w个缺口(\(1 \leq w \leq 5\)) 问多少分钟后会有一个缺口从头对到尾 一开始题意理解错了，以为给出的缺口是角度x到角度y，后来才知道是角度x到角度x加上角度y。 这道题本身没什么复杂的。 只要注意取模360，然后check的时候统计某个点被统计的次数，如果是5，即是答案。 感觉这道题难点在于时间复杂度。就像自己经常在考场上，想到了正解，觉得太简单了应该想错了吧导致不敢写。 以后不管怎么说，但是要敢写试试。大不了T了嘛。 code12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273/*ID:xiekeyi1PROG:spinLANG:C++11*/#include&lt;bits/stdc++.h&gt;using namespace std ;int speed[10];int a[10][400];int timing = -1 ;bool judge()&#123; int jj[400]; memset( jj , 0 , sizeof(jj) ) ; for( int i = 1 ; i &lt;= 5 ; i++) &#123; for( int j = 0 ; j &lt; 360 ; j++) &#123; //jj[i]表示对于当前秒，角度j被覆盖了jj[i]次 if( a[i][j] ) jj[ ( j + speed[i] * timing ) % 360 ]++; &#125; &#125; for( int i = 0 ; i &lt; 360 ; i++) &#123; if( jj[i] == 5 ) return true ; &#125; return false ;&#125;int main()&#123; freopen("spin.in","r" ,stdin); freopen("spin.out","w",stdout); for( int i = 1 ; i &lt;= 5 ; i++) &#123; int t ; cin &gt;&gt; speed[i] &gt;&gt; t ; for( int j = 1 ; j &lt;= t ; j++) &#123; int x , e ; cin &gt;&gt; x &gt;&gt; e ; //a[i][j]表示第i个轮子的角度j有缺口。 for( int k = x ; k &lt;= x + e ; k++) a[i][k % 360 ] = 1 ; &#125; &#125; while( ++timing &lt;= 1200) &#123; if( judge() ) &#123; cout &lt;&lt; timing &lt;&lt; endl ; return 0 ; &#125; else if( timing &gt;= 1000 ) &#123; cout &lt;&lt; "none" &lt;&lt; endl ; return 0 ; &#125; &#125; return 0 ;&#125; 时间复杂度的计算: 首先因为速度是1以上，所以每隔360个时间单位，肯定会出现每个人都最少出现了一个周期。 对于check一次的情况，需要的最坏情况是555*5(5个轮子，每个轮子5个缺口）。 所以复杂度上很显然是足够的。]]></content>
+      <categories>
+        <category>ACM</category>
+      </categories>
+      <tags>
+        <tag>USACO</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[travis-ci与codecov测试和测试覆盖度工具的使用]]></title>
     <url>%2F5e7bc721.html</url>
     <content type="text"><![CDATA[travis-ci和codecov测试工具的使用。 (未完待续，视后续使用情况补充更新) 今年参加了thoughtworks的线下结对编程体验活动。说来找了好多个网站都没有找到这个活动的详细信息，只有一些通知、公告和颁奖新闻。 终于在google找到了thoughtworks结对编程体验的一篇文章，碰巧还是去年一等奖。参考了他的历程和项目代码后，发现他使用了maven做项目管理，使用travis-ci做单元测试。 说来也是在这个研究过程中才发现，原来configure和makefile是有很多自动生成工具的(qmake、autotools等)，我一直以为是要手写的。 发现这个travis-ci，就是我一直很好奇的部分项目的测试贴纸。加上自己需要，所以简单学习了一下。 travis-ci travis-ci 是一个支持多平台、集成、持续的测试工具，这类工具其实有很多，这个是市场份额占的最大的。 个人公开仓库免费(私人仓库等我不太了解)，貌似必须和github一起使用才可以。 使用起来非常简单，只要注册账号，和github关联，然后在自己对应的项目中打开就可以。 打开以后，只要在自己的项目中添加.travis.yml文件，即可在每次push的时候，自动进行测试。 网上很多关于这个文件如何写的，都是php、js等语言，少量java、python，对于C++几乎没有。索性读了下文档，发现简单使用还是很简单的。 踩到的坑: 官方样例中只要写language: C++即可运行，但是实际上，那样默认的构建命令是./configure &amp;&amp; make &amp;&amp; make test 这样的话，我还研究了半天如何写configure，但是实际上，只要人工修改构建命令即可 给一下我的简单范例: 1234sudo: true #是否使用sudo命令执行language: C++script: - make 只要这么几句，就可以在每次运行的时候，执行测试了。不过这个测试只是执行了make，有进一步需求的话，可以在scrpit里，加入一个写好的bash，bash中运行自己的单元测试。 之后每次push的时候，就会在travis-ci的网站中的profile和github里的commit里看到测试结果。 如果需要贴纸的话，只要在profile里点击那个图标，即可得到markdown信息，加到readme里即可。 codecov codecov这是一个用来表示测试覆盖的代码有百分之多少的工具。使用起来，一开始看到别的教程，以为只需要在travis-ci中添加几句就可以，实际使用起来发现挺麻烦的。 截止目前，我并没有成功使用这个工具。 使用这个工具，大概需要安装codecov环境，并且使用gcov生成覆盖率测试文件。 因为使用样例给的是使用qmake，我自己一直手写makefile，所以暂时还没有成功使用。 具体请看参考资料。 参考资料 Travis CI Docs codecov documentation GCOV的使用-测试代码覆盖率 Travis CI 系列：自动化部署博客 持续集成服务 Travis CI 教程 Github装逼指南——Travis CI 和 Codecov]]></content>
@@ -155,10 +166,10 @@
         <category>ACM</category>
       </categories>
       <tags>
-        <tag>CCCC</tag>
-        <tag>PAT</tag>
         <tag>图论</tag>
         <tag>dijkstra</tag>
+        <tag>CCCC</tag>
+        <tag>PAT</tag>
       </tags>
   </entry>
   <entry>
@@ -204,8 +215,8 @@
         <category>ACM</category>
       </categories>
       <tags>
-        <tag>DP</tag>
         <tag>ACM</tag>
+        <tag>DP</tag>
         <tag>USACO</tag>
         <tag>搜索</tag>
       </tags>
