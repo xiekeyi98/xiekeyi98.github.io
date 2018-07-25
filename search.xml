@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[归并排序及求逆序对]]></title>
+    <url>%2F131f1863.html</url>
+    <content type="text"><![CDATA[归并排序O(nlogn)及归并排序求逆序对数 归并排序及求逆序对 归并排序是一个以O(nlogn)时间复杂度进行排序的高级排序算法(相比较O(n^2)的低级排序来说)。以前只知道归并排序是一个可以并发的，可以用来进行外排序的算法，也知道它可以用来求逆序对。但是因为ACM中感觉平时使用快速排序就够了，求逆序对也可以使用权值线段树来做，所以对这个算法没有太在意。 今天看到了一道题，权值线段树开起来内存不够，也很代码量也有点大，于是今天学习了一下归并排序。看到代码发现非常好理解啊(当然我一次没写对233) 归并排序，简单的来说就是利用分治法，不断的把数组分到最小情况，然后再逐步向上合并。这里看起来有一点点像线段树的意思。 具体的看代码注释吧。 至于求逆序对，在归并排序的合并过程中，很容易发现每当我们将一个数字加入到临时数组中，都可以知道这个数字前面有多少个比它大的数字。这是因为我们合并的是两个相邻的数组，且这两个被合并的数组都是有序的。那么如果两个相邻的数组中，后面的数组的某个数字加入到了临时数组中，且前面的那个数组当前的数比被加入的这个数字大，那么可以知道前面的数组当前的数及其后面的所有数字都比被加入的这个数字大。 那么这时候我可以记录更新逆序对数。 code1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465#include&lt;bits/stdc++.h&gt;using namespace std ;const int maxn = 10;int a[maxn]; // 排序数组int t[maxn]; // 排序过程中所需要临时数组void merge( int l ,int m , int r )&#123; // i是左半部分指针，j是右半部分指针，k是临时数组指针 // k可以是0的，这里是l只是方便后来的将t数组移动到a数组中不需要转换下标 int i = l , j = m+1, k = l ; //进行合并操作，全部合并到临时数组t里面 while( i &lt;= m &amp;&amp; j &lt;= r ) &#123; if( a[i] &gt; a[j] ) &#123; t[k++] = a[j++]; // ans += m - i + 1 ; // 这里选择了后面的数组(即就是[m+1,r]部分，由j指向) // 那么可以知道[i,m]都是比a[j]大的。 // 且[i,m]的下标都比j小 // 所以a[i...m]和a[j]都是逆序对 &#125; else &#123; t[k++] = a[i++] ; &#125; &#125; //将剩下没有合并的数组直接扔到末尾 while( i &lt;= m ) t[k++] = a[i++]; while( j &lt;= r ) t[k++] = a[j++]; // 放回原数组 for( int i = l ; i &lt;= r ; i++) a[i] = t[i];&#125;void merge_sort( int l , int r )&#123; if( l &lt; r ) &#123; int m = ( l + r ) / 2 ; // 先递归下去再进行合并 merge_sort( l , m ) ; merge_sort( m + 1 , r ); merge( l , m , r ) ; &#125;&#125;int main()&#123; for( int i = 1 ; i &lt;= 10 ; i++) a[i] = i ; for( int i = 1 ; i &lt;= 10 ; i++) cout &lt;&lt; a[i] ; cout &lt;&lt; endl ; merge_sort( 1 , 10 ) ; for( int i = 1 ; i &lt;= 10 ; i++) cout &lt;&lt; a[i] ; cout &lt;&lt; endl ;&#125; 参考资料： 归并排序-求逆序数算法]]></content>
+      <categories>
+        <category>ACM</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>逆序对</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[USACO-3.2.4-ratios]]></title>
+    <url>%2Fe2a2174b.html</url>
+    <content type="text"><![CDATA[题意：给出3个比例为x:y:z的原料，要求配出i:j:k的产品，问每个原料和产品最终所用之比是多少？ 枚举 直接枚举需要原料ijk就行了(因为题意中说了每个原料所用不超过100,所以100100100可以过)。 WA了好几次o(╥﹏╥)o 一开始WA是没注意到原料可能为0，有的没用。 第二次WA是我一开始“默认”给出的产品之比肯定是最简比，所以在枚举原料后，全部除以了最大公约数。结果发现数据中 有不是最简整数比的…… 第三次是我开局就把产品化成了最简整数比，但是在产品有0的时候，又出现了奇奇怪怪的情况。 代码越改越不知道自己写的是个什么东西了…… 最后看了下别人的做法，发现很巧妙的两行。(见代码注释) code123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566/*ID:xiekeyi1PROG:ratiosLANG:C++11*/#include&lt;bits/stdc++.h&gt;using namespace std ;const int inf = 0x7fffffff;int a[10][10];int gcd( int x , int y ) &#123; if( y == 0 ) return x ; else return gcd( y , x % y) ;&#125;int main()&#123; bool succ = false ; freopen("ratios.in","r",stdin); freopen("ratios.out","w",stdout); // a[1]表示三个产品，a[2..4]表示三个原料 for( int i = 1 ; i &lt;= 4 ; i++) cin &gt;&gt; a[i][1] &gt;&gt; a[i][2] &gt;&gt; a[i][3] ; int x , y , z ; int ans_total = inf , ans1 = inf , ans2 = inf , ans3 = inf , ans4 = inf ; for( int i = 0 ; i &lt;= 100 ; i++) &#123; for( int j = 0 ; j &lt;= 100 ; j++) &#123; for( int k = 0 ; k &lt;= 100 ; k++) &#123; x = a[2][1] * i + a[3][1] * j + a[4][1] * k; y = a[2][2] * i + a[3][2] * j + a[4][2] * k ; z = a[2][3] * i + a[3][3] * j + a[4][3] * k ; int temp_total = i+j+k ; int t = -1; // 这三个if很巧妙，避免了0的问题，也能很好的除出来t if( x != 0 &amp;&amp; a[1][1] != 0 ) t = x / a[1][1] ; else if( y != 0 &amp;&amp; a[1][2] != 0 ) t = y / a[1][2]; else if( z != 0 &amp;&amp; a[1][3] != 0 ) t = z / a[1][3] ; // if中用乘法判断，也是巧妙的避免了0的问题。 if( a[1][1] * t == x &amp;&amp; a[1][2] * t == y &amp;&amp; a[1][3] * t == z &amp;&amp; temp_total &lt;= ans_total ) &#123; ans1 = i , ans2 = j , ans3 = k , ans4 = t ; ans_total = temp_total; succ = true ; &#125; &#125; &#125; &#125; if( succ ) cout &lt;&lt; ans1 &lt;&lt; ' ' &lt;&lt; ans2 &lt;&lt; ' ' &lt;&lt; ans3 &lt;&lt; ' ' &lt;&lt; ans4 &lt;&lt; endl ; else cout &lt;&lt; "NONE" &lt;&lt; endl ; return 0 ;&#125; 克拉姆法则/高斯消元 QAQ不会高斯消元。。克拉姆法则明天起来再看看好了……]]></content>
+      <categories>
+        <category>ACM</category>
+      </categories>
+      <tags>
+        <tag>USACO</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[USACO-3.2.3-Spinning Wheels]]></title>
     <url>%2Fa0f3a879.html</url>
     <content type="text"><![CDATA[模拟 题意：给出5个轮子，每个轮组有w个缺口(\(1 \leq w \leq 5\)) 问多少分钟后会有一个缺口从头对到尾 一开始题意理解错了，以为给出的缺口是角度x到角度y，后来才知道是角度x到角度x加上角度y。 这道题本身没什么复杂的。 只要注意取模360，然后check的时候统计某个点被统计的次数，如果是5，即是答案。 感觉这道题难点在于时间复杂度。就像自己经常在考场上，想到了正解，觉得太简单了应该想错了吧导致不敢写。 以后不管怎么说，但是要敢写试试。大不了T了嘛。 code12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273/*ID:xiekeyi1PROG:spinLANG:C++11*/#include&lt;bits/stdc++.h&gt;using namespace std ;int speed[10];int a[10][400];int timing = -1 ;bool judge()&#123; int jj[400]; memset( jj , 0 , sizeof(jj) ) ; for( int i = 1 ; i &lt;= 5 ; i++) &#123; for( int j = 0 ; j &lt; 360 ; j++) &#123; //jj[i]表示对于当前秒，角度j被覆盖了jj[i]次 if( a[i][j] ) jj[ ( j + speed[i] * timing ) % 360 ]++; &#125; &#125; for( int i = 0 ; i &lt; 360 ; i++) &#123; if( jj[i] == 5 ) return true ; &#125; return false ;&#125;int main()&#123; freopen("spin.in","r" ,stdin); freopen("spin.out","w",stdout); for( int i = 1 ; i &lt;= 5 ; i++) &#123; int t ; cin &gt;&gt; speed[i] &gt;&gt; t ; for( int j = 1 ; j &lt;= t ; j++) &#123; int x , e ; cin &gt;&gt; x &gt;&gt; e ; //a[i][j]表示第i个轮子的角度j有缺口。 for( int k = x ; k &lt;= x + e ; k++) a[i][k % 360 ] = 1 ; &#125; &#125; while( ++timing &lt;= 1200) &#123; if( judge() ) &#123; cout &lt;&lt; timing &lt;&lt; endl ; return 0 ; &#125; else if( timing &gt;= 1000 ) &#123; cout &lt;&lt; "none" &lt;&lt; endl ; return 0 ; &#125; &#125; return 0 ;&#125; 时间复杂度的计算: 首先因为速度是1以上，所以每隔360个时间单位，肯定会出现每个人都最少出现了一个周期。 对于check一次的情况，需要的最坏情况是555*5(5个轮子，每个轮子5个缺口）。 所以复杂度上很显然是足够的。]]></content>
@@ -125,10 +148,10 @@
         <category>ACM</category>
       </categories>
       <tags>
-        <tag>Manacher</tag>
-        <tag>字符串</tag>
         <tag>ACM</tag>
         <tag>算法</tag>
+        <tag>Manacher</tag>
+        <tag>字符串</tag>
       </tags>
   </entry>
   <entry>
@@ -154,8 +177,8 @@
       </categories>
       <tags>
         <tag>测试</tag>
-        <tag>Boost</tag>
         <tag>工程</tag>
+        <tag>Boost</tag>
       </tags>
   </entry>
   <entry>
