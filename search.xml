@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[HDU6319-Ascending Rating]]></title>
+    <url>%2Fc7f5271b.html</url>
+    <content type="text"><![CDATA[题意：对于一个数列(7e7)，求出所有长度为m的区间中，区间最大值和i的异或和以及区间内递增序列(最大值变换次数)的值的异或和。 做法 单调队列处理区间最大值 单调队列。对于各种区间内的最大值，可以很容易的使用单调队列得到,或者说，这是利用单调队列实现一种滑动窗口的思想。(一直感觉单调队列就像是一种尺取(双指针扫描)的感觉) 比较简单，看一眼基本就会操作了。等于时时刻刻维持着这个队列内存放的数字都是单调递减的样子。 123456789101112131415161718192021222324//取得对于所有n个数字，区间范围为m的，所有区间的最大值void getmax( int n , int m )&#123; //q一开始写的是deque。 q.clear(); for( int i = 1 ; i &lt;= n ; i++) &#123; // 如果当前进来的数字比队尾存在的数字大， // 那么就把队尾元素弹出，循环操作，直到不满足条件。 while( !q.empty() &amp;&amp; a[q.back()] &lt;= a[i] ) q.pop_back(); // 插入当前元素 q.push_back(i); // 队列中没有m个数字的时候，继续执行，保证得到的是 // 包含完整的一个区间的情况 if( i &lt; m ) continue ; // 如果当前的队首过期，即就是窗口滑动出去，队首已经不在当前区间了，pop while( q.front() &lt; i - m + 1 ) q.pop_front(); // 队首即为当前区间的最大值 maxnum.push_back(a[q.front()]); &#125;&#125; 单调队列处理区间内递增序列 这个感觉还是挺花的操作的。 但是其实思想还是用到了我之前说的：单调队列是维护了一个内部单调递减的队列。所以我们发现，我们只要倒着跑，就可以实现单调队列内当前存在的元素个数，就是我们的单调递增序列长度。 12345678910111213141516void getcount( int n , int m )&#123; q.clear(); for( int i = n ; i &gt;= 1 ; i--) &#123; while( !q.empty() &amp;&amp; a[q.back()] &lt;= a[i] ) q.pop_back(); q.push_back(i); if( i &gt; n - m + 1 ) continue ; while( q.front() &gt; i + m - 1 ) q.pop_front(); maxcount.push_back( q.size() ) ; &#125;&#125; 基本思想和刚才很像，只是反着(从n到1跑了一次)。但是我在这里卡了很久，不太明白为什么要倒着跑？不倒着跑行不行？ 当我用铅笔在纸上来来回回之后，发现确实是酱紫才行呢。 首先我们来看倒着跑：倒着跑的正确性是显然的。我们之前正着来的时候，就会发现队首一直是最大值。我们也只用到了这个性质。但是我们再进一步观察队列内的元素，会发现队列内的元素其实就是从当前的队首开始到下一个比队首大的值之前的最长单调递减序列(话有点绕)。因此，我们倒着跑，就恰好保证了是从最大值开始的反向最长递减序列，也就是我们最长的递增序列到最大值，也就是答案所要求的。 其次，我们再考虑为什么要倒着跑？那是因为我们观察发现，优先队列只能处理队首是一个最值、队列内的元素个数就是从这个最值到下一个最值之间的最长单调序列。 所以，如果我们假设队首存的是最小值，那么只能得到该最小值开始的最长递增序列。反之只能得到从最大值开始的最长递减序列。 因此不行。 所以我们要注意这种反着跑的方法和思路 注:部分地方存在「极小值」和「最小值」，「极大值」和「最大值」混用的情况。 据说这道题卡常挺严重的，看到很多题解都用scanf``printf和手写队列，不用STL等方法卡常。 我一开始也以为自己被卡常了，所以一开始的deque改成了queue，为了不改那么多，于是写了个class来保证接口(o(╯□╰)o) 最后发现竟然只是mod次数太多了！我不应该在生成数列的时候，每一项都mod，改了就A了。队友写的cin``cout等，也能A。 完整AC代码： ACcode123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990#include&lt;bits/stdc++.h&gt;using namespace std ;using ll = long long ;const int maxn = 70000000 + 100 ;ll a[maxn];vector&lt;ll&gt; maxnum;vector&lt;ll&gt; maxcount;class que&#123; public: int aa[maxn]; int tail = 0 , head = 0 ; bool empty() &#123; return tail &lt;= head ; &#125;; void pop_back()&#123; --tail; &#125;; int back()&#123; return aa[tail - 1 ] ; &#125; ; int front()&#123; return aa[head]; &#125;; void push_back(int i )&#123; aa[tail++] = i ;&#125;; void pop_front()&#123; ++head; &#125;; void clear()&#123; tail = 0 , head = 0 ;&#125; ; int size()&#123; return tail - head ; &#125;;&#125;q;void getmax( int n , int m )&#123; q.clear(); for( int i = 1 ; i &lt;= n ; i++) &#123; while( !q.empty() &amp;&amp; a[q.back()] &lt;= a[i] ) q.pop_back(); q.push_back(i); if( i &lt; m ) continue ; while( q.front() &lt; i - m + 1 ) q.pop_front(); maxnum.push_back(a[q.front()]); &#125;&#125;void getcount( int n , int m )&#123; q.clear(); for( int i = n ; i &gt;= 1 ; i--) &#123; while( !q.empty() &amp;&amp; a[q.back()] &lt;= a[i] ) q.pop_back(); q.push_back(i); if( i &gt; n - m + 1 ) continue ; while( q.front() &gt; i + m - 1 ) q.pop_front(); maxcount.push_back( q.size() ) ; &#125;&#125;int main()&#123;// ios::sync_with_stdio(false);// cin.tie(0); int t ; scanf("%d",&amp;t); //cin &gt;&gt; t ; while(t--) &#123; maxnum.clear(); maxcount.clear(); ll n,m,k,p,q,r,MOD; scanf("%lld%lld%lld%lld%lld%lld%lld",&amp;n,&amp;m,&amp;k,&amp;p,&amp;q,&amp;r,&amp;MOD); //cin &gt;&gt; n &gt;&gt; m &gt;&gt; k &gt;&gt; p &gt;&gt; q &gt;&gt; r &gt;&gt; MOD; for( int i = 1 ; i &lt;= k ; i++) scanf("%lld",&amp;a[i]); //cin &gt;&gt; a[i]; for( int i = k + 1 ; i &lt;= n ; i++) a[i] = (p* a[i-1]+q*i+r) % MOD; getmax(n,m); getcount(n,m); reverse(maxcount.begin() , maxcount.end() ) ; long long ansa = 0 , ansb = 0 ; for( int i = 0 ; i &lt; n - m + 1 ; i++) &#123; ansa += maxnum[i] ^(i+1); ansb += maxcount[i] ^ ( i+1) ; &#125; printf("%lld %lld\n" , ansa , ansb ) ; //cout &lt;&lt; ansa &lt;&lt; ' ' &lt;&lt; ansb &lt;&lt; endl ; &#125; return 0 ;&#125; 参考资料 HDU 6319 Ascending Rating（单调队列）]]></content>
+      <categories>
+        <category>ACM</category>
+      </categories>
+      <tags>
+        <tag>队列</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[归并排序及求逆序对]]></title>
     <url>%2F131f1863.html</url>
     <content type="text"><![CDATA[归并排序O(nlogn)及归并排序求逆序对数 归并排序及求逆序对 归并排序是一个以O(nlogn)时间复杂度进行排序的高级排序算法(相比较O(n^2)的低级排序来说)。以前只知道归并排序是一个可以并发的，可以用来进行外排序的算法，也知道它可以用来求逆序对。但是因为ACM中感觉平时使用快速排序就够了，求逆序对也可以使用权值线段树来做，所以对这个算法没有太在意。 今天看到了一道题，权值线段树开起来内存不够，也很代码量也有点大，于是今天学习了一下归并排序。看到代码发现非常好理解啊(当然我一次没写对233) 归并排序，简单的来说就是利用分治法，不断的把数组分到最小情况，然后再逐步向上合并。这里看起来有一点点像线段树的意思。 具体的看代码注释吧。 至于求逆序对，在归并排序的合并过程中，很容易发现每当我们将一个数字加入到临时数组中，都可以知道这个数字前面有多少个比它大的数字。这是因为我们合并的是两个相邻的数组，且这两个被合并的数组都是有序的。那么如果两个相邻的数组中，后面的数组的某个数字加入到了临时数组中，且前面的那个数组当前的数比被加入的这个数字大，那么可以知道前面的数组当前的数及其后面的所有数字都比被加入的这个数字大。 那么这时候我可以记录更新逆序对数。 code1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465#include&lt;bits/stdc++.h&gt;using namespace std ;const int maxn = 10;int a[maxn]; // 排序数组int t[maxn]; // 排序过程中所需要临时数组void merge( int l ,int m , int r )&#123; // i是左半部分指针，j是右半部分指针，k是临时数组指针 // k可以是0的，这里是l只是方便后来的将t数组移动到a数组中不需要转换下标 int i = l , j = m+1, k = l ; //进行合并操作，全部合并到临时数组t里面 while( i &lt;= m &amp;&amp; j &lt;= r ) &#123; if( a[i] &gt; a[j] ) &#123; t[k++] = a[j++]; // ans += m - i + 1 ; // 这里选择了后面的数组(即就是[m+1,r]部分，由j指向) // 那么可以知道[i,m]都是比a[j]大的。 // 且[i,m]的下标都比j小 // 所以a[i...m]和a[j]都是逆序对 &#125; else &#123; t[k++] = a[i++] ; &#125; &#125; //将剩下没有合并的数组直接扔到末尾 while( i &lt;= m ) t[k++] = a[i++]; while( j &lt;= r ) t[k++] = a[j++]; // 放回原数组 for( int i = l ; i &lt;= r ; i++) a[i] = t[i];&#125;void merge_sort( int l , int r )&#123; if( l &lt; r ) &#123; int m = ( l + r ) / 2 ; // 先递归下去再进行合并 merge_sort( l , m ) ; merge_sort( m + 1 , r ); merge( l , m , r ) ; &#125;&#125;int main()&#123; for( int i = 1 ; i &lt;= 10 ; i++) a[i] = i ; for( int i = 1 ; i &lt;= 10 ; i++) cout &lt;&lt; a[i] ; cout &lt;&lt; endl ; merge_sort( 1 , 10 ) ; for( int i = 1 ; i &lt;= 10 ; i++) cout &lt;&lt; a[i] ; cout &lt;&lt; endl ;&#125; 参考资料： 归并排序-求逆序数算法]]></content>
@@ -162,10 +173,10 @@
         <category>ACM</category>
       </categories>
       <tags>
-        <tag>CCCC</tag>
-        <tag>PAT</tag>
         <tag>Manacher</tag>
         <tag>字符串</tag>
+        <tag>CCCC</tag>
+        <tag>PAT</tag>
       </tags>
   </entry>
   <entry>
@@ -177,8 +188,8 @@
       </categories>
       <tags>
         <tag>测试</tag>
-        <tag>工程</tag>
         <tag>Boost</tag>
+        <tag>工程</tag>
       </tags>
   </entry>
   <entry>
