@@ -117,7 +117,7 @@ deploy:
 # abbrlink config 链接唯一化
 abbrlink:
   alg: crc32  # 算法：crc16(default) and crc32
-  rep: dec    # 进制：dec(default) and hex
+  rep: hex    # 进制：dec(default) and hex
 
 symbols_count_time:
   symbols: true
