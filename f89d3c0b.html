@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Dark猫">
 <meta property="og:description" content="线性求最大回文串匹配算法。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-07T15:29:51.421Z">
+<meta property="og:updated_time" content="2018-08-05T06:29:18.984Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Manacher-最大回文串匹配线性算法">
 <meta name="twitter:description" content="线性求最大回文串匹配算法。">
@@ -487,13 +487,13 @@
 <p>首先我们初始化：$Mx = 0 , Id = 0 $ 接下来我们和第二种算法所做的基本一样，枚举中轴： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 为缩减代码，这里使用strlen函数，实际使用中请务必注意。</span></span><br><span class="line"><span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="built_in">strlen</span>(Ma) ; i++ )</span><br></pre></td></tr></table></figure></p>
 <h2 id="分类讨论">分类讨论</h2>
 <h3 id="情况1-mx-i">情况1 Mx &gt; i</h3>
-<p>那么如果我们枚举中发现$ Mx &gt; i <span class="math inline">\(，便可以说明，之前肯定有某一个串，曾经更新覆盖过\)</span>i<span class="math inline">\(，我们能否利用对称的性质，使\)</span>i$能有一个比较大的初始值，然后再进行常规操作。</p>
-<p><strong>由$ Mx &gt; i $ ，我们可以知道显然有$ Mx &gt; i &gt; id <span class="math inline">\(，那么既然\)</span>Mx和Mx'<span class="math inline">\(对称，中轴\)</span>id<span class="math inline">\(知道，那么\)</span>i<span class="math inline">\(和\)</span>i'$也一定会对称。</strong> 这是这个算法的核心。 <span class="math inline">\(i&#39;\)</span>的坐标是多少呢？就是$ 2 * id - i $ 由 $ id - ( i - id ) $得到 。</p>
+<p>那么如果我们枚举中发现<span class="math inline">\(Mx &gt; i\)</span>，便可以说明，之前肯定有某一个串，曾经更新覆盖过<span class="math inline">\(i\)</span>，我们能否利用对称的性质，使<span class="math inline">\(i\)</span>能有一个比较大的初始值，然后再进行常规操作。</p>
+<p><strong>由<span class="math inline">\(Mx &gt; i\)</span> ，我们可以知道显然有<span class="math inline">\(Mx &gt; i &gt; id\)</span>，那么既然<span class="math inline">\(Mx\)</span>和<span class="math inline">\(Mx&#39;\)</span>对称，中轴<span class="math inline">\(id\)</span>知道，那么<span class="math inline">\(i\)</span>和<span class="math inline">\(i&#39;\)</span>也一定会对称。</strong> 这是这个算法的核心。 <span class="math inline">\(i&#39;\)</span>的坐标是多少呢？就是<span class="math inline">\(2 * id - i\)</span> 由 <span class="math inline">\(id - ( i - id )\)</span>得到 。</p>
 <h4 id="情况1-i和i都在mx与mx内">情况(1) i和i'都在Mx与Mx'内</h4>
-<p>那么我们是不是可以直接使用 $ Mp[i] = Mp[ 2 * id - i ] <span class="math inline">\(呢？ 在\)</span>i<span class="math inline">\(和\)</span>i'<span class="math inline">\(都在\)</span>Mx<span class="math inline">\(和\)</span>Mx'$内时，这是正确无误的。</p>
+<p>那么我们是不是可以直接使用 <span class="math inline">\(Mp[i] = Mp[ 2 * id - i ]\)</span>呢？ 在<span class="math inline">\(i\)</span>和<span class="math inline">\(i&#39;\)</span>都在<span class="math inline">\(Mx\)</span>和<span class="math inline">\(Mx&#39;\)</span>内时，这是正确无误的。</p>
 <p>但是还有另外一种情况。</p>
 <h4 id="情况2-i在mx外">情况(2) i'在Mx'外</h4>
-<p>当<span class="math inline">\(i&#39;\)</span>很长，延伸到了<span class="math inline">\(Mx&#39;\)</span>外时，我们并不能保证<span class="math inline">\(i\)</span>也能一如既往的延伸到<span class="math inline">\(Mx\)</span>以外。这时候我们只能保证<span class="math inline">\(i\)</span>在<span class="math inline">\(Mx\)</span>以内的时候，是对称的。 所以这时候 <span class="math display">\[ Mp[i] = Mx - i \]</span></p>
+<p>当<span class="math inline">\(i&#39;\)</span>很长，延伸到了<span class="math inline">\(Mx&#39;\)</span>外时，我们并不能保证<span class="math inline">\(i\)</span>也能一如既往的延伸到<span class="math inline">\(Mx\)</span>以外。这时候我们只能保证<span class="math inline">\(i\)</span>在<span class="math inline">\(Mx\)</span>以内的时候，是对称的。 所以这时候 <span class="math display">\[Mp[i] = Mx - i\]</span></p>
 <h4 id="情况1和情况2">情况(1)和情况(2)</h4>
 <p>我们并不关心具体是什么情况，因为这对时间复杂度没有影响。所以我们只要<code>Mp[i] = min( Mp[2*id-i] , Mx - i )</code> 就足够了。</p>
 <h3 id="情况2-mx-i">情况2 Mx &lt;= i</h3>
@@ -683,7 +683,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -773,7 +773,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">29</span>
+                      
+                    
+                    <span class="site-state-item-count">30</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -864,7 +866,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">194k</span>
+    <span title="站点总字数">205k</span>
   
 
   
@@ -875,7 +877,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">2:56</span>
+    <span title="站点阅读时长">3:07</span>
   
 </div>
 
