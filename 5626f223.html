@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Dark猫">
 <meta property="og:description" content="无向图Hierholzer(逐步插入回路法)求欧拉回路">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-14T09:13:45.892Z">
+<meta property="og:updated_time" content="2018-08-14T09:14:49.552Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="无向图欧拉回路">
 <meta name="twitter:description" content="无向图Hierholzer(逐步插入回路法)求欧拉回路">
@@ -440,7 +440,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">638</span>
+                <span title="本文字数">637</span>
               
 
               
@@ -486,7 +486,7 @@
 <p>算法本身很简单，把其理解成DFS也可以。<br>
 算法流程: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Func(x)</span><br><span class="line">	循环寻找和X相连的边i</span><br><span class="line">	&#123;</span><br><span class="line">	删除这条边i</span><br><span class="line">	递归Func(i)</span><br><span class="line">	&#125;</span><br><span class="line">将x插入stack中</span><br></pre></td></tr></table></figure></p>
 <p>最后输出stack即为所求。</p>
-<p>这个算法我写起来非常简单，但是难点在于如何理解其正确性。网上很多博客也寥寥几笔，对此说的比较少。<br>
+<p>这个算法写起来非常简单，但是难点在于如何理解其正确性。网上很多博客也寥寥几笔，对此说的比较少。<br>
 这个算法其实就像是DFS找环一样，跑这个算法必须保证从当前点开始存在欧拉回路，否则会GG。所以我们在保证了当前点开始有欧拉回路后，就是DFS找环，并且利于回溯，在环中加入新节点来实现的寻找欧拉回路。<br>
 考虑仅仅有一个环的图，我们这个函数就是在里面找到了这个环，并且把环上的点加入进来。<br>
 如果说在这个环上加了一个新点，因为图是保证联通的，所以新点必然也可以到达之前环上的点，我们就等于是利用递归+删边，把这个环拆开加入了新点。</p>
@@ -566,6 +566,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/161a98b3.html" rel="prev" title="USACO-Chapter3-Section3.3">
+                USACO-Chapter3-Section3.3 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -648,7 +652,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -833,7 +837,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">216k</span>
+    <span title="站点总字数">228k</span>
   
 
   
@@ -844,7 +848,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">3:16</span>
+    <span title="站点阅读时长">3:27</span>
   
 </div>
 
