@@ -206,15 +206,16 @@ let c_no_curly_error=1 "修复highlight代码bug
 
 {% spoiler vimrc %}
 {% codeblock lang:vimscript %}
+
 "set nocompatible "取消和vi的兼容，避免以前的bug和功能
 "autocmd GUIEnter * simalt ~x "GVIM函数，启动GUI后自动全屏
 "set guifont=Fixedsys:h16:cGB2312:qDRAFT "设置字号
+"set backspace=indent,eol,start "GVIM设置，否则退格键有问题。
 " -------- GVIM ------ 
 "为了兼容VI，所以backspace有好几种模式
 " indent: 表示可以删除自动缩进的部分.
 " eol: 表示在行尾可以合并两行
 " start:表示可以删除之前的输入
-set backspace=indent,eol,start "GVIM设置，否则退格键有问题。
 syntax on "开启代码高亮
 set nu "设置行号
 set showcmd "右下角显示输入命令
@@ -311,16 +312,23 @@ func! RunResult()
         endif
 endfunc
 
+func! DEBUG()
+	exec "!gdb %:r"
+endfunc
+
 map <F5> :call CompileCode()<CR>
 imap <F5> <ESC>:call CompileCode()<CR>
 vmap <F5> <ESC>:call CompileCode()<CR>
 
 map <F6> :call RunResult()<CR>
+map <F7> :call DEBUG()<CR>
 
 "将插件文件分开，如果存在可读的.vimrc.bundles文件，把这个文件(插件文件)加载到下面
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
+
+
 {% endcodeblock %}
 {% endspoiler %}
 
@@ -331,12 +339,10 @@ set nocompatible              " 去除VI一致性,必须要添加
 filetype off                  " 必须要添加
 
 " 设置包括vundle和初始化相关的runtime path
-set rtp+=~/.vim/bundle/Vundle.vim "似乎是设置Vundle的位置
 call plug#begin() "插件安装位置，默认是./.vim，括号内可传入字符串表示位置
 " 另一种选择, 指定一个vundle安装插件的路径
 "call vundle#begin('~/some/path/here')
 " 让vundle管理插件版本,必须
-Plug 'VundleVim/Vundle.vim' "安装插件管理器自己
 
 " 以下范例用来支持不同格式的插件安装.
 " 请将安装插件的命令放在vundle#begin和vundle#end之间.
