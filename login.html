@@ -1,0 +1,36 @@
+<!DOCTYPE html >
+
+<head>
+	<meta charset = "utf-8" > 
+	<title>登录框demo</title>
+	<!--嵌入js-->
+	<!--下面三个函数，判断是否是汉字，是否是电话号码，是否是邮件-->
+    <script src="script.js"></script>
+</head>
+
+<body>
+	<!--对文本等进行居中处理(html5已不支持)-->
+	<center>
+	<h1>用户注册</h1>
+	<!--定义表单，发送方式为post，当点击submit时触发check函数-->
+	<form method="post" onsubmit="return check(this)">
+		<!--fieldset标签，为表单添加边框-->
+		<fieldset>
+			<!--边框内容-->
+			<legend>谢可毅41612244个人作业</legend>
+			<!--type表示文本框数据类型，name表示表单名称，placeholder是提示-->
+			姓名:<input type="text" name="UserName" placeholder="请输入姓名"><br>
+			手机号:<input type="text" name="Phone" placeholder="请输入手机号"><br>
+			邮箱：<input type=text" name="Email" placeholder="请输入邮箱"><br>
+			密码:<input type="password" name="Password" placeholder="请输入六位以上合法密码"><br>
+			确认密码:<input type="password" name="rePassword" placeholder="请确认密码"><br>
+			<!--添加两个按钮-->
+			<input type="submit" value="注册">
+			<input type="reset" value="重置">
+		</fieldset>
+	</form>
+	当前时间：<div id="divT"></div>  
+	<div id="divW"></div>  
+	</center>
+</body>
+
