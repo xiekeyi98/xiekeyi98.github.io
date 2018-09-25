@@ -102,18 +102,18 @@
 
 
 
-  <meta name="description" content="题意: 给定一个N( N $\leq$ 39)，表示有 1 - n 个数。每个数只能选一次，要求你将这N个数分成和相等的两部分。问有多少种分法？">
+  <meta name="description" content="题意: 给定一个N( N \(\leq\) 39)，表示有 1 - n 个数。每个数只能选一次，要求你将这N个数分成和相等的两部分。问有多少种分法？">
 <meta name="keywords" content="DP,USACO,背包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="USACO 2.2.2 subset 01背包求方案数">
 <meta property="og:url" content="https://xiekeyi98.com/42aa9afc.html">
 <meta property="og:site_name" content="Dark猫">
-<meta property="og:description" content="题意: 给定一个N( N $\leq$ 39)，表示有 1 - n 个数。每个数只能选一次，要求你将这N个数分成和相等的两部分。问有多少种分法？">
+<meta property="og:description" content="题意: 给定一个N( N \(\leq\) 39)，表示有 1 - n 个数。每个数只能选一次，要求你将这N个数分成和相等的两部分。问有多少种分法？">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-06-07T15:29:51.604Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="USACO 2.2.2 subset 01背包求方案数">
-<meta name="twitter:description" content="题意: 给定一个N( N $\leq$ 39)，表示有 1 - n 个数。每个数只能选一次，要求你将这N个数分成和相等的两部分。问有多少种分法？">
+<meta name="twitter:description" content="题意: 给定一个N( N \(\leq\) 39)，表示有 1 - n 个数。每个数只能选一次，要求你将这N个数分成和相等的两部分。问有多少种分法？">
 
 
 
@@ -440,7 +440,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">4k</span>
+                <span title="本文字数">4.1k</span>
               
 
               
@@ -474,35 +474,37 @@
       
 
       
-        <p>题意: 给定一个N( N $\leq$ 39)，表示有 <code>1 - n</code> 个数。每个数只能选一次，要求你将这<code>N</code>个数分成和相等的两部分。问有多少种分法？</p>
+        <p>题意: 给定一个N( N <span class="math inline">\(\leq\)</span> 39)，表示有 <code>1 - n</code> 个数。每个数只能选一次，要求你将这<code>N</code>个数分成和相等的两部分。问有多少种分法？</p>
 <a id="more"></a>
 <p>做法：</p>
-<ol>
-<li>一开始第一反应是DFS。 对于每一个数字有选和不选两种方案。然后DFS下去就可以了。 后来发现N是39。一开始考虑是不是要折半搜索，或者花式剪枝。<br>一开始写了一个花式剪枝，剪枝策略是：<ol>
-<li>对于总和是奇数的直接返回0(不可能拆成和相等的两部分)。 </li>
+<ol style="list-style-type: decimal">
+<li>一开始第一反应是DFS。 对于每一个数字有选和不选两种方案。然后DFS下去就可以了。 后来发现N是39。一开始考虑是不是要折半搜索，或者花式剪枝。 一开始写了一个花式剪枝，剪枝策略是：
+<ol style="list-style-type: decimal">
+<li>对于总和是奇数的直接返回0(不可能拆成和相等的两部分)。</li>
 <li>从大到小选取，当目前选取的和已经超过了总和的一半的时候，直接<code>return</code> 。 依然会T。于是就想折半搜索。想了一会没什么思绪。</li>
+</ol></li>
+<li>在想如何去把这个DFS写成记忆化搜索的过程中，突然发现这不就是个背包嘛。(果然有人曾说的，DP写不好的时候，先想搜索，然后从搜索想如何写成记忆化搜索，在这过程中想出DP的状态转移，是很不错的方法。) 本质上来讲，这道题就是<code>N</code>个物品<span class="math inline">\(a\_{i}\)</span> ， 每个物品的重量是i(即它本身)。问恰好能装满容积为<span class="math inline">\(\frac{\sum\_{i=1}^n{a\_i}}{2}\)</span> 的背包的** 方案数**吗？* (注意这里答案应该是最终答案除以2，因为有重复计算的关系)*</li>
 </ol>
-</li>
-<li>在想如何去把这个DFS写成记忆化搜索的过程中，突然发现这不就是个背包嘛。(果然有人曾说的，DP写不好的时候，先想搜索，然后从搜索想如何写成记忆化搜索，在这过程中想出DP的状态转移，是很不错的方法。)<br>本质上来讲，这道题就是<code>N</code>个物品$a_{i}$ ， 每个物品的重量是i(即它本身)。问恰好能装满容积为$\frac{\sum_{i=1}^n{a_i}}{2}$ 的背包的<strong> 方案数</strong>吗？<em> (注意这里答案应该是最终答案除以2，因为有重复计算的关系)</em></li>
-</ol>
-<p>朴素的01背包很简单<br>定义<code>dp[i][j]</code>表示一共有<code>i</code>个物品，背包最大容量为<code>j</code>，所能装的物品的最大价值。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= N ; i++)</span><br><span class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> j = <span class="number">1</span> ; j &lt;= capacity ; j++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>( j &gt;= weight[i] ) </span><br><span class="line">			dp[i][j] = max( dp[i<span class="number">-1</span>][j] , dp[i<span class="number">-1</span>][j - weight[i]] + value[i] ) ;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			dp[i][j] = dp[i<span class="number">-1</span>][j] ;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p>朴素的01背包很简单 定义<code>dp[i][j]</code>表示一共有<code>i</code>个物品，背包最大容量为<code>j</code>，所能装的物品的最大价值。 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= N ; i++)</span><br><span class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> j = <span class="number">1</span> ; j &lt;= capacity ; j++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>( j &gt;= weight[i] ) </span><br><span class="line">			dp[i][j] = max( dp[i<span class="number">-1</span>][j] , dp[i<span class="number">-1</span>][j - weight[i]] + value[i] ) ;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			dp[i][j] = dp[i<span class="number">-1</span>][j] ;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
 <p>注意一下dp数组都初始化为0，以及很多教材中提到的都是第二个循环从 <code>j == weight[i]</code> 开始的。但是实际上之前的dp数组也要转移过来。</p>
-<p><strong> 另可用滚动数组优化，空间复杂度减去一维</strong></p>
-<p>如果是要求，<strong>恰好</strong>装满背包的话，那么我们应该注意除了<code>dp[0][0]</code>初始化为0，其他都应该初始化为$-inf$。<br>我们可以通过搜索去考虑。如果是搜索的话，除了<code>dp[0][0]</code>是<code>return 0</code> ，其他应该是没有装满都返回$-inf$。而在DP中，因为是要取<code>max</code>的，所以就初始化为<code>-inf</code>就可以了。</p>
-<h3 id="01背包求方案数"><a href="#01背包求方案数" class="headerlink" title="01背包求方案数"></a>01背包求方案数</h3><p>我主要是在这里卡了一段时间。<br>曾经在学习Dijkstra的过程中，遇到需要记录路径问题的时候。被人告知: <strong> dp的时候需要记录路径、决策之类的，直接再开一个和dp数组结构基本一样的数组去记录就可以了。</strong><br>这个思想对我帮助很大。记录这些信息，本质上其实就是记录决策。决策的记录方式，映射下来，不就是和dp数组结构一样吗？<br>于是这道题我开了<code>cnt[n][capacity]</code> 这样一个数组去记录。(有的人选择在DP数组中再加一个维度去记录，本质上是一样的)</p>
+<p>** 另可用滚动数组优化，空间复杂度减去一维**</p>
+<p>如果是要求，<strong>恰好</strong>装满背包的话，那么我们应该注意除了<code>dp[0][0]</code>初始化为0，其他都应该初始化为<span class="math inline">\(-inf\)</span>。 我们可以通过搜索去考虑。如果是搜索的话，除了<code>dp[0][0]</code>是<code>return 0</code> ，其他应该是没有装满都返回<span class="math inline">\(-inf\)</span>。而在DP中，因为是要取<code>max</code>的，所以就初始化为<code>-inf</code>就可以了。</p>
+<h3 id="背包求方案数">01背包求方案数</h3>
+<p>我主要是在这里卡了一段时间。 曾经在学习Dijkstra的过程中，遇到需要记录路径问题的时候。被人告知: ** dp的时候需要记录路径、决策之类的，直接再开一个和dp数组结构基本一样的数组去记录就可以了。** 这个思想对我帮助很大。记录这些信息，本质上其实就是记录决策。决策的记录方式，映射下来，不就是和dp数组结构一样吗？ 于是这道题我开了<code>cnt[n][capacity]</code> 这样一个数组去记录。(有的人选择在DP数组中再加一个维度去记录，本质上是一样的)</p>
 <p>也就是定义<code>cnt[i][j]</code> 表示i个物品，(恰好)放在容量为j的背包中的方案数。</p>
 <p>不过在实际写的过程中，发现还有一些小问题要处理。 就是在转移的过程中，这个cnt数组，如何转移？</p>
-<p>我们观察到dp数组的转移主要是<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( dp[i<span class="number">-1</span>][j] &gt; dp[i<span class="number">-1</span>][ j - weight[i] ] + value[i] )</span><br><span class="line">	dp[i][j] = dp[i<span class="number">-1</span>][j] ;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	dp[i][j] = dp[i<span class="number">-1</span>][j - weight[i] ] + value[i] ;</span><br></pre></td></tr></table></figure></p>
+<p>我们观察到dp数组的转移主要是 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( dp[i<span class="number">-1</span>][j] &gt; dp[i<span class="number">-1</span>][ j - weight[i] ] + value[i] )</span><br><span class="line">	dp[i][j] = dp[i<span class="number">-1</span>][j] ;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	dp[i][j] = dp[i<span class="number">-1</span>][j - weight[i] ] + value[i] ;</span><br></pre></td></tr></table></figure></p>
 <p>cnt数组显然要在dp转移的过程中转移。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( dp[i<span class="number">-1</span>][j] &gt; dp[i<span class="number">-1</span>][ j - weight[i] ] + value[i] )</span><br><span class="line">	dp[i][j] = dp[i<span class="number">-1</span>][j] , cnt[i][j] = cnt[i<span class="number">-1</span>][j] ;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"></span><br><span class="line">	dp[i][j] = dp[i<span class="number">-1</span>][j - weight[i] ] + value[i] , cnt[i][j] = cnt[i<span class="number">-1</span>][j - weight[i]  ] + cnt[i<span class="number">-1</span>][j];</span><br></pre></td></tr></table></figure>
 <p>转移过程大概如上。</p>
 <p>对于<code>dp[i][j]</code>由<code>dp[i-1][j]</code> 转移而来的时候，显然<code>dp[i][j]</code>对应的方案数没有变化，可以直接继承<code>cnt[i-1][j]</code>过来。</p>
-<p>对于<code>dp[i][j]</code>由<code>dp[i-1][j - weight[i] ] + value[i]</code> 转移时。<br>一开始我想的是等于<code>cnt[i-1][j-weight[i]] + 1</code> 后来发现计算出来的远远小于答案。<br>毕竟这是组合问题，直接加1的话，差的太远了。</p>
+<p>对于<code>dp[i][j]</code>由<code>dp[i-1][j - weight[i] ] + value[i]</code> 转移时。 一开始我想的是等于<code>cnt[i-1][j-weight[i]] + 1</code> 后来发现计算出来的远远小于答案。 毕竟这是组合问题，直接加1的话，差的太远了。</p>
 <p>然后网上查了一下，发现别人的转移如上所示。</p>
 <p>一开始我以为是指<code>i</code>个物品放入容量为j的背包的方案数，可以 由<code>i-1</code>个物品放入j的背包里的方案数和<code>i-1</code>个物品放入<code>j-i</code>的方案数相加而来。然后怎么想都觉得怪怪的，如何按这个想法的话，不应该是由<code>i-1</code>个物品放入<code>i</code>的背包里的方案数和<code>j-i</code>的方案数相加而来才可以吗？ 于是私自改了一下这个地方。但是改了后也还是不能理解，因为这样如何避免重复计算呢？</p>
 <p>因此卡了一段时间。</p>
 <p>卡了一段时间后，想明白了，这不就是组合数递推的公式吗:</p>
-<script type="math/tex; mode=display">C\_n^m = C\_{n-1}^m + C\_{n-1}^{m-1}</script><p>这个公式的理解是，对于<code>n</code>个物品取<code>m</code>个，可以由<code>n-1</code>个物品直接取<code>m</code>个得来(也就是新加的物品不取)，也可以由<code>n-1</code>个物品取m-1个物品，然后加上新增的这个物品得来。</p>
+<p><span class="math display">\[ C\_n^m = C\_{n-1}^m + C\_{n-1}^{m-1} \]</span></p>
+<p>这个公式的理解是，对于<code>n</code>个物品取<code>m</code>个，可以由<code>n-1</code>个物品直接取<code>m</code>个得来(也就是新加的物品不取)，也可以由<code>n-1</code>个物品取m-1个物品，然后加上新增的这个物品得来。</p>
 <p>那么，这个<code>cnt[i][j]</code>的转移方法，不就可以看做是由前<code>i-1</code>个物品直接取了<code>j</code>个容量的方案数得来加上由前<code>i-1</code>个物品中取<code>j - weight[i]</code>容量的物品再加上当前的这个重量为<code>weight[i]</code>的物品得来吗？</p>
 <p>借此做完了这道题。</p>
 <p>虽然理解了，但是目前在转移过程中，还是常常按自己的想法写成 <code>j - i</code> 和 <code>i</code> 。</p>
@@ -824,7 +826,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#01背包求方案数"><span class="nav-number">1.</span> <span class="nav-text">01背包求方案数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#背包求方案数"><span class="nav-number">1.</span> <span class="nav-text">01背包求方案数</span></a></li></ol></div>
             
 
           </div>
@@ -860,7 +862,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">240k</span>
+    <span title="站点总字数">242k</span>
   
 
   
@@ -871,7 +873,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">3:38</span>
+    <span title="站点阅读时长">3:40</span>
   
 </div>
 
