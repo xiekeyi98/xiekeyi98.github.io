@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ICPC宣传]]></title>
+    <url>%2Fa0f2c0f1.html</url>
+    <content type="text"><![CDATA[我们是 计算机科学学院 ACM竞赛集训队（不隶属于任何社团、直属学院，有专用机房） 什么是ACM-ICPC国际大学生程序设计竞赛 ACM国际大学生程序设计竞赛（英语：ACM International Collegiate Programming Contest, ICPC）是由美国计算机协会（ACM）主办的，一项旨在展示大学生创新能力、团队精神和在压力下编写程序、分析和解决问题能力的年度竞赛。经过30多年的发展，ACM国际大学生程序设计竞赛已经发展成为最具影响力的大学生计算机竞赛。赛事之前仅由IBM公司赞助，2017年新增JetBrains公司赞助 **总而言之，ICPC是最公平、最盛大、难度最高的国际大学生程序设计竞赛** 简要规则 ACM-ICPC以团队的形式代表各学校参赛，每队由3名队员组成。 比赛期间，每队使用1台计算机需要在5个小时内使用C、C++或Java中的一种编写程序解决8到13个问题。程序完成之后提交裁判运行，运行的结果会判定为&quot;AC(正确)/WA（错误）/TLE（超时）/MLE（超出内存限制）/RE（运行错误）/PE（格式错误）&quot;中的一种并及时通知参赛队。每队在正确完成一题后，组织者将在其位置上升起一只代表该题颜色的气球。 最后的获胜者为正确解答题目最多且总用时最少的队伍。每道试题用时将从竞赛开始到试题解答被判定为正确为止，其间每一次提交运行结果被判错误的话将被加罚20分钟时间，未正确解答的试题不记时。例如：A、B两队都正确完成两道题目，其中A队提交这两题的时间分别是比赛开始后1:00和2:45，B队为1:20和2:00，但B队有一题提交了2次。这样A队的总用时为1:00+2:45=3:45而B队为1:20+2:00+0:20=3:40，所以B队以总用时少而获胜。 与其它计算机程序竞赛（例如国际信息学奥林匹克，IOI）相比，ACM-ICPC的特点在于其为3人团队作战且题量大，每队需要5小时内完成8道题目，甚至更多。除此之外，一支队伍有3名队员却只有1台计算机，使得时间显得更为紧张。因此除了扎实的编程能力，良好的团队协作和心理素质同样是获胜的关键。 主要比赛 CCCC中国大学生团体程序设计天梯赛 每年三月底 陕西省ACM程序设计竞赛（全国邀请赛） 每年五月左右 ICPC亚洲区域赛——网络预选赛 八到十月 ICPC亚洲区域赛 十到十二月 ICPC World Final 世界总决赛 每年四月 各校校赛、蓝桥杯等 福利与缺点 福利 公费旅游(亚洲区域赛每年全国多地举办，如2018年举办地为 辽宁沈阳 江苏徐州 江苏南京 山东青岛 中国香港 中国北京 河南焦作 陕西西安)，学校将为参赛队伍提供报销。 增强代码能力！Coding能力！ 为今后工作笔试、面试助力（绝大多数笔试面试题都和ACM题目相近，且没有ACM难） 缺点 难以保研 难度大，难以坚持…… 欢迎大家加入 更多信息欢迎大家知乎等地了解该竞赛。 因最近正是竞赛繁忙期间，所以本次是非正式招新。 QQ群：892918891 欢迎大家在群内问任何关于计算机、学习、竞赛等问题]]></content>
+      <categories>
+        <category>ACM</category>
+      </categories>
+      <tags>
+        <tag>ICPC宣传</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[USACO-Chapter4-Section4.2]]></title>
     <url>%2F10ca572f.html</url>
     <content type="text"><![CDATA[USACO第四章第二节——网络流 1ditch ACcode123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133/*ID:xiekeyi1PROG:ditchLANG:C++11*/#include&lt;bits/stdc++.h&gt;using namespace std ;const int maxn = 500;struct node&#123; int to , capcity; node( int a , int b )&#123; to = a , capcity = b ; &#125; ;&#125;;int st , ed ;int n , m ;vector&lt;node&gt; a[maxn];int dep[maxn];bool bfs()&#123; memset(dep,0,sizeof(dep)); queue&lt;int&gt; q ; q.push(st); dep[st] = 1 ; bool succ =false ; while( !q.empty() ) &#123; int t = q.front(); if( t == ed ) succ = true ; q.pop(); for( int i = 0 ; i &lt; a[t].size() ; i++) &#123; if( dep[ a[t][i].to ] == 0 &amp;&amp; a[t][i].capcity &gt; 0 ) &#123; dep[a[t][i].to] = dep[t] + 1 ; q.push( a[t][i].to ) ; &#125; &#125; &#125; return succ ; &#125;int dfs( int st , int flow )&#123; if( st == ed ) return flow ; for( int i = 0 ; i &lt; a[st].size() ; i++ ) &#123; if( dep[a[st][i].to] == dep[st] + 1 &amp;&amp; a[st][i].capcity &gt; 0 ) &#123; int di = dfs( a[st][i].to , min( flow , a[st][i].capcity ) ); if( di &gt; 0 ) &#123; a[st][i].capcity -= di; for( int j = 0 ; j &lt; a[i].size() ; j++) &#123; if( a[a[st][i].to][j].to == st ) &#123; a[a[st][i].to][j].capcity += di ; break ; &#125; &#125; //printf("ADD %d --&gt; %d \n " , st , a[st][i].to ); return di ; &#125; &#125; &#125; return 0 ;&#125;int dinic( )&#123; int ans = 0 ; while( bfs() ) &#123; while( int d = dfs( st , 0x7fffffff ) ) ans += d ; &#125; return ans ;&#125;int main()&#123; freopen("ditch.in","r",stdin); freopen("ditch.out","w",stdout); cin &gt;&gt; n &gt;&gt; m ; st = 1 ; ed = m ; for( int i = 1 ; i &lt;= n ; i++) &#123; int from , to , capcity ; cin &gt;&gt; from &gt;&gt; to &gt;&gt; capcity ; bool flag = false ; for( int j = 0 ; j &lt; a[from].size(); j++) &#123; if( a[from][j].to == to ) &#123; flag = true ; a[from][j].capcity += capcity; break ; &#125; &#125; if( !flag ) a[from].push_back( node( to , capcity ) ) ; flag = false ; for( int j = 0 ; j &lt; a[to].size() ; j++) &#123; if( a[to][j].to == from ) &#123; flag = true ; a[to][j].capcity += 0 ; break; &#125; &#125; if( !flag ) a[to].push_back( node( from , 0 ) ) ; &#125; cout &lt;&lt; dinic() &lt;&lt; endl ; return 0 ;&#125; 2stall4 ACcode123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960/*ID:xiekeyi1PROG:stall4LANG:C++11*/#include&lt;bits/stdc++.h&gt;using namespace std ;const int maxn = 222;bool graph[maxn][maxn];bool used[maxn];int stalls[maxn];int n , m ;int found( int st )&#123; for( int i = 1 ; i &lt;= n ; i++) &#123; if( graph[st][i] &amp;&amp; !used[i] ) &#123; used[i] = true; if( stalls[i] == 0 || found( stalls[i] ) ) &#123; stalls[i] = st ; return 1 ; &#125; &#125; &#125; return 0 ; &#125;int main()&#123; ios::sync_with_stdio(false); cin.tie(0); freopen("stall4.in","r",stdin); freopen("stall4.out","w",stdout); cin &gt;&gt; n &gt;&gt; m ; for( int i = 1 ; i &lt;= n ; i++) &#123; int num ; cin &gt;&gt; num ; for( int j = 1 ; j &lt;= num ; j++) &#123; int t ; cin &gt;&gt; t ; graph[i][t] = true ; &#125; &#125; int ans = 0 ; for( int i = 1 ; i &lt;= n ; i++) &#123; memset( used , 0 , sizeof( used ) ) ; ans += found( i ) ; &#125; cout &lt;&lt; ans &lt;&lt; endl ; &#125; 3 job ACcode1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071/*ID:xiekeyi1PROG:jobLANG:C++11*/#include&lt;bits/stdc++.h&gt;using namespace std ;struct node&#123; int v ; int t; node( int _v , int _t ) : v(_v) , t(_t) &#123;&#125;; bool operator&lt;( const node &amp;v ) const &#123; return t &lt; v.t ; &#125;; bool operator&gt;( const node &amp;v ) const &#123; return t &gt; v.t ; &#125;;&#125;;int main()&#123; ios::sync_with_stdio(false); cin.tie(0); freopen("job.in","r",stdin); freopen("job.out","w",stdout); int n , m1 , m2 ; cin &gt;&gt; n &gt;&gt; m1 &gt;&gt; m2 ; int ans1 = 0 , ans2 = 0 ; int tt[1010]= &#123;0&#125;; priority_queue&lt; node, vector&lt;node&gt; , greater&lt;node&gt; &gt; pq1; priority_queue&lt; node, vector&lt;node&gt; , greater&lt;node&gt; &gt; pq2; for( int i = 1 ; i &lt;= m1 ; i++) &#123; int v; cin &gt;&gt; v ; pq1.push(node(v,v));; &#125; for( int i = 1 ; i &lt;= n ; i++) &#123; auto t = pq1.top(); pq1.pop(); ans1 = max( ans1 , t.t ) ; tt[i] = ans1; t.t += t.v; pq1.push(t); &#125; for( int i = 1 ; i &lt;= m2 ; i++) &#123; int v ; cin &gt;&gt; v ; pq2.push( node( v , v )); &#125; for( int i = n ; i &gt;= 1 ; i-- ) &#123; auto t = pq2.top(); pq2.pop(); ans2 = max( ans2 , t.t + tt[i] ) ; t.t += t.v ; pq2.push(t); &#125; cout &lt;&lt; ans1 &lt;&lt; ' ' &lt;&lt; ans2 &lt;&lt; endl ; return 0 ; &#125;]]></content>
@@ -248,10 +259,10 @@
         <category>ACM</category>
       </categories>
       <tags>
-        <tag>ACM</tag>
-        <tag>算法</tag>
         <tag>Manacher</tag>
         <tag>字符串</tag>
+        <tag>ACM</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -277,8 +288,8 @@
       </categories>
       <tags>
         <tag>测试</tag>
-        <tag>工程</tag>
         <tag>Boost</tag>
+        <tag>工程</tag>
       </tags>
   </entry>
   <entry>
@@ -364,8 +375,8 @@
       </categories>
       <tags>
         <tag>USACO</tag>
-        <tag>模拟</tag>
         <tag>搜索</tag>
+        <tag>模拟</tag>
       </tags>
   </entry>
   <entry>
