@@ -262,10 +262,10 @@
         <category>ACM</category>
       </categories>
       <tags>
-        <tag>Manacher</tag>
-        <tag>字符串</tag>
         <tag>CCCC</tag>
         <tag>PAT</tag>
+        <tag>Manacher</tag>
+        <tag>字符串</tag>
       </tags>
   </entry>
   <entry>
@@ -277,8 +277,8 @@
       </categories>
       <tags>
         <tag>测试</tag>
-        <tag>Boost</tag>
         <tag>工程</tag>
+        <tag>Boost</tag>
       </tags>
   </entry>
   <entry>
@@ -289,10 +289,10 @@
         <category>ACM</category>
       </categories>
       <tags>
-        <tag>CCCC</tag>
-        <tag>PAT</tag>
         <tag>图论</tag>
         <tag>dijkstra</tag>
+        <tag>CCCC</tag>
+        <tag>PAT</tag>
       </tags>
   </entry>
   <entry>
