@@ -259,10 +259,10 @@
         <category>ACM</category>
       </categories>
       <tags>
-        <tag>ACM</tag>
-        <tag>算法</tag>
         <tag>Manacher</tag>
         <tag>字符串</tag>
+        <tag>ACM</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -273,10 +273,10 @@
         <category>ACM</category>
       </categories>
       <tags>
-        <tag>Manacher</tag>
-        <tag>字符串</tag>
         <tag>CCCC</tag>
         <tag>PAT</tag>
+        <tag>Manacher</tag>
+        <tag>字符串</tag>
       </tags>
   </entry>
   <entry>
@@ -375,8 +375,8 @@
       </categories>
       <tags>
         <tag>USACO</tag>
-        <tag>模拟</tag>
         <tag>搜索</tag>
+        <tag>模拟</tag>
       </tags>
   </entry>
   <entry>
