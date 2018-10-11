@@ -27,11 +27,11 @@ set guifont=Fixedsys:h16:cGB2312:qDRAFT "设置字号
 set vb t_vb= "去掉编辑的响声
 au GuiEnter * set t_vb= "关闭闪屏
 set fileencodings=ucs-bom,utf-8,chinese,cp936 "设置文件编码格式
-" -------- GVIM ------ 
 "为了兼容VI，所以backspace有好几种模式
 " indent: 表示可以删除自动缩进的部分.
 " eol: 表示在行尾可以合并两行
 " start:表示可以删除之前的输入
+" -------- GVIM ------ 
 set backspace=indent,eol,start "GVIM设置，否则退格键有问题。
 syntax on "开启代码高亮
 set nu "设置行号
@@ -133,6 +133,45 @@ imap <F5> <ESC>:call CompileCode()<CR>
 vmap <F5> <ESC>:call CompileCode()<CR>
 
 map <F6> :call RunResult()<CR>
+
+
+"将键盘上的F8功能键映射为添加作者信息的快捷键
+map <F8> ms:call AddAuthor()<cr>'s
+function AddAuthor()
+        let n=1
+        while n < 5
+                let line = getline(n)
+                if line =~'^\s*\*\s*\S*Last\s*modified\s*:\s*\S*.*$'
+                        call UpdateTitle()
+                        return
+                endif
+                let n = n + 1
+        endwhile
+        call AddTitle()
+endfunction
+ 
+function UpdateTitle()
+        normal m'
+        execute '/* Last modified\s*:/s@:.*$@\=strftime(": %Y-%m-%d %H:%M")@'
+        normal "
+        normal mk
+        execute '/* Filename\s*:/s@:.*$@\=": ".expand("%:t")@'
+        execute "noh"
+        normal 'k
+        echohl WarningMsg | echo "Successful in updating the copy right." | echohl None
+endfunction
+ 
+function AddTitle()
+        call append(0,"/**********************************************************")
+        call append(1," * Author        : xie keyi")
+        call append(2," * Email         : xiekeyi98@snnu.edu.cn")
+        call append(3," * Last modified : ".strftime("%Y-%m-%d %H:%M"))
+        call append(4," * Filename      : ".expand("%:t"))
+        call append(5," * Description   : ")
+        call append(6," * *******************************************************/")
+        echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
+endfunction
+
 
 " ----------插件设置---------
 
@@ -322,6 +361,46 @@ vmap <F5> <ESC>:call CompileCode()<CR>
 
 map <F6> :call RunResult()<CR>
 map <F7> :call DEBUG()<CR>
+
+
+"将键盘上的F8功能键映射为添加作者信息的快捷键
+map <F8> ms:call AddAuthor()<cr>'s
+function AddAuthor()
+        let n=1
+        while n < 5
+                let line = getline(n)
+                if line =~'^\s*\*\s*\S*Last\s*modified\s*:\s*\S*.*$'
+                        call UpdateTitle()
+                        return
+                endif
+                let n = n + 1
+        endwhile
+        call AddTitle()
+endfunction
+ 
+function UpdateTitle()
+        normal m'
+        execute '/* Last modified\s*:/s@:.*$@\=strftime(": %Y-%m-%d %H:%M")@'
+        normal "
+        normal mk
+        execute '/* Filename\s*:/s@:.*$@\=": ".expand("%:t")@'
+        execute "noh"
+        normal 'k
+        echohl WarningMsg | echo "Successful in updating the copy right." | echohl None
+endfunction
+ 
+function AddTitle()
+        call append(0,"/**********************************************************")
+        call append(1," * Author        : xie keyi")
+        call append(2," * Email         : xiekeyi98@snnu.edu.cn")
+        call append(3," * Last modified : ".strftime("%Y-%m-%d %H:%M"))
+        call append(4," * Filename      : ".expand("%:t"))
+        call append(5," * Description   : ")
+        call append(6," * *******************************************************/")
+        echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
+endfunction
+
+
 
 "将插件文件分开，如果存在可读的.vimrc.bundles文件，把这个文件(插件文件)加载到下面
 if filereadable(expand("~/.vimrc.bundles"))
