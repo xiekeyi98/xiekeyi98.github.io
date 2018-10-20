@@ -26,13 +26,13 @@ autocmd GUIEnter * simalt ~x "GVIM函数，启动GUI后自动全屏
 set guifont=Fixedsys:h16:cGB2312:qDRAFT "设置字号
 set vb t_vb= "去掉编辑的响声
 au GuiEnter * set t_vb= "关闭闪屏
-set fileencodings=ucs-bom,utf-8,chinese,cp936 "设置文件编码格式
+set backspace=indent,eol,start "GVIM设置，否则退格键有问题。
 "为了兼容VI，所以backspace有好几种模式
 " indent: 表示可以删除自动缩进的部分.
 " eol: 表示在行尾可以合并两行
 " start:表示可以删除之前的输入
 " -------- GVIM ------ 
-set backspace=indent,eol,start "GVIM设置，否则退格键有问题。
+set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1 "设置文件编码格式
 syntax on "开启代码高亮
 set nu "设置行号
 set showcmd "右下角显示输入命令
@@ -255,6 +255,7 @@ let c_no_curly_error=1 "修复highlight代码bug
 " indent: 表示可以删除自动缩进的部分.
 " eol: 表示在行尾可以合并两行
 " start:表示可以删除之前的输入
+set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1 "设置文件编码格式
 syntax on "开启代码高亮
 set nu "设置行号
 set showcmd "右下角显示输入命令
