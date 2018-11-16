@@ -102,18 +102,18 @@
 
 
 
-  <meta name="description" content="题意: 给出n个数字，找出这n个数字的一个子集，使得子集中任意两两(包括自己和自己)相减的数字，都是2的非负次幂。 题目链接:http://codeforces.com/contest/988/problem/D">
+  <meta name="description" content="题意: 给出n个数字，找出这n个数字的一个子集，使得子集中任意两两(包括自己和自己)相减的数字，都是2的非负次幂。 题目链接:http://codeforces.com/contest/988/problem/D">
 <meta name="keywords" content="思维,codeforces">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Codeforces #486(Div.3) CF988D Points and Powers of Two">
 <meta property="og:url" content="https://xiekeyi98.com/f4a229d0.html">
 <meta property="og:site_name" content="Dark猫">
-<meta property="og:description" content="题意: 给出n个数字，找出这n个数字的一个子集，使得子集中任意两两(包括自己和自己)相减的数字，都是2的非负次幂。 题目链接:http://codeforces.com/contest/988/problem/D">
+<meta property="og:description" content="题意: 给出n个数字，找出这n个数字的一个子集，使得子集中任意两两(包括自己和自己)相减的数字，都是2的非负次幂。 题目链接:http://codeforces.com/contest/988/problem/D">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-06-07T15:29:51.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codeforces #486(Div.3) CF988D Points and Powers of Two">
-<meta name="twitter:description" content="题意: 给出n个数字，找出这n个数字的一个子集，使得子集中任意两两(包括自己和自己)相减的数字，都是2的非负次幂。 题目链接:http://codeforces.com/contest/988/problem/D">
+<meta name="twitter:description" content="题意: 给出n个数字，找出这n个数字的一个子集，使得子集中任意两两(包括自己和自己)相减的数字，都是2的非负次幂。 题目链接:http://codeforces.com/contest/988/problem/D">
 
 
 
@@ -440,7 +440,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.7k</span>
+                <span title="本文字数">2.6k</span>
               
 
               
@@ -475,21 +475,19 @@
 
       
         <p>题意: 给出n个数字，找出这n个数字的一个子集，使得子集中任意两两(包括自己和自己)相减的数字，都是2的非负次幂。</p>
-<p>题目链接:http://codeforces.com/contest/988/problem/D</p>
+<p>题目链接:<a href="http://codeforces.com/contest/988/problem/D" target="_blank" rel="noopener">http://codeforces.com/contest/988/problem/D</a></p>
 <a id="more"></a>
-<h3 id="错误想法">错误想法</h3>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for( 遍历元素 a[i] = a[1] to a[n] )</span><br><span class="line">	delta = 0 </span><br><span class="line">	while( delta &lt;= MAXN )</span><br><span class="line">		if( 二分查找到( a[i] + delta ) )</span><br><span class="line">			记录 a[i] + delta .</span><br><span class="line">	dleta = ( delta == 0 ) ? 1 : delta * 2  </span><br><span class="line">	维护最大值</span><br></pre></td></tr></table></figure>
-<p>时间复杂度: <span class="math inline">\(O(n* logMAXN * logn )\)</span></p>
+<h3 id="错误想法"><a href="#错误想法" class="headerlink" title="错误想法"></a>错误想法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for( 遍历元素 a[i] = a[1] to a[n] )</span><br><span class="line">	delta = 0 </span><br><span class="line">	while( delta &lt;= MAXN )</span><br><span class="line">		if( 二分查找到( a[i] + delta ) )</span><br><span class="line">			记录 a[i] + delta .</span><br><span class="line">	dleta = ( delta == 0 ) ? 1 : delta * 2  </span><br><span class="line">	维护最大值</span><br></pre></td></tr></table></figure>
+<p>时间复杂度: $O(n<em> logMAXN </em> logn )$</p>
 <p>WA在6上，一开始以为是MAXN开的不够大（第一次开了2e5），结果改到2e9后，反而WA1了。后来发现，这个思路<strong>根本不对</strong>，因为无法保证，<strong>任意两两相减的数字</strong>，都是2的非负次幂。</p>
-<h3 id="正确做法">正确做法</h3>
-<p>有一个结论:<strong>这样的数组最多只会有3个</strong></p>
+<h3 id="正确做法"><a href="#正确做法" class="headerlink" title="正确做法"></a>正确做法</h3><p>有一个结论:<strong>这样的数组最多只会有3个</strong></p>
 <p>简单证明：</p>
 <ul>
-<li>对于只有一个数字<span class="math inline">\(a\)</span>的情况，显然成立。<span class="math inline">\(( a-a = 0 = 2^0 )\)</span></li>
-<li>对于只有两个数字<span class="math inline">\(a，b\)</span>的情况，只会有： <span class="math inline">\(( b - a = 2^x )\)</span></li>
-<li>对于只有三个数字<span class="math inline">\(a,b,c,\)</span>的情况: 则有 <span class="math inline">\(b - a = 2^x , c - b = 2^y\)</span>，因为题目要求任意两两相减都要是2的非负次幂。所以显然应该有<span class="math inline">\(c - a = 2^z = 2^x + 2^y\)</span> ，而只有<span class="math inline">\(x = y\)</span>的时候，这个情况才成立 (考虑一下2的非负次幂的二进制表达，如果<span class="math inline">\(x!=y\)</span>，那么二进制表达应该是有两位，就不能被表示成一个2的非负次幂的情况了，而是两个2的非负次幂相加) 所以三个数的情况，一定是<span class="math inline">\([a - x , a , a + x]\)</span> 其中x是某个2的次幂。</li>
-<li>那么对于四个数字<span class="math inline">\(a,b,c,d\)</span>的情况，<span class="math inline">\(d - c\)</span>是2的非负次幂，<span class="math inline">\(c - a\)</span>也是2的非负次幂，那么<span class="math inline">\(d-a\)</span>显然会是两个不同的二的次幂相加得到(假如对于这种情况，是两个相同的二的次幂，那么同样的情况，换几个选择，肯定又会是不同的二的次幂相加的情况。所以不能成立)。</li>
-<li>对于数字大于4的情况，因为他包含了是任意两两相减都要满足情况，肯定包含了$ n 4$的情况，所以大于4都不行。</li>
+<li>对于只有一个数字$a$的情况，显然成立。$( a-a = 0 = 2^0 )$</li>
+<li>对于只有两个数字$a，b$的情况，只会有： $( b - a = 2^x )$</li>
+<li>对于只有三个数字$a,b,c,$的情况:<br>则有 $b - a = 2^x , c - b = 2^y$，因为题目要求任意两两相减都要是2的非负次幂。所以显然应该有$c - a = 2^z = 2^x + 2^y$ ，而只有$x = y$的时候，这个情况才成立<br>(考虑一下2的非负次幂的二进制表达，如果$x!=y$，那么二进制表达应该是有两位，就不能被表示成一个2的非负次幂的情况了，而是两个2的非负次幂相加)<br>所以三个数的情况，一定是$[a - x , a , a + x]$ 其中x是某个2的次幂。</li>
+<li>那么对于四个数字$a,b,c,d$的情况，$d - c$是2的非负次幂，$c - a$也是2的非负次幂，那么$d-a$显然会是两个不同的二的次幂相加得到(假如对于这种情况，是两个相同的二的次幂，那么同样的情况，换几个选择，肯定又会是不同的二的次幂相加的情况。所以不能成立)。</li>
+<li>对于数字大于4的情况，因为他包含了是任意两两相减都要满足情况，肯定包含了$ n \lq 4$的情况，所以大于4都不行。</li>
 </ul>
 <p>有了这个结论以后，我们只要稍微改动一下，当得到3个数字的结果就退出，对于1和2的情况，都分别处理一下即可。</p>
 <div class="spoiler collapsed"><div class="spoiler-title">ACcode</div><div class="spoiler-content"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span> ;</span><br><span class="line"><span class="keyword">int</span> n ;</span><br><span class="line"><span class="keyword">int</span> cnt_ans = <span class="number">0</span> ;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span> &gt; a ;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span> &gt; ans ; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n ;</span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= n ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> t ;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; t ;</span><br><span class="line">        a.push_back(t);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    sort( a.begin() , a.end()) ;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> delta = <span class="number">1l</span>l  ;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; n ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        delta = <span class="number">1l</span>l ; </span><br><span class="line">        <span class="keyword">while</span>( delta &lt;= <span class="number">2000000000l</span>l)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> t = <span class="number">1</span> ; </span><br><span class="line">            <span class="built_in">vector</span>&lt;<span class="keyword">long</span> <span class="keyword">long</span> &gt; tt ; </span><br><span class="line">            tt.push_back(a[i]);</span><br><span class="line">            <span class="keyword">if</span>( binary_search( a.begin() , a.end(), a[i] + delta ) )</span><br><span class="line">            &#123;</span><br><span class="line">                    t++;</span><br><span class="line">                    tt.push_back( a[i] + delta ) ;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>( binary_search( a.begin() , a.end(), a[i] - delta ) ) </span><br><span class="line">            &#123;</span><br><span class="line">                t++;</span><br><span class="line">                tt.push_back(a[i]-delta);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            delta *= <span class="number">2l</span>l ;</span><br><span class="line">            <span class="keyword">if</span>( t &gt; cnt_ans  )</span><br><span class="line">            &#123;</span><br><span class="line">                cnt_ans = t ;</span><br><span class="line">                ans = tt ;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>( cnt_ans == <span class="number">3</span> )</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; cnt_ans &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line">                <span class="keyword">for</span>( <span class="keyword">auto</span> i : ans )</span><br><span class="line">                    <span class="built_in">cout</span> &lt;&lt; i &lt;&lt;  <span class="string">' '</span> ;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; cnt_ans &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">auto</span> i : ans )</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">' '</span> ;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></div>
@@ -846,7 +844,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">250k</span>
+    <span title="站点总字数">240k</span>
   
 
   
@@ -857,7 +855,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">3:47</span>
+    <span title="站点阅读时长">3:38</span>
   
 </div>
 

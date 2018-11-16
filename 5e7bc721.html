@@ -102,19 +102,19 @@
 
 
 
-  <meta name="description" content="travis-ci和codecov测试工具的使用。 (未完待续，视后续使用情况补充更新)">
+  <meta name="description" content="travis-ci和codecov测试工具的使用。(未完待续，视后续使用情况补充更新)">
 <meta name="keywords" content="测试,工程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="travis-ci与codecov测试和测试覆盖度工具的使用">
 <meta property="og:url" content="https://xiekeyi98.com/5e7bc721.html">
 <meta property="og:site_name" content="Dark猫">
-<meta property="og:description" content="travis-ci和codecov测试工具的使用。 (未完待续，视后续使用情况补充更新)">
+<meta property="og:description" content="travis-ci和codecov测试工具的使用。(未完待续，视后续使用情况补充更新)">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://xiekeyi98.com/images/travis-ci贴纸.png">
 <meta property="og:updated_time" content="2018-06-07T15:29:51.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="travis-ci与codecov测试和测试覆盖度工具的使用">
-<meta name="twitter:description" content="travis-ci和codecov测试工具的使用。 (未完待续，视后续使用情况补充更新)">
+<meta name="twitter:description" content="travis-ci和codecov测试工具的使用。(未完待续，视后续使用情况补充更新)">
 <meta name="twitter:image" content="https://xiekeyi98.com/images/travis-ci贴纸.png">
 
 
@@ -476,31 +476,19 @@
       
 
       
-        <p>travis-ci和codecov测试工具的使用。<br>
-(未完待续，视后续使用情况补充更新) <a id="more"></a></p>
-<p>今年参加了thoughtworks的线下结对编程体验活动。说来找了好多个网站都没有找到这个活动的详细信息，只有一些通知、公告和颁奖新闻。<br>
-终于在google找到了<a href="http://cutoutsy.github.io/2017/06/09/thoughtworks%E7%BB%93%E5%AF%B9%E7%BC%96%E7%A8%8B%E4%BD%93%E9%AA%8C/" target="_blank" rel="noopener">thoughtworks结对编程体验</a>的一篇文章，碰巧还是去年一等奖。参考了他的历程和项目代码后，发现他使用了maven做项目管理，使用travis-ci做单元测试。<br>
-说来也是在这个研究过程中才发现，原来<code>configure</code>和<code>makefile</code>是有很多自动生成工具的(qmake、autotools等)，我一直以为是要手写的。<br>
-发现这个travis-ci，就是我一直很好奇的部分项目的测试贴纸。加上自己需要，所以简单学习了一下。</p>
-<h3 id="travis-ci">travis-ci</h3>
-<p><a href="https://travis-ci.org/" target="_blank" rel="noopener">travis-ci</a> 是一个支持多平台、集成、持续的测试工具，这类工具其实有很多，这个是市场份额占的最大的。<br>
-个人公开仓库免费(私人仓库等我不太了解)，貌似必须和github一起使用才可以。</p>
-<p>使用起来非常简单，只要注册账号，和github关联，然后在自己对应的项目中打开就可以。<br>
-打开以后，只要在自己的项目中添加<code>.travis.yml</code>文件，即可在每次push的时候，自动进行测试。<br>
-网上很多关于这个文件如何写的，都是php、js等语言，少量java、python，对于C++几乎没有。索性读了下文档，发现简单使用还是很简单的。</p>
-<p><strong>踩到的坑: 官方样例中只要写<code>language: C++</code>即可运行，但是实际上，那样默认的构建命令是<code>./configure &amp;&amp; make &amp;&amp; make test</code> 这样的话，我还研究了半天如何写<code>configure</code>，但是实际上，只要人工修改构建命令即可</strong></p>
-<p>给一下我的简单范例: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo: true #是否使用sudo命令执行</span><br><span class="line">language: C++</span><br><span class="line">script:</span><br><span class="line">  - make</span><br></pre></td></tr></table></figure></p>
-<p>只要这么几句，就可以在每次运行的时候，执行测试了。不过这个测试只是执行了make，有进一步需求的话，可以在scrpit里，加入一个写好的bash，bash中运行自己的单元测试。<br>
-之后每次push的时候，就会在travis-ci的网站中的profile和github里的commit里看到测试结果。<br>
-如果需要贴纸的话，只要在profile里点击那个图标，即可得到markdown信息，加到readme里即可。 <img src="/images/travis-ci贴纸.png" alt="travis-ci贴纸"></p>
-<h3 id="codecov">codecov</h3>
-<p><a href="https://codecov.io/" target="_blank" rel="noopener">codecov</a>这是一个用来表示测试覆盖的代码有百分之多少的工具。使用起来，一开始看到别的教程，以为只需要在travis-ci中添加几句就可以，实际使用起来发现挺麻烦的。</p>
-<p><strong>截止目前，我并没有成功使用这个工具。</strong></p>
-<p>使用这个工具，大概需要安装codecov环境，并且使用gcov生成覆盖率测试文件。</p>
-<p>因为使用样例给的是使用qmake，我自己一直手写makefile，所以暂时还没有成功使用。</p>
+        <p>travis-ci和codecov测试工具的使用。<br>(未完待续，视后续使用情况补充更新)<br><a id="more"></a></p>
+<p>  今年参加了thoughtworks的线下结对编程体验活动。说来找了好多个网站都没有找到这个活动的详细信息，只有一些通知、公告和颁奖新闻。<br>  终于在google找到了<a href="http://cutoutsy.github.io/2017/06/09/thoughtworks%E7%BB%93%E5%AF%B9%E7%BC%96%E7%A8%8B%E4%BD%93%E9%AA%8C/" target="_blank" rel="noopener">thoughtworks结对编程体验</a>的一篇文章，碰巧还是去年一等奖。参考了他的历程和项目代码后，发现他使用了maven做项目管理，使用travis-ci做单元测试。<br>  说来也是在这个研究过程中才发现，原来<code>configure</code>和<code>makefile</code>是有很多自动生成工具的(qmake、autotools等)，我一直以为是要手写的。<br>  发现这个travis-ci，就是我一直很好奇的部分项目的测试贴纸。加上自己需要，所以简单学习了一下。</p>
+<h3 id="travis-ci"><a href="#travis-ci" class="headerlink" title="travis-ci"></a>travis-ci</h3><p>  <a href="https://travis-ci.org/" target="_blank" rel="noopener">travis-ci</a> 是一个支持多平台、集成、持续的测试工具，这类工具其实有很多，这个是市场份额占的最大的。<br>  个人公开仓库免费(私人仓库等我不太了解)，貌似必须和github一起使用才可以。</p>
+<p>  使用起来非常简单，只要注册账号，和github关联，然后在自己对应的项目中打开就可以。<br>  打开以后，只要在自己的项目中添加<code>.travis.yml</code>文件，即可在每次push的时候，自动进行测试。<br>  网上很多关于这个文件如何写的，都是php、js等语言，少量java、python，对于C++几乎没有。索性读了下文档，发现简单使用还是很简单的。</p>
+<p>  <strong>踩到的坑: 官方样例中只要写<code>language: C++</code>即可运行，但是实际上，那样默认的构建命令是<code>./configure &amp;&amp; make &amp;&amp; make test</code> 这样的话，我还研究了半天如何写<code>configure</code>，但是实际上，只要人工修改构建命令即可</strong></p>
+<p>  给一下我的简单范例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo: true #是否使用sudo命令执行</span><br><span class="line">language: C++</span><br><span class="line">script:</span><br><span class="line">  - make</span><br></pre></td></tr></table></figure></p>
+<p>  只要这么几句，就可以在每次运行的时候，执行测试了。不过这个测试只是执行了make，有进一步需求的话，可以在scrpit里，加入一个写好的bash，bash中运行自己的单元测试。<br>  之后每次push的时候，就会在travis-ci的网站中的profile和github里的commit里看到测试结果。<br>  如果需要贴纸的话，只要在profile里点击那个图标，即可得到markdown信息，加到readme里即可。<br>  <img src="/images/travis-ci贴纸.png" alt="travis-ci贴纸"></p>
+<h3 id="codecov"><a href="#codecov" class="headerlink" title="codecov"></a>codecov</h3><p>  <a href="https://codecov.io/" target="_blank" rel="noopener">codecov</a>这是一个用来表示测试覆盖的代码有百分之多少的工具。使用起来，一开始看到别的教程，以为只需要在travis-ci中添加几句就可以，实际使用起来发现挺麻烦的。</p>
+<p>  <strong>截止目前，我并没有成功使用这个工具。</strong></p>
+<p>  使用这个工具，大概需要安装codecov环境，并且使用gcov生成覆盖率测试文件。</p>
+<p>  因为使用样例给的是使用qmake，我自己一直手写makefile，所以暂时还没有成功使用。</p>
 <p>具体请看参考资料。</p>
-<h3 id="参考资料">参考资料</h3>
-<ul>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
 <li><a href="https://docs.travis-ci.com/" target="_blank" rel="noopener">Travis CI Docs</a></li>
 <li><a href="https://docs.codecov.io/docs/supported-languages" target="_blank" rel="noopener">codecov documentation</a></li>
 <li><a href="https://blog.csdn.net/heli007/article/details/8268614" target="_blank" rel="noopener">GCOV的使用-测试代码覆盖率</a></li>
@@ -861,7 +849,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">250k</span>
+    <span title="站点总字数">240k</span>
   
 
   
@@ -872,7 +860,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">3:47</span>
+    <span title="站点阅读时长">3:38</span>
   
 </div>
 
