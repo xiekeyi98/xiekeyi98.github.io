@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Dark猫">
 <meta property="og:description" content="Codeforces 1084C - The Fair Nut and String 题目连接 Codeforces 1084C - The Fair Nut and String 题目大意 给出一个字符串，查找有多少个被b隔开的a的子串。如a、aba,abba,abbbba等都是合法的，但aa是非法的。 但要注意的是aba,abba,abbbbbba等在统计的过程中只计算一个。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-11T05:23:55.627Z">
+<meta property="og:updated_time" content="2018-12-11T05:28:45.080Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codeforces 1084C - The Fair Nut and String">
 <meta name="twitter:description" content="Codeforces 1084C - The Fair Nut and String 题目连接 Codeforces 1084C - The Fair Nut and String 题目大意 给出一个字符串，查找有多少个被b隔开的a的子串。如a、aba,abba,abbbba等都是合法的，但aa是非法的。 但要注意的是aba,abba,abbbbbba等在统计的过程中只计算一个。">
@@ -486,15 +486,32 @@
 <h3 id="正解">正解</h3>
 <p>首先很显然，删除除了a和b以外的字符(对于一开始的错误做法，删不删没啥影响)。<br>
 之后我们统计被b隔开的a的情况，存到一个数组中。 如<code>abbaaabaa</code>，存到数组中变成<code>[1,3,2]</code>的形式。<br>
-这样我们就可以把<code>abbaaabaa</code>的情况简化成<code>ababa</code>的情况。<br>
-接下来我们考虑<code>ababa</code>的情况:<br>
-- 初始化<code>ans = 0</code> - 对于第一个<code>a</code>，答案是<code>1(自身)</code>, <code>ans = 1</code> - 对于<code>b</code>跳过(下同) - 考虑前两个<code>a</code>,答案是<code>1(自身) + 1(加上前面对应的1)</code>, <code>ans = 2</code>; - 对于前三个<code>a</code>，答案是<code>1(自身) + 2(加上前面对应的两个2</code>) , <code>ans = 3</code>; - 最终答案是3个，分别是<code>[1],[3],[5],[1,3],[1,3],[1,5]</code>。<br>
-- 很显然的容易发现<code>ans = lastans + 1</code></p>
+这样我们就可以把<code>abbaaabaa</code>的情况简化成<code>ababa</code>的情况。 接下来我们考虑<code>ababa</code>的情况:</p>
+<ul>
+<li>初始化<code>ans = 0</code></li>
+<li>对于第一个<code>a</code>，答案是<code>1(自身)</code>, <code>ans = 1</code></li>
+<li>对于<code>b</code>跳过(下同)</li>
+<li>考虑前两个<code>a</code>,答案是<code>1(自身) + 1(加上前面对应的1)</code>, <code>ans = 2</code>;</li>
+<li>对于前三个<code>a</code>，答案是<code>1(自身) + 2(加上前面对应的两个2</code>) , <code>ans = 3</code>;</li>
+<li>最终答案是3个，分别是<code>[1],[3],[5],[1,3],[1,3],[1,5]</code>。<br>
+</li>
+<li>很显然的容易发现<code>ans = lastans + 1</code></li>
+</ul>
 <p>但是考虑到，我们之前把很多a压缩成了1个(即把<code>abbaaabaa</code>变成了<code>ababa</code>)，在这里把b缩成一个是没有影响的。<br>
 但是对于a却影响了答案，如何解决这个问题呢？<br>
 观察到每个a其实都是找之前被b隔开的a,而两个b之间夹着的一串a之间是互相不影响的。<br>
-那么我们其实只要乘上这个一串a的个数就好了。即对于<code>abbaaabaa</code>:<br>
-- 初始化<code>ans = 0</code> - 对于第一个<code>a</code>，答案是<code>1(自身)</code>, <code>ans = 1</code> - 对于<code>b</code>跳过(下同) - 考虑第二串<code>a</code>的第一个<code>a</code>,答案是<code>1(自身) + 1(加上第一串的一个a)</code>, <code>ans = 2</code>; - 考虑第二串<code>a</code>的第二个<code>a</code>,答案是<code>1(自身) + 1(加上第一串的一个a)</code>, <code>ans = 3</code>; - 考虑第二串<code>a</code>的第三个<code>a</code>,答案是<code>1(自身) + 1(加上第一串的一个a)</code>, <code>ans = 4</code>; - ………… - 即就是<code>1(自身) + 1(之前对应的第一串的一个a) * 3(这一串a的个数) )</code> - 很显然的容易发现<code>ans = ( lastans + 1 ) * 这一串a的个数</code></p>
+那么我们其实只要乘上这个一串a的个数就好了。即对于<code>abbaaabaa</code>:</p>
+<ul>
+<li>初始化<code>ans = 0</code></li>
+<li>对于第一个<code>a</code>，答案是<code>1(自身)</code>, <code>ans = 1</code></li>
+<li>对于<code>b</code>跳过(下同)</li>
+<li>考虑第二串<code>a</code>的第一个<code>a</code>,答案是<code>1(自身) + 1(加上第一串的一个a)</code>, <code>ans = 2</code>;</li>
+<li>考虑第二串<code>a</code>的第二个<code>a</code>,答案是<code>1(自身) + 1(加上第一串的一个a)</code>, <code>ans = 3</code>;</li>
+<li>考虑第二串<code>a</code>的第三个<code>a</code>,答案是<code>1(自身) + 1(加上第一串的一个a)</code>, <code>ans = 4</code>;</li>
+<li>…………</li>
+<li>即就是<code>1(自身) + 1(之前对应的第一串的一个a) * 3(这一串a的个数) )</code></li>
+<li>很显然的容易发现<code>ans = ( lastans + 1 ) * 这一串a的个数</code></li>
+</ul>
 <p>到这里，答案也就呼之欲出了(<del>也可能是叽里呱啦一堆，语无伦次让人一头雾水2333</del>)。<br>
 具体看代码吧。</p>
 <h2 id="代码">代码</h2>
