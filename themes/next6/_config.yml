@@ -158,7 +158,7 @@ site_state: true
 social:
   GitHub: https://github.com/xiekeyi98 || github
   E-Mail: mailto:xiekeyi98@gmail.com || envelope
-  ACM-TEMPLATE: https://xiekeyi98.gitbooks.io/acm-template/content/
+  #ACM-TEMPLATE: https://xiekeyi98.gitbooks.io/acm-template/content/
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
   #FB Page: https://www.facebook.com/yourname || facebook
