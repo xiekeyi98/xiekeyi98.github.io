@@ -102,25 +102,25 @@
 
 
 
-  <meta name="description" content="(记忆化搜索 完全背包 多重背包)求方案数。">
-<meta name="keywords" content="USACO,背包">
+  <meta name="description" content="leetcode761 Special Binary String 题目连接 https://leetcode.com/problems/special-binary-string/description/ 题目大意 定义Special Binary String:  1和0的数量一定相等 所有以1开始的前缀一定是1的数量大于等于0的数量。  现在给出一个Special Bina">
+<meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="USACO-2.3.4-MoneySystems-背包">
-<meta property="og:url" content="https://xiekeyi98.com/f7932c4a.html">
+<meta property="og:title" content="leetcode761 Special Binary String">
+<meta property="og:url" content="https://xiekeyi98.com/958a9135.html">
 <meta property="og:site_name" content="Dark猫">
-<meta property="og:description" content="(记忆化搜索 完全背包 多重背包)求方案数。">
+<meta property="og:description" content="leetcode761 Special Binary String 题目连接 https://leetcode.com/problems/special-binary-string/description/ 题目大意 定义Special Binary String:  1和0的数量一定相等 所有以1开始的前缀一定是1的数量大于等于0的数量。  现在给出一个Special Bina">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-07T15:29:51.643Z">
+<meta property="og:updated_time" content="2018-12-13T07:14:43.869Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="USACO-2.3.4-MoneySystems-背包">
-<meta name="twitter:description" content="(记忆化搜索 完全背包 多重背包)求方案数。">
+<meta name="twitter:title" content="leetcode761 Special Binary String">
+<meta name="twitter:description" content="leetcode761 Special Binary String 题目连接 https://leetcode.com/problems/special-binary-string/description/ 题目大意 定义Special Binary String:  1和0的数量一定相等 所有以1开始的前缀一定是1的数量大于等于0的数量。  现在给出一个Special Bina">
 
 
 
 
 
 
-  <link rel="canonical" href="https://xiekeyi98.com/f7932c4a.html">
+  <link rel="canonical" href="https://xiekeyi98.com/958a9135.html">
 
 
 
@@ -130,7 +130,7 @@
   };
 </script>
 
-  <title>USACO-2.3.4-MoneySystems-背包 | Dark猫</title>
+  <title>leetcode761 Special Binary String | Dark猫</title>
   
 
 
@@ -339,7 +339,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://xiekeyi98.com/f7932c4a.html">
+    <link itemprop="mainEntityOfPage" href="https://xiekeyi98.com/958a9135.html">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xie Keyi">
@@ -356,7 +356,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">USACO-2.3.4-MoneySystems-背包
+          <h2 class="post-title" itemprop="name headline">leetcode761 Special Binary String
               
             
           </h2>
@@ -381,7 +381,7 @@
                 
               
 
-              <time title="创建时间：2017-11-28 21:21:09" itemprop="dateCreated datePublished" datetime="2017-11-28T21:21:09+08:00">2017-11-28</time>
+              <time title="创建时间：2018-12-13 15:07:03" itemprop="dateCreated datePublished" datetime="2018-12-13T15:07:03+08:00">2018-12-13</time>
             
 
             
@@ -413,7 +413,7 @@
 
           
           
-             <span id="/f7932c4a.html" class="leancloud_visitors" data-flag-title="USACO-2.3.4-MoneySystems-背包">
+             <span id="/958a9135.html" class="leancloud_visitors" data-flag-title="leetcode761 Special Binary String">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -438,7 +438,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">3.7k</span>
+                <span title="本文字数">1.7k</span>
               
 
               
@@ -452,7 +452,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">3 分钟</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -472,28 +472,27 @@
       
 
       
-        <p>(记忆化搜索 完全背包 多重背包)求方案数。</p>
-<a id="more"></a>
-<p>题意： <strong>题目描述</strong></p>
-<p>母牛们不但创建了它们自己的政府而且选择了建立了自己的货币系统。由于它们特殊的思考方式，它们对货币的数值感到好奇。 传统地，一个货币系统是由<span class="math inline">\(1,5,10,20\)</span>或<span class="math inline">\(25,50,\)</span>和<span class="math inline">\(100\)</span>的单位面值组成的。 母牛想知道有多少种不同的方法来用货币系统中的货币来构造一个确定的数值。 举例来说, 使用一个货币系统 <span class="math inline">\({1,2,5,10,...}\)</span>产生<span class="math inline">\(18\)</span>单位面值的一些可能的方法是: $ 18x1, 9x2, 8x2+2x1, 3x5+2+1$ ,等等其它。 写一个程序来计算有多少种方法用给定的货币系统来构造一定数量的面值。保证总数将会适合long long (C/C++) 和 Int64 (Free Pascal)，即在<span class="math inline">\(0\)</span>到<span class="math inline">\(2^{63}-1\)</span>之间。 <strong>输入输出格式</strong> <strong>输入格式：</strong> 货币系统中货币的种类数目是 V ($ 1 V 25 $)。要构造的数量钱是 N (<span class="math inline">\(1 \leq N \leq10,000\)</span>)。 第一行: 二个整数，V 和 N 。 第二行： 可用的货币的面值 。 <strong>输出格式:</strong> 单独的一行包含那个可能的用这v种硬币凑足n单位货币的方案数。 <strong>输入输出样例</strong> <strong>输入样例#1： </strong> 3 10 1 2 5 <strong>输出样例#1：</strong> 10 说明 翻译来自NOCOW USACO 2.3</p>
-<p>做法：</p>
-<p>一开始考虑<code>dfs</code>。 本来考虑的是用<code>dfs(i)</code>表示，当前还剩下<code>n</code>块钱没有组成。用下面这种方法去解决。 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= v ; i++)</span><br><span class="line">	<span class="keyword">if</span>( n  &gt;= a[i] ) </span><br><span class="line">		dfs( n - a[i] ) ;</span><br><span class="line"><span class="comment">// 退出条件是 n == 0</span></span><br></pre></td></tr></table></figure></p>
-<p>不过这种方法，后来发现有点蠢。因为我无法处理比如：先选<span class="math inline">\(1\)</span>后选<span class="math inline">\(2\)</span> 和 先选<span class="math inline">\(2\)</span>后选<span class="math inline">\(1\)</span>这样的重复情况。想了一下如何去重，发现去重的话，不同情况下不一样。应该是自己走远了。</p>
-<p>之后又感觉有点像多重背包。不过自己胡乱操作了一番，用<a href="\ACM\USACO\Chapter2\USACO-2-2-2-subset-01背包求方案数\index.html">USACO-2-2-2-subset-01背包求方案数</a>曾经自己总结过的，感觉不错的方法来做多重背包，发现遇到了很多问题。 因为曾经的方法的不足，感觉有很多变量很多余，或者不知道用来存什么记录什么，比如<code>dp</code>和<code>cnt</code>数组就不知道存什么。 曾经的不足即：只是求方案的话，完全没必要去开<code>dp</code>数组，只要一个<code>cnt</code>其实就可以了。我现在回过头来看，感觉<code>dp</code>数组里存的东西很奇怪，完全没必要啊。<code>dp[i][j]</code>难道表示的是前<span class="math inline">\(i\)</span>个物品装到容量为<span class="math inline">\(j\)</span>的背包里，最大价值吗？ 感觉完全没必要了。。</p>
-<p>这也暴露了自己的一个问题： 1. <strong>对于问题要勤思考，不能生搬硬套。否则就会发现很多东西很模糊不确定，又因为是曾经总结过的，所以又不太敢随意修改。这有点像郑人买履了。以后要尽可能的去思考，有自己的想法，并且敢于去修改和质疑模板的问题。</strong> 2. <strong>就算曾经总结过的东西，以后也要反复总结、提炼，不能满足于以前总结的。因为即使曾经总结过的东西，过一段时间提高后再回头看，发现依然有很多不足和问题。所以要不断总结，哪怕之前总结过。</strong></p>
-<p>说的有点跑题了。</p>
-<p>后来发现那种<code>dfs</code>行不通以后，我考虑用<code>dfs(n,i)</code>表示，当前还剩下<span class="math inline">\(n\)</span>个钱没有被表示，目前是第<span class="math inline">\(i\)</span>枚硬币。 这样写下来的代码为：</p>
-<div class="spoiler collapsed"><div class="spoiler-title">code</div><div class="spoiler-content"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">dfs</span><span class="params">( <span class="keyword">int</span> n , <span class="keyword">int</span> i )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( dp[n][i] != - <span class="number">1</span> )</span><br><span class="line">        <span class="keyword">return</span> dp[n][i] ; </span><br><span class="line">    <span class="keyword">if</span>( n == <span class="number">0</span> )</span><br><span class="line">        <span class="keyword">return</span> dp[n][i] = <span class="number">1</span>  ;</span><br><span class="line">    <span class="keyword">if</span>( i &gt; v )</span><br><span class="line">        <span class="keyword">return</span> dp[n][i] = <span class="number">0</span>  ; </span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span>  ans = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 枚举对于当前第i枚硬币，可以用 0 ..到 j * a[i]枚。</span></span><br><span class="line">    <span class="keyword">for</span>( <span class="keyword">int</span> j = <span class="number">0</span> ; j * a[i] &lt;= n ; j++) </span><br><span class="line">    &#123;</span><br><span class="line">        ans += dfs( n - j * a[i] , i + <span class="number">1</span> ) ; </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dp[n][i] = ans ; </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure> </div></div>
-<p>成功AC。 看到这个<code>dfs</code>后，感觉就是多重背包的意思啊。所以又进一步想了下如何改成多重背包。 对于多重背包来讲，用<code>dp[i][j]</code>表示对于<code>i</code>个物品，放在容积为<code>j</code>的背包里的方案数<em>(这里之前的博客里就是有点问题，表达的太啰嗦了)</em>。那么边界条件就是<code>dp[0][0] = 1 , dp[others][others] = 0</code> 显然只有<span class="math inline">\(0\)</span>个物品，放在<span class="math inline">\(0\)</span>的背包里的方案数是<span class="math inline">\(1\)</span>，除此之外其他都是<span class="math inline">\(0\)</span>。 转移的话，只是再加一个维度，考虑对于当前的物品可以考虑放<span class="math inline">\(0\)</span>到$ j * a[i] n$个情况。转移即可。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span> ;</span><br><span class="line"><span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= v ; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> j = <span class="number">0</span> ; j &lt;= n ; j++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>( <span class="keyword">int</span> k = <span class="number">0</span> ; k * a[i] &lt;= j ; k++)</span><br><span class="line">		&#123;</span><br><span class="line">			dp[i][j] += dp[i<span class="number">-1</span>][j-k*a[i]] ;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>PS： 多重背包正常是有优化的，可以用二进制拆分后看做是01背包。</p>
-<p>之后，对背包学艺不精的我突然发现，这其实是完全背包！多重背包是对于物品使用次数是有限制的，这个没有限制，所以应该是完全背包。 完全背包的话，正常的滚动数组的写法其实就是和01背包顺序相反而已。因为对于01背包来说，决策的状态必须对于每个物品放或者不放决策一次，不能重复。而完全背包因为物品可以随便选，决策过的可以再决策再选择一次，所以可以从曾计算过的状态再决策得来。 因为初学，所以这些都还没有使用滚动数组。不过这也导致自己在写完全背包的时候遇到了一点困难。网上的都是滚动数组优化过的，当我想写一个不优化的方便理解的时候，发现找不到代码。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">dp[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span> ;</span><br><span class="line"><span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt;= v ; i++)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= n ; j++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>( j &gt;= a[i] ) </span><br><span class="line">			dp[i][j] = dp[i<span class="number">-1</span>][j] + dp[i][ j - a[i] ] ;</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			dp[i][j] = dp[i<span class="number">-1</span>][j] ;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个一开始遇到的坑是，模仿别人的滚动数组的<code>j = a[i] .. n</code> ，然后答案总是差一点。后来发现问题是因为对于$ j &lt; a[i]$的时候，状态应该移动过来。不然的话计算出来的状态其实是有缺失的。滚动数组的写法省了这个问题，所以自己一直没注意到。</p>
-<p>这个主要的决策问题就是<code>dp[i][j] = dp[i-1][j] + dp[i][ j - a[i] ];</code> 。 对于01背包来说，只有选或者不选两种。应该都是从上一个物品的情况转移而来，这样对于当前物品来说，只会有不选当前物品，从<code>dp[i-1][j]</code>转移，和选了当前物品，从<code>dp[i-1][j-a[i]]</code>转移，这两种情况都是没有选当前物品的，转移过来的话，也只会是没选和选。不过出现选择多个的情况。 但是因为对于完全背包来说，已经选择过的物品可以再次选择，所以我们应该是从之前已经决策过拿还是没拿的物品转移而来。对于<code>dp[i][j-a[i]]</code>这个状态来说，可能之前已经拿过第i个物品，也可能没拿过，但是who cares? 因为我物品是没有限制的，所以只要直接这么决策过来就可以了。</p>
-<hr>
-<p>对于目前的这些知识，自己还只是雏形，理解不是很透彻。在这个阶段本文是对自己的思路进行一下简单整理和总结，便于以后提高。有错误的话十分麻烦各位能花一点点时间指出出来。</p>
-<p>最近对DP这类问题，发现自己总是爱用记忆化搜索的方法去写。总是先想搜索，然后才能转成递推。而网上的答案和代码等几乎都是清一色的递推的方法。一开始我以为只是因为递推常数小，所以写熟练了大家都是这样直接写递推的,对于这个问题只是我自己的思维差异，不需要太重视。 后来问了一下学长，学长表示：“这个问题还是挺需要注意的，很多时候DP用递推比用记忆化要好写很多。而且递推这种思维方法其实才是DP的本质。也就是先想状态再想转移最后想边界，状态和转移有了的话，很多时候就能写递推了。”学长建议我以后思考尽量用递推，代码会比较少，也比较好调试。而且这种思维方法挺需要注意的。</p>
+        <h1 id="leetcode761-special-binary-string">leetcode761 Special Binary String</h1>
+<h2 id="题目连接">题目连接</h2>
+<p>https://leetcode.com/problems/special-binary-string/description/</p>
+<h2 id="题目大意">题目大意</h2>
+<p>定义Special Binary String:</p>
+<ul>
+<li>1和0的数量一定相等</li>
+<li>所有以1开始的前缀一定是1的数量大于等于0的数量。</li>
+</ul>
+<p>现在给出一个Special Binary String,可以任意交换满足Special Binary String的子串，求满足条件的Special Binary String字典序最大的串。</p>
+<h2 id="做法">做法</h2>
+<p>题目很费解……看了好久才看懂……<br>
+当时刚看到这道题的时候，有点一头雾水无从下手。想着这里要交换交换，还是要统计统计所有的前缀情况……？</p>
+<p>看了一下别人的题解，发现思路挺清晰的。把这个串的定义运用到了极致。</p>
+<p>对于每个Special Binary String，递归进去处理他们的子串。<br>
+让每个Special Binary String子串，进行排序，按照字典序最大的方法去加和他们。<br>
+那么原串Special Bianry String一定是字典序最大的。<br>
+只要这样递归操作下去即可。</p>
+<p>这个方法一开始想了好久，觉得对于<code>100</code>、<code>110</code>，这种情况，好像处理有问题——回过头来看看这个题目的意思和定义，就秒懂了。。</p>
+<h2 id="代码">代码</h2>
+<div class="spoiler collapsed"><div class="spoiler-title">ACcode</div><div class="spoiler-content"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**********************************************************</span></span><br><span class="line"><span class="comment"> * Author        : xie keyi</span></span><br><span class="line"><span class="comment"> * Email         : xiekeyi98@snnu.edu.cn</span></span><br><span class="line"><span class="comment"> * Last modified : 2018-12-13 15:04</span></span><br><span class="line"><span class="comment"> * Filename      : 761SpecialBinaryString.cpp</span></span><br><span class="line"><span class="comment"> * Description   : </span></span><br><span class="line"><span class="comment"> * *******************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">makeLargestSpecial</span><span class="params">(<span class="built_in">string</span> S)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> &amp;s = S;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span> ;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; t; </span><br><span class="line">        <span class="built_in">string</span> res;</span><br><span class="line">        <span class="keyword">int</span> pre = <span class="number">0</span> ;</span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; s.size() ; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            flag += (s[i] == <span class="string">'1'</span> ) ? <span class="number">1</span> : <span class="number">-1</span>;</span><br><span class="line">        <span class="comment">// 当前串是个符合条件的串</span></span><br><span class="line">        <span class="comment">// 递归下去</span></span><br><span class="line">            <span class="keyword">if</span>( flag == <span class="number">0</span> )</span><br><span class="line">            &#123;</span><br><span class="line">        <span class="comment">// 符合条件的串开头和结尾一定是1和0</span></span><br><span class="line">        <span class="comment">// 里面的串也要进行整理和排序</span></span><br><span class="line">                t.push_back( <span class="string">"1"</span> + makeLargestSpecial( s.substr(pre + <span class="number">1</span> , i - pre - <span class="number">1</span>)  ) + <span class="string">"0"</span> );</span><br><span class="line">                pre = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="comment">// 对所有符合条件的串，排序，进行交换和重组</span></span><br><span class="line">    <span class="comment">// 使字典序最大</span></span><br><span class="line">        sort( t.begin() , t.end() , greater&lt;<span class="built_in">string</span>&gt;() );</span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">auto</span> i : t )</span><br><span class="line">            res += i ;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></div>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
       
     </div>
@@ -511,11 +510,11 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/f7932c4a.html">USACO-2.3.4-MoneySystems-背包</a></p>
+  <p><span>本文标题:</span><a href="/958a9135.html">leetcode761 Special Binary String</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Xie Keyi 的个人博客">Xie Keyi</a></p>
-  <p><span>发布时间:</span>2017年11月28日 - 21:11</p>
-  <p><span>原始链接:</span><a href="/f7932c4a.html" title="USACO-2.3.4-MoneySystems-背包">https://xiekeyi98.com/f7932c4a.html</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://xiekeyi98.com/f7932c4a.html" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2018年12月13日 - 15:12</p>
+  <p><span>原始链接:</span><a href="/958a9135.html" title="leetcode761 Special Binary String">https://xiekeyi98.com/958a9135.html</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://xiekeyi98.com/958a9135.html" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" title="Attribution-NonCommercial-ShareAlike  4.0 International (CC BY-NC-SA 4.0)">署名-非商业性使用-相同方式共享 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -546,9 +545,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/USACO/" rel="tag"># USACO</a>
-          
-            <a href="/tags/背包/" rel="tag"># 背包</a>
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
           
         </div>
       
@@ -561,8 +558,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2a04174f.html" rel="next" title="USACO-2.3.1-LongestPrefix-搜索DP">
-                <i class="fa fa-chevron-left"></i> USACO-2.3.1-LongestPrefix-搜索DP
+              <a href="/6b764ba.html" rel="next" title="Codeforces 1084C - The Fair Nut and String">
+                <i class="fa fa-chevron-left"></i> Codeforces 1084C - The Fair Nut and String
               </a>
             
           </div>
@@ -570,10 +567,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/d94f5e84.html" rel="prev" title="USACO-2.2.2-Nocows-DP">
-                USACO-2.2.2-Nocows-DP <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -627,8 +620,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -787,6 +789,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode761-special-binary-string"><span class="nav-number">1.</span> <span class="nav-text">leetcode761 Special Binary String</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目连接"><span class="nav-number">1.1.</span> <span class="nav-text">题目连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目大意"><span class="nav-number">1.2.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#做法"><span class="nav-number">1.3.</span> <span class="nav-text">做法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1477,29 +1495,6 @@
   
   
 
-  
-    
-      <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-    
   
 
 
