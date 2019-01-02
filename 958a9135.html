@@ -102,18 +102,18 @@
 
 
 
-  <meta name="description" content="leetcode761 Special Binary String 题目连接 https://leetcode.com/problems/special-binary-string/description/ 题目大意 定义Special Binary String:  1和0的数量一定相等 所有以1开始的前缀一定是1的数量大于等于0的数量。  现在给出一个Special Bina">
+  <meta name="description" content="leetcode761 Special Binary String题目连接https://leetcode.com/problems/special-binary-string/description/ 题目大意定义Special Binary String:  1和0的数量一定相等 所有以1开始的前缀一定是1的数量大于等于0的数量。    现在给出一个Special Binary String,">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode761 Special Binary String">
 <meta property="og:url" content="https://xiekeyi98.com/958a9135.html">
 <meta property="og:site_name" content="Dark猫">
-<meta property="og:description" content="leetcode761 Special Binary String 题目连接 https://leetcode.com/problems/special-binary-string/description/ 题目大意 定义Special Binary String:  1和0的数量一定相等 所有以1开始的前缀一定是1的数量大于等于0的数量。  现在给出一个Special Bina">
+<meta property="og:description" content="leetcode761 Special Binary String题目连接https://leetcode.com/problems/special-binary-string/description/ 题目大意定义Special Binary String:  1和0的数量一定相等 所有以1开始的前缀一定是1的数量大于等于0的数量。    现在给出一个Special Binary String,">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-12-29T03:48:47.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode761 Special Binary String">
-<meta name="twitter:description" content="leetcode761 Special Binary String 题目连接 https://leetcode.com/problems/special-binary-string/description/ 题目大意 定义Special Binary String:  1和0的数量一定相等 所有以1开始的前缀一定是1的数量大于等于0的数量。  现在给出一个Special Bina">
+<meta name="twitter:description" content="leetcode761 Special Binary String题目连接https://leetcode.com/problems/special-binary-string/description/ 题目大意定义Special Binary String:  1和0的数量一定相等 所有以1开始的前缀一定是1的数量大于等于0的数量。    现在给出一个Special Binary String,">
 
 
 
@@ -472,28 +472,19 @@
       
 
       
-        <h1 id="leetcode761-special-binary-string">leetcode761 Special Binary String</h1>
-<h2 id="题目连接">题目连接</h2>
-<p>https://leetcode.com/problems/special-binary-string/description/</p>
-<h2 id="题目大意">题目大意</h2>
-<p>定义Special Binary String:</p>
+        <h1 id="leetcode761-Special-Binary-String"><a href="#leetcode761-Special-Binary-String" class="headerlink" title="leetcode761 Special Binary String"></a>leetcode761 Special Binary String</h1><h2 id="题目连接"><a href="#题目连接" class="headerlink" title="题目连接"></a>题目连接</h2><p><a href="https://leetcode.com/problems/special-binary-string/description/" target="_blank" rel="noopener">https://leetcode.com/problems/special-binary-string/description/</a></p>
+<h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>定义Special Binary String:</p>
 <ul>
 <li>1和0的数量一定相等</li>
-<li>所有以1开始的前缀一定是1的数量大于等于0的数量。</li>
+<li>所有以1开始的前缀一定是1的数量大于等于0的数量。  </li>
 </ul>
 <p>现在给出一个Special Binary String,可以任意交换满足Special Binary String的子串，求满足条件的Special Binary String字典序最大的串。</p>
 <a id="more"></a>
-<h2 id="做法">做法</h2>
-<p>题目很费解……看了好久才看懂……<br>
-当时刚看到这道题的时候，有点一头雾水无从下手。想着这里要交换交换，还是要统计统计所有的前缀情况……？</p>
-<p>看了一下别人的题解，发现思路挺清晰的。把这个串的定义运用到了极致。</p>
-<p>对于每个Special Binary String，递归进去处理他们的子串。<br>
-让每个Special Binary String子串，进行排序，按照字典序最大的方法去加和他们。<br>
-那么原串Special Bianry String一定是字典序最大的。<br>
-只要这样递归操作下去即可。</p>
-<p>这个方法一开始想了好久，觉得对于<code>100</code>、<code>110</code>，这种情况，好像处理有问题——回过头来看看这个题目的意思和定义，就秒懂了。。</p>
-<h2 id="代码">代码</h2>
-<div class="spoiler collapsed"><div class="spoiler-title">ACcode</div><div class="spoiler-content"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**********************************************************</span></span><br><span class="line"><span class="comment"> * Author        : xie keyi</span></span><br><span class="line"><span class="comment"> * Email         : xiekeyi98@snnu.edu.cn</span></span><br><span class="line"><span class="comment"> * Last modified : 2018-12-13 15:04</span></span><br><span class="line"><span class="comment"> * Filename      : 761SpecialBinaryString.cpp</span></span><br><span class="line"><span class="comment"> * Description   : </span></span><br><span class="line"><span class="comment"> * *******************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">makeLargestSpecial</span><span class="params">(<span class="built_in">string</span> S)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> &amp;s = S;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span> ;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; t; </span><br><span class="line">        <span class="built_in">string</span> res;</span><br><span class="line">        <span class="keyword">int</span> pre = <span class="number">0</span> ;</span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; s.size() ; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            flag += (s[i] == <span class="string">'1'</span> ) ? <span class="number">1</span> : <span class="number">-1</span>;</span><br><span class="line">        <span class="comment">// 当前串是个符合条件的串</span></span><br><span class="line">        <span class="comment">// 递归下去</span></span><br><span class="line">            <span class="keyword">if</span>( flag == <span class="number">0</span> )</span><br><span class="line">            &#123;</span><br><span class="line">        <span class="comment">// 符合条件的串开头和结尾一定是1和0</span></span><br><span class="line">        <span class="comment">// 里面的串也要进行整理和排序</span></span><br><span class="line">                t.push_back( <span class="string">"1"</span> + makeLargestSpecial( s.substr(pre + <span class="number">1</span> , i - pre - <span class="number">1</span>)  ) + <span class="string">"0"</span> );</span><br><span class="line">                pre = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="comment">// 对所有符合条件的串，排序，进行交换和重组</span></span><br><span class="line">    <span class="comment">// 使字典序最大</span></span><br><span class="line">        sort( t.begin() , t.end() , greater&lt;<span class="built_in">string</span>&gt;() );</span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">auto</span> i : t )</span><br><span class="line">            res += i ;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></div>
+<h2 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h2><p>题目很费解……看了好久才看懂……<br>当时刚看到这道题的时候，有点一头雾水无从下手。想着这里要交换交换，还是要统计统计所有的前缀情况……？  </p>
+<p>看了一下别人的题解，发现思路挺清晰的。把这个串的定义运用到了极致。  </p>
+<p>对于每个Special Binary String，递归进去处理他们的子串。<br>让每个Special Binary String子串，进行排序，按照字典序最大的方法去加和他们。<br>那么原串Special Bianry String一定是字典序最大的。<br>只要这样递归操作下去即可。  </p>
+<p>这个方法一开始想了好久，觉得对于<code>100</code>、<code>110</code>，这种情况，好像处理有问题——回过头来看看这个题目的意思和定义，就秒懂了。。  </p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><div class="spoiler collapsed"><div class="spoiler-title">ACcode</div><div class="spoiler-content"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**********************************************************</span></span><br><span class="line"><span class="comment"> * Author        : xie keyi</span></span><br><span class="line"><span class="comment"> * Email         : xiekeyi98@snnu.edu.cn</span></span><br><span class="line"><span class="comment"> * Last modified : 2018-12-13 15:04</span></span><br><span class="line"><span class="comment"> * Filename      : 761SpecialBinaryString.cpp</span></span><br><span class="line"><span class="comment"> * Description   : </span></span><br><span class="line"><span class="comment"> * *******************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">makeLargestSpecial</span><span class="params">(<span class="built_in">string</span> S)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> &amp;s = S;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span> ;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; t; </span><br><span class="line">        <span class="built_in">string</span> res;</span><br><span class="line">        <span class="keyword">int</span> pre = <span class="number">0</span> ;</span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; s.size() ; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            flag += (s[i] == <span class="string">'1'</span> ) ? <span class="number">1</span> : <span class="number">-1</span>;</span><br><span class="line">        <span class="comment">// 当前串是个符合条件的串</span></span><br><span class="line">        <span class="comment">// 递归下去</span></span><br><span class="line">            <span class="keyword">if</span>( flag == <span class="number">0</span> )</span><br><span class="line">            &#123;</span><br><span class="line">        <span class="comment">// 符合条件的串开头和结尾一定是1和0</span></span><br><span class="line">        <span class="comment">// 里面的串也要进行整理和排序</span></span><br><span class="line">                t.push_back( <span class="string">"1"</span> + makeLargestSpecial( s.substr(pre + <span class="number">1</span> , i - pre - <span class="number">1</span>)  ) + <span class="string">"0"</span> );</span><br><span class="line">                pre = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="comment">// 对所有符合条件的串，排序，进行交换和重组</span></span><br><span class="line">    <span class="comment">// 使字典序最大</span></span><br><span class="line">        sort( t.begin() , t.end() , greater&lt;<span class="built_in">string</span>&gt;() );</span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">auto</span> i : t )</span><br><span class="line">            res += i ;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></div>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
       
     </div>
@@ -652,7 +643,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-count">49</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -806,7 +797,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode761-special-binary-string"><span class="nav-number">1.</span> <span class="nav-text">leetcode761 Special Binary String</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目连接"><span class="nav-number">1.1.</span> <span class="nav-text">题目连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目大意"><span class="nav-number">1.2.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#做法"><span class="nav-number">1.3.</span> <span class="nav-text">做法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode761-Special-Binary-String"><span class="nav-number">1.</span> <span class="nav-text">leetcode761 Special Binary String</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目连接"><span class="nav-number">1.1.</span> <span class="nav-text">题目连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目大意"><span class="nav-number">1.2.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#做法"><span class="nav-number">1.3.</span> <span class="nav-text">做法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -826,7 +817,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
