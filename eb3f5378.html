@@ -102,18 +102,18 @@
 
 
 
-  <meta name="description" content="分支预测与流水线现代CPU会使用大量的流水线，并配合分支预测进行运行效率的提升。分支预测即就是通过对程序if else等条件分支进行预测，并提前执行相关代码。如果预测正确，显然会提升效率，如果预测失败，那么将不得不清空流水线，重新来过，此时便会影响效率。目前市面上主流CPU的分支预测，正确率可以达到90%以上。">
+  <meta name="description" content="分支预测与流水线 现代CPU会使用大量的流水线，并配合分支预测进行运行效率的提升。 分支预测即就是通过对程序if else等条件分支进行预测，并提前执行相关代码。如果预测正确，显然会提升效率，如果预测失败，那么将不得不清空流水线，重新来过，此时便会影响效率。 目前市面上主流CPU的分支预测，正确率可以达到90%以上。">
 <meta name="keywords" content="优化,工程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈利用分支预测提高效率">
 <meta property="og:url" content="https://xiekeyi98.com/eb3f5378.html">
 <meta property="og:site_name" content="Dark猫">
-<meta property="og:description" content="分支预测与流水线现代CPU会使用大量的流水线，并配合分支预测进行运行效率的提升。分支预测即就是通过对程序if else等条件分支进行预测，并提前执行相关代码。如果预测正确，显然会提升效率，如果预测失败，那么将不得不清空流水线，重新来过，此时便会影响效率。目前市面上主流CPU的分支预测，正确率可以达到90%以上。">
+<meta property="og:description" content="分支预测与流水线 现代CPU会使用大量的流水线，并配合分支预测进行运行效率的提升。 分支预测即就是通过对程序if else等条件分支进行预测，并提前执行相关代码。如果预测正确，显然会提升效率，如果预测失败，那么将不得不清空流水线，重新来过，此时便会影响效率。 目前市面上主流CPU的分支预测，正确率可以达到90%以上。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-12-29T04:37:10.772Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈利用分支预测提高效率">
-<meta name="twitter:description" content="分支预测与流水线现代CPU会使用大量的流水线，并配合分支预测进行运行效率的提升。分支预测即就是通过对程序if else等条件分支进行预测，并提前执行相关代码。如果预测正确，显然会提升效率，如果预测失败，那么将不得不清空流水线，重新来过，此时便会影响效率。目前市面上主流CPU的分支预测，正确率可以达到90%以上。">
+<meta name="twitter:description" content="分支预测与流水线 现代CPU会使用大量的流水线，并配合分支预测进行运行效率的提升。 分支预测即就是通过对程序if else等条件分支进行预测，并提前执行相关代码。如果预测正确，显然会提升效率，如果预测失败，那么将不得不清空流水线，重新来过，此时便会影响效率。 目前市面上主流CPU的分支预测，正确率可以达到90%以上。">
 
 
 
@@ -438,7 +438,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.1k</span>
+                <span title="本文字数">1.2k</span>
               
 
               
@@ -472,22 +472,42 @@
       
 
       
-        <h1 id="分支预测与流水线"><a href="#分支预测与流水线" class="headerlink" title="分支预测与流水线"></a>分支预测与流水线</h1><p>现代CPU会使用大量的流水线，并配合分支预测进行运行效率的提升。<br>分支预测即就是通过对程序<code>if else</code>等条件分支进行预测，并提前执行相关代码。如果预测正确，显然会提升效率，如果预测失败，那么将不得不清空流水线，重新来过，此时便会影响效率。<br>目前市面上主流CPU的分支预测，正确率可以达到90%以上。  </p>
+        <h1 id="分支预测与流水线">分支预测与流水线</h1>
+<p>现代CPU会使用大量的流水线，并配合分支预测进行运行效率的提升。<br>
+分支预测即就是通过对程序<code>if else</code>等条件分支进行预测，并提前执行相关代码。如果预测正确，显然会提升效率，如果预测失败，那么将不得不清空流水线，重新来过，此时便会影响效率。<br>
+目前市面上主流CPU的分支预测，正确率可以达到90%以上。</p>
 <a id="more"></a>
-<h1 id="避免分支预测开销"><a href="#避免分支预测开销" class="headerlink" title="避免分支预测开销"></a>避免分支预测开销</h1><p>编译器会进行一定的优化，主要是将条件分支语句转化为条件传送语句。<br>优化前：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( a &gt; b )</span><br><span class="line">	<span class="keyword">return</span> a - b ;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	<span class="keyword">return</span> b - a;</span><br></pre></td></tr></table></figure></p>
-<p>优化后:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> a &gt; b ? a - b : b - a ;</span><br></pre></td></tr></table></figure></p>
-<p>这两种写法的区别在于，第二种写法，在编译器优化情况下，会被转化成条件传送语句<code>comvl</code>，CPU可以不需要预测就继续执行下去。效率因此得到提高。  </p>
-<p>那么，作为程序员都有哪些方法去写更优雅的代码，提升效率呢？  </p>
-<h2 id="合并条件"><a href="#合并条件" class="headerlink" title="合并条件"></a>合并条件</h2><p>主要是通过优化，尽可能减少分支预测失败时对效率的影响。  </p>
-<p>优化前:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(case1)</span><br><span class="line">	<span class="keyword">if</span>( case2 )</span><br><span class="line">		<span class="keyword">do</span>();</span><br></pre></td></tr></table></figure></p>
-<p>优化后:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( case1 &amp;&amp; case2 )</span><br><span class="line">	<span class="keyword">do</span>();</span><br></pre></td></tr></table></figure></p>
-<p>优化前:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( case1 == <span class="number">0</span> &amp;&amp; case2 == <span class="number">0</span> &amp;&amp; case3 == <span class="number">0</span> )</span><br><span class="line">	<span class="keyword">do</span>();</span><br></pre></td></tr></table></figure></p>
-<p>优化后:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( ( case1 | case2 | case3 ) == <span class="number">0</span> )</span><br><span class="line">	<span class="keyword">do</span>();</span><br></pre></td></tr></table></figure></p>
-<h2 id="提前进行分支预测"><a href="#提前进行分支预测" class="headerlink" title="提前进行分支预测"></a>提前进行分支预测</h2><p>主要通过提前进行分支预测，避免在循环中大量的预测错误，导致开销。<br>优化前：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; n ; i++)</span><br><span class="line">	<span class="keyword">if</span>( case1 )</span><br><span class="line">		do1();</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		do2();</span><br></pre></td></tr></table></figure></p>
-<p>优化后:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( case1 )</span><br><span class="line">	flag = <span class="number">1</span> ;</span><br><span class="line"><span class="keyword">if</span>( flag )</span><br><span class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; n ; i++ )</span><br><span class="line">		do1();</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; n ; i++ )</span><br><span class="line">		do2();</span><br></pre></td></tr></table></figure></p>
-<h2 id="跳转取消分支预测"><a href="#跳转取消分支预测" class="headerlink" title="跳转取消分支预测"></a>跳转取消分支预测</h2><p>如将<code>if else</code>改写<code>switch</code>(<code>switch</code>使用跳转指令，直接跳转到对应分支)<br>将多个函数使用函数指针，直接进行调用等。  </p>
-<h2 id="位运算取消预测"><a href="#位运算取消预测" class="headerlink" title="位运算取消预测"></a>位运算取消预测</h2><p>如对于<code>if(color &lt; 0 ) color = 0</code>，可改成<code>color &amp;=~(color &gt;&gt; 31 )</code>  </p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<h1 id="避免分支预测开销">避免分支预测开销</h1>
+<p>编译器会进行一定的优化，主要是将条件分支语句转化为条件传送语句。<br>
+优化前：<br>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( a &gt; b )</span><br><span class="line">	<span class="keyword">return</span> a - b ;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	<span class="keyword">return</span> b - a;</span><br></pre></td></tr></table></figure></p>
+<p>优化后:<br>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> a &gt; b ? a - b : b - a ;</span><br></pre></td></tr></table></figure></p>
+<p>这两种写法的区别在于，第二种写法，在编译器优化情况下，会被转化成条件传送语句<code>comvl</code>，CPU可以不需要预测就继续执行下去。效率因此得到提高。</p>
+<p>那么，作为程序员都有哪些方法去写更优雅的代码，提升效率呢？</p>
+<h2 id="合并条件">合并条件</h2>
+<p>主要是通过优化，尽可能减少分支预测失败时对效率的影响。</p>
+<p>优化前:<br>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(case1)</span><br><span class="line">	<span class="keyword">if</span>( case2 )</span><br><span class="line">		<span class="keyword">do</span>();</span><br></pre></td></tr></table></figure></p>
+<p>优化后:<br>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( case1 &amp;&amp; case2 )</span><br><span class="line">	<span class="keyword">do</span>();</span><br></pre></td></tr></table></figure></p>
+<p>优化前:<br>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( case1 == <span class="number">0</span> &amp;&amp; case2 == <span class="number">0</span> &amp;&amp; case3 == <span class="number">0</span> )</span><br><span class="line">	<span class="keyword">do</span>();</span><br></pre></td></tr></table></figure></p>
+<p>优化后:<br>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( ( case1 | case2 | case3 ) == <span class="number">0</span> )</span><br><span class="line">	<span class="keyword">do</span>();</span><br></pre></td></tr></table></figure></p>
+<h2 id="提前进行分支预测">提前进行分支预测</h2>
+<p>主要通过提前进行分支预测，避免在循环中大量的预测错误，导致开销。<br>
+优化前：<br>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; n ; i++)</span><br><span class="line">	<span class="keyword">if</span>( case1 )</span><br><span class="line">		do1();</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		do2();</span><br></pre></td></tr></table></figure></p>
+<p>优化后:<br>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>( case1 )</span><br><span class="line">	flag = <span class="number">1</span> ;</span><br><span class="line"><span class="keyword">if</span>( flag )</span><br><span class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; n ; i++ )</span><br><span class="line">		do1();</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	<span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; n ; i++ )</span><br><span class="line">		do2();</span><br></pre></td></tr></table></figure></p>
+<h2 id="跳转取消分支预测">跳转取消分支预测</h2>
+<p>如将<code>if else</code>改写<code>switch</code>(<code>switch</code>使用跳转指令，直接跳转到对应分支)<br>
+将多个函数使用函数指针，直接进行调用等。</p>
+<h2 id="位运算取消预测">位运算取消预测</h2>
+<p>如对于<code>if(color &lt; 0 ) color = 0</code>，可改成<code>color &amp;=~(color &gt;&gt; 31 )</code></p>
+<h1 id="参考资料">参考资料</h1>
+<ul>
 <li><a href="https://www.cnblogs.com/yangecnu/p/introduce-branch-predict-pipelining-and-conditonal-move-instruction.html" target="_blank" rel="noopener">浅谈分支预测、流水线与条件转移</a></li>
 <li><a href="https://stackoverflow.com/questions/11227809/why-is-it-faster-to-process-a-sorted-array-than-an-unsorted-array" target="_blank" rel="noopener">Why is it faster to process a sorted array than an unsorted array?</a></li>
 <li><a href="https://blog.csdn.net/wangeen/article/details/8154788" target="_blank" rel="noopener">如何编写C++以减少CPU分支预测错误？</a></li>
@@ -652,7 +672,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">49</span>
+                    <span class="site-state-item-count">50</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -756,7 +776,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">36</span>
+                      
+                    
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -842,7 +864,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">252k</span>
+    <span title="站点总字数">258k</span>
   
 
   
@@ -853,7 +875,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">3:49</span>
+    <span title="站点阅读时长">3:54</span>
   
 </div>
 

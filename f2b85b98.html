@@ -102,18 +102,18 @@
 
 
 
-  <meta name="description" content="简单DP.题意：一个长度小于$1e6$的01字符串，求所有子串有能在十进制下被三整除的的方案数。（允许有前导零，不同子段视为不同）题目链接：Xieldy And His Password">
+  <meta name="description" content="简单DP. 题意：一个长度小于\(1e6\)的01字符串，求所有子串有能在十进制下被三整除的的方案数。（允许有前导零，不同子段视为不同） 题目链接：Xieldy And His Password">
 <meta name="keywords" content="DP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XDU2018校赛-Xieldy And His Password">
 <meta property="og:url" content="https://xiekeyi98.com/f2b85b98.html">
 <meta property="og:site_name" content="Dark猫">
-<meta property="og:description" content="简单DP.题意：一个长度小于$1e6$的01字符串，求所有子串有能在十进制下被三整除的的方案数。（允许有前导零，不同子段视为不同）题目链接：Xieldy And His Password">
+<meta property="og:description" content="简单DP. 题意：一个长度小于\(1e6\)的01字符串，求所有子串有能在十进制下被三整除的的方案数。（允许有前导零，不同子段视为不同） 题目链接：Xieldy And His Password">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-08-03T12:36:30.389Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XDU2018校赛-Xieldy And His Password">
-<meta name="twitter:description" content="简单DP.题意：一个长度小于$1e6$的01字符串，求所有子串有能在十进制下被三整除的的方案数。（允许有前导零，不同子段视为不同）题目链接：Xieldy And His Password">
+<meta name="twitter:description" content="简单DP. 题意：一个长度小于\(1e6\)的01字符串，求所有子串有能在十进制下被三整除的的方案数。（允许有前导零，不同子段视为不同） 题目链接：Xieldy And His Password">
 
 
 
@@ -438,7 +438,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.2k</span>
+                <span title="本文字数">2.3k</span>
               
 
               
@@ -472,30 +472,13 @@
       
 
       
-        <p>简单DP.<br>题意：一个长度小于$1e6$的01字符串，求所有子串有能在十进制下被三整除的的方案数。（允许有前导零，不同子段视为不同）<br>题目链接：<a href="https://www.nowcoder.com/acm/contest/107/E" target="_blank" rel="noopener">Xieldy And His Password</a></p>
+        <p>简单DP. 题意：一个长度小于<span class="math inline">\(1e6\)</span>的01字符串，求所有子串有能在十进制下被三整除的的方案数。（允许有前导零，不同子段视为不同） 题目链接：<a href="https://www.nowcoder.com/acm/contest/107/E" target="_blank" rel="noopener">Xieldy And His Password</a></p>
 <a id="more"></a>
-<p>比赛的时候，感觉是$dp$，曾列过一个方程。当时现场赛上的思路是，考虑设$dp[i][0/1]$表示对于当前以$s[i]$为结尾的字符串是否能被$3$整除。然后又以为被$3$整除的数可能会有一些性质（如我知道十进制下能被三整除的数充要条件是各个位数之和能被三整除）。推了一下性质，发现情况很多，而且就算推出来了以后，会发现对于长度为$1$到$i$之间的串不好处理。</p>
-<p>赛后和同学交流，告诉我是模$3$意义下的$dp$，当时听到这个名词还觉得挺难的。回来看了题解，发现其实是很简单的一个东西→_→。</p>
-<p>我们设<code>dp[i][j] ( 0 &lt;= j &lt;= 2 )</code>表示以<code>s[i]</code>为结尾的，所有被$3$除余$j$的方案数。<br>那么，分情况讨论：</p>
-<ol>
-<li>对于<code>s[i] == 0</code>的情况，可以看做是长度为$i-1$的串乘$2$得到：<ul>
-<li><code>dp[i][0] = dp[i-1][0] + 1</code> ( 考虑单独一个0的情况 , $3k * 2 ≡ 0 ( mod 3 ) $ )</li>
-<li><code>dp[i][1] = dp[i-1][2]</code> ( $ ( 3k + 2 ) * 2 ≡ 1 ( mod 3 ) $ ) </li>
-<li><code>dp[i][2] = dp[i-1][1]</code> ( $ ( 3k + 1 ) * 2 ≡ 2 ( mod 3 ) $ ) </li>
-</ul>
-</li>
-<li>对于<code>s[i] == 1</code>的情况，可以看做是长度为$i-1$的串乘$2$再加$1$得到:<ul>
-<li><code>dp[i][0] = dp[i-1][1]</code> ( $ ( 3k + 1 ) * 2 + 1 ≡ 0 ( mod 3 ) $ ) </li>
-<li><code>dp[i][1] = dp[i-1][0] + 1</code>( 考虑单独一个1的情况， $ 3k * 2 + 1 ≡ 1 ( mod 3 ) $ )</li>
-<li><code>dp[i][2] = dp[i-1][1]</code> ( $ ( 3k + 2 ) * 2 + 1 ≡ 0 ( mod 3 ) $ )<br>那么，很容易的写出$dp$方程。<br>最终会答案为$\sum_{1}^{n}dp[i][0]$</li>
-</ul>
-</li>
-</ol>
-<p>代码如下:<br><div class="spoiler collapsed"><div class="spoiler-title">code</div><div class="spoiler-content"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span> ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll  ;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e6</span> + <span class="number">10</span> ;</span><br><span class="line">ll dp[maxn][<span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> s ;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; s )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>( dp , <span class="number">0</span> , <span class="keyword">sizeof</span>(dp) ) ;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//    if( s[0] == '0' )</span></span><br><span class="line">        <span class="comment">//    &#123;</span></span><br><span class="line">        <span class="comment">//        dp[0][0] = 1 ;</span></span><br><span class="line">        <span class="comment">//    &#125;</span></span><br><span class="line">        <span class="comment">//    if( s[0] == '1' )</span></span><br><span class="line">        <span class="comment">//    &#123;</span></span><br><span class="line">        <span class="comment">//        dp[0][1] = 0 ;</span></span><br><span class="line">        <span class="comment">//    &#125;</span></span><br><span class="line"></span><br><span class="line">        s.insert( s.begin() , <span class="string">'#'</span> );</span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt; s.size() ; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>( s[i] == <span class="string">'0'</span> )</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>] + <span class="number">1</span> ;</span><br><span class="line">                dp[i][<span class="number">1</span>] = dp[i<span class="number">-1</span>][<span class="number">2</span>] ;</span><br><span class="line">                dp[i][<span class="number">2</span>] = dp[i<span class="number">-1</span>][<span class="number">1</span>] ;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>( s[i] == <span class="string">'1'</span> )</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">1</span>] ;</span><br><span class="line">                dp[i][<span class="number">1</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>] + <span class="number">1</span> ;</span><br><span class="line">                dp[i][<span class="number">2</span>] = dp[i<span class="number">-1</span>][<span class="number">2</span>] ;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ll ans = <span class="number">0</span> ;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt; s.size() ; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            ans += dp[i][<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></div></p>
-<p>遇到的问题：</p>
-<ul>
-<li>注意开$long long $ 。一开始以为不会有那么多的情况，后来想了下，如果全是$0$的时候，答案最大，是$\sum_{i=1}^{1e6}i$</li>
-</ul>
+<p>比赛的时候，感觉是<span class="math inline">\(dp\)</span>，曾列过一个方程。当时现场赛上的思路是，考虑设<span class="math inline">\(dp[i][0/1]\)</span>表示对于当前以<span class="math inline">\(s[i]\)</span>为结尾的字符串是否能被<span class="math inline">\(3\)</span>整除。然后又以为被<span class="math inline">\(3\)</span>整除的数可能会有一些性质（如我知道十进制下能被三整除的数充要条件是各个位数之和能被三整除）。推了一下性质，发现情况很多，而且就算推出来了以后，会发现对于长度为<span class="math inline">\(1\)</span>到<span class="math inline">\(i\)</span>之间的串不好处理。</p>
+<p>赛后和同学交流，告诉我是模<span class="math inline">\(3\)</span>意义下的<span class="math inline">\(dp\)</span>，当时听到这个名词还觉得挺难的。回来看了题解，发现其实是很简单的一个东西→_→。</p>
+<p>我们设<code>dp[i][j] ( 0 &lt;= j &lt;= 2 )</code>表示以<code>s[i]</code>为结尾的，所有被<span class="math inline">\(3\)</span>除余<span class="math inline">\(j\)</span>的方案数。 那么，分情况讨论： 1. 对于<code>s[i] == 0</code>的情况，可以看做是长度为<span class="math inline">\(i-1\)</span>的串乘<span class="math inline">\(2\)</span>得到： - <code>dp[i][0] = dp[i-1][0] + 1</code> ( 考虑单独一个0的情况 , $3k * 2 ≡ 0 ( mod 3 ) $ ) - <code>dp[i][1] = dp[i-1][2]</code> ( $ ( 3k + 2 ) * 2 ≡ 1 ( mod 3 ) $ ) - <code>dp[i][2] = dp[i-1][1]</code> ( $ ( 3k + 1 ) * 2 ≡ 2 ( mod 3 ) $ ) 2. 对于<code>s[i] == 1</code>的情况，可以看做是长度为<span class="math inline">\(i-1\)</span>的串乘<span class="math inline">\(2\)</span>再加<span class="math inline">\(1\)</span>得到: - <code>dp[i][0] = dp[i-1][1]</code> ( $ ( 3k + 1 ) * 2 + 1 ≡ 0 ( mod 3 ) $ ) - <code>dp[i][1] = dp[i-1][0] + 1</code>( 考虑单独一个1的情况， $ 3k * 2 + 1 ≡ 1 ( mod 3 ) $ ) - <code>dp[i][2] = dp[i-1][1]</code> ( $ ( 3k + 2 ) * 2 + 1 ≡ 0 ( mod 3 ) $ ) 那么，很容易的写出<span class="math inline">\(dp\)</span>方程。 最终会答案为<span class="math inline">\(\sum_{1}^{n}dp[i][0]\)</span></p>
+<p>代码如下: <div class="spoiler collapsed"><div class="spoiler-title">code</div><div class="spoiler-content"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span> ;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll  ;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e6</span> + <span class="number">10</span> ;</span><br><span class="line">ll dp[maxn][<span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> s ;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span> &gt;&gt; s )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>( dp , <span class="number">0</span> , <span class="keyword">sizeof</span>(dp) ) ;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//    if( s[0] == '0' )</span></span><br><span class="line">        <span class="comment">//    &#123;</span></span><br><span class="line">        <span class="comment">//        dp[0][0] = 1 ;</span></span><br><span class="line">        <span class="comment">//    &#125;</span></span><br><span class="line">        <span class="comment">//    if( s[0] == '1' )</span></span><br><span class="line">        <span class="comment">//    &#123;</span></span><br><span class="line">        <span class="comment">//        dp[0][1] = 0 ;</span></span><br><span class="line">        <span class="comment">//    &#125;</span></span><br><span class="line"></span><br><span class="line">        s.insert( s.begin() , <span class="string">'#'</span> );</span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt; s.size() ; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>( s[i] == <span class="string">'0'</span> )</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>] + <span class="number">1</span> ;</span><br><span class="line">                dp[i][<span class="number">1</span>] = dp[i<span class="number">-1</span>][<span class="number">2</span>] ;</span><br><span class="line">                dp[i][<span class="number">2</span>] = dp[i<span class="number">-1</span>][<span class="number">1</span>] ;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>( s[i] == <span class="string">'1'</span> )</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i][<span class="number">0</span>] = dp[i<span class="number">-1</span>][<span class="number">1</span>] ;</span><br><span class="line">                dp[i][<span class="number">1</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>] + <span class="number">1</span> ;</span><br><span class="line">                dp[i][<span class="number">2</span>] = dp[i<span class="number">-1</span>][<span class="number">2</span>] ;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ll ans = <span class="number">0</span> ;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>( <span class="keyword">int</span> i = <span class="number">1</span> ; i &lt; s.size() ; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            ans += dp[i][<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></div></p>
+<p>遇到的问题： - 注意开$long long $ 。一开始以为不会有那么多的情况，后来想了下，如果全是<span class="math inline">\(0\)</span>的时候，答案最大，是<span class="math inline">\(\sum_{i=1}^{1e6}i\)</span></p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
       
     </div>
@@ -645,7 +628,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">49</span>
+                    <span class="site-state-item-count">50</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -749,7 +732,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">36</span>
+                      
+                    
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -819,7 +804,7 @@
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">252k</span>
+    <span title="站点总字数">258k</span>
   
 
   
@@ -830,7 +815,7 @@
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">3:49</span>
+    <span title="站点阅读时长">3:54</span>
   
 </div>
 
