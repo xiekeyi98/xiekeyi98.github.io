@@ -40,6 +40,7 @@ set ruler "显示当前行
 set autoindent "自动缩进
 set cindent "C风格缩进
 set noeb "禁止响铃
+set tabstop=4 "设置tab缩进4个格"
 colorscheme desert "颜色方案
 
 

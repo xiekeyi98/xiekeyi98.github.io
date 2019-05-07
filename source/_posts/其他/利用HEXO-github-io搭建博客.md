@@ -16,14 +16,16 @@ date: 2017-10-22 21:45:45
 <!--more-->
 
 **优点:**
+
 * 可自己随意发表文章，没什么广告，清爽。
 * 可自己折腾前端、研究建站。
 * 很多东西存于本地，方便移植、备份、管理。
 * 可以本地预览
 
 **缺点:**
+
 * 需要自己域名、服务器。比较花钱。( [github.io](https://pages.github.com/) ) 有免费空间。
-* 搭建比较麻烦。*(本来我还想实习运维，结果自己照着框架、教程，还搭了一个周末)*
+* 搭建比较麻烦。 *(本来我还想实习运维，结果自己照着框架、教程，还搭了一个周末)*
 
 -----
 
@@ -37,7 +39,7 @@ wordpress收费，比较贵。优点是很容易搭建、比较友好。
 
 后来研究了一下发现jekyll是基于ruby的。
 
-因为我认为我在Windows下写博客比较多，在Linux下主要只是写代码。 e
+因为我认为我在Windows下写博客比较多，在Linux下主要只是写代码。  
 了解到ruby环境在Windows下比较难以搭建，比较麻烦。而HEXO是基于nodejs的，nodejs在Windows环境下比较友好。
 考虑到这一点后，果断选择了HEXO。
 
@@ -48,7 +50,7 @@ wordpress收费，比较贵。优点是很容易搭建、比较友好。
 
 ### 安装Git环境
 
-随便在[git](https://git-scm.com/)官网下载安装就好了。
+随便在[git](https://git-scm.com/)官网下载安装就好了。  
 
 注意一下它可以自动这是Path ，并且可以将Windows的回车换行转换成Linux的风格换行，这两个地方选择一下，在Windows下会变得比较方面。
 
@@ -70,6 +72,7 @@ npm是Node.js的包管理工具，可以理解为npm是用来安装Node.js程序
 hexo-cli是 hexo - Command Line Interface  ，Hexo的命令行模式。
 
 `-g`是指 `-global`， 全局安装。
+
 1. 表示将安装包放在 `/usr/local` 或 nodejs的安装目录。
 2. 可以直接在命令行中使用。
 
@@ -92,6 +95,7 @@ hexo-cli是 hexo - Command Line Interface  ，Hexo的命令行模式。
 现在基本就可以使用HEXO了。
 
 **HEXO常用命令**
+
 - `hexo new "title"`  即可在`source/_post/` 文件夹里找到，在里面写文章即可。
 - `hexo new page "newpage"` 会在`source/` 文件夹内创建一个新文件夹，对应一个新的页面（需要和`_config.yml`)相关联。
 - `hexo g` 生成本地页面
