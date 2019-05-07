@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="Dark猫">
 <meta property="og:description" content="浅谈二分 二分查找在程序设计中，是一个十分基础并且易错的功能。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-07T14:59:58.838Z">
+<meta property="og:updated_time" content="2019-05-07T15:01:09.869Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈二分">
 <meta name="twitter:description" content="浅谈二分 二分查找在程序设计中，是一个十分基础并且易错的功能。">
@@ -517,7 +517,7 @@
 <p>于是，我们有了 <code>low &lt; high - 1</code>，这样保证，<code>low</code>和<code>high</code>中间隔了一个<code>mid</code>，而这个间隔的<code>mid</code>，也能保证答案一定能落在<code>low</code>上（因为low那里是小于等于）。</p>
 <p>当答案落在<code>low</code>上后，<code>low</code>和<code>high</code>之间相隔1，不满足循环条件，自然也就结束循环了。</p>
 <h2 id="碎碎念">碎碎念</h2>
-<p><code>(l+r) / 2</code> 在有些情况有溢出的风险，所以可以考虑使用<code>l + ( r - l )</code></p>
+<p><code>(l+r) / 2</code> 在有些情况有溢出的风险，所以可以考虑使用<code>l + ( r - l ) / 2</code></p>
 <h2 id="参考资料">参考资料</h2>
 <ul>
 <li><a href="https://www.zhihu.com/question/36132386" target="_blank" rel="noopener">二分查找有几种写法？它们的区别是什么？ - 知乎</a></li>
